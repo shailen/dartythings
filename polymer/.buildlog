@@ -1,0 +1,715 @@
+---
+build.dart --machine --changed=web/counter.html
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [63 ms]
+
+---
+build.dart --machine --changed=web/counter.html
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [54 ms]
+
+---
+build.dart --machine --changed=web/counter.html
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [63 ms]
+
+---
+build.dart --machine --changed=web/counter.dart
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [49 ms]
+
+---
+build.dart --machine --clean
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [85 ms]
+
+---
+build.dart --machine --full
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [90 ms]
+
+---
+build.dart --machine --changed=web/counter.html
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [72 ms]
+
+---
+build.dart --machine --changed=web/counter.html
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [57 ms]
+
+---
+build.dart --machine --changed=web/counter.dart
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [69 ms]
+
+---
+build.dart --machine --changed=web/counter.html
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [63 ms]
+
+---
+build.dart --machine --changed=web/counter.html
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [52 ms]
+
+---
+build.dart --machine --changed=web/counter.dart
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [60 ms]
+
+---
+build.dart --machine --changed=web/index.dart
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [48 ms]
+
+---
+build.dart --machine --changed=web/index.dart
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [49 ms]
+
+---
+build.dart --machine --changed=web/index.dart
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [48 ms]
+
+---
+build.dart --machine --changed=web/index.dart
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [64 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [43 ms]
+
+---
+build.dart --machine --changed=web/counter.html
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [61 ms]
+
+---
+build.dart --machine --changed=web/counter.html
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [64 ms]
+
+---
+build.dart --machine --changed=web/counter.dart
+Dart_Invoke: did not find top-level function 'main'.
+build.dart finished [59 ms]
+
+---
+build.dart --machine --changed=web/index.html
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/countdown_clock.html\"","line":5,"charStart":63,"charEnd":110}}]
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/alarm.dart\"","line":10,"charStart":190,"charEnd":239}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"custom element with tag name countdown-clock not found.","line":9,"charStart":153,"charEnd":179}}]
+Total time spent on web/index.html                           --  80 ms
+Total time                                                   -- 696 ms
+build.dart finished [950 ms]
+
+---
+build.dart --machine --changed=web/index.html
+[{"method":"warning","params":{"file":"web/index.html","message":"custom element with tag name countdown-clock not found.","line":9,"charStart":145,"charEnd":171}}]
+Total time spent on web/index.html                           -- 360 ms
+[{"method":"generated","params":{"file":"web/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/out/index.html_bootstrap.dart"}}]
+[{"method":"mapping","params":{"from":"web/index.html","to":"web/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/out/counter.dart.map"}}]
+Total time                                                   -- 949 ms
+build.dart finished [1210 ms]
+
+---
+build.dart --machine --changed=web/index.html
+Total time spent on web/index.html                           -- 370 ms
+[{"method":"generated","params":{"file":"web/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/out/index.html_bootstrap.dart"}}]
+[{"method":"mapping","params":{"from":"web/index.html","to":"web/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/out/counter.dart.map"}}]
+Total time                                                   -- 966 ms
+build.dart finished [1220 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html --removed=web/counter.html
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/counter.html\"","line":5,"charStart":63,"charEnd":102}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"custom element with tag name counter not found.","line":9,"charStart":145,"charEnd":163}}]
+Total time spent on web/index.html                           -- 295 ms
+Total time                                                   -- 885 ms
+build.dart finished [1142 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/counter.html\"","line":5,"charStart":63,"charEnd":102}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"custom element with tag name counter not found.","line":9,"charStart":145,"charEnd":163}}]
+Total time spent on web/index.html                           -- 316 ms
+Total time                                                   -- 909 ms
+build.dart finished [1159 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart --removed=web/counter.dart
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/counter.html\"","line":5,"charStart":63,"charEnd":102}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"custom element with tag name counter not found.","line":9,"charStart":145,"charEnd":163}}]
+Total time spent on web/index.html                           -- 305 ms
+Total time                                                   -- 926 ms
+build.dart finished [1183 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/counter.html\"","line":5,"charStart":63,"charEnd":102}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"custom element with tag name counter not found.","line":9,"charStart":145,"charEnd":163}}]
+Total time spent on web/index.html                           -- 321 ms
+Total time                                                   -- 947 ms
+build.dart finished [1242 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/counter.html\"","line":5,"charStart":63,"charEnd":102}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"custom element with tag name counter not found.","line":9,"charStart":145,"charEnd":163}}]
+Total time spent on web/index.html                           -- 375 ms
+Total time                                                   -- 972 ms
+build.dart finished [1235 ms]
+
+---
+build.dart --machine --clean
+Total time                                                   --  24 ms
+build.dart finished [299 ms]
+
+---
+build.dart --machine --full
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/counter.html\"","line":5,"charStart":63,"charEnd":102}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"custom element with tag name counter not found.","line":9,"charStart":145,"charEnd":163}}]
+Total time spent on web/index.html                           -- 380 ms
+Total time                                                   -- 1070 ms
+build.dart finished [1386 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/counter.html\"","line":5,"charStart":63,"charEnd":102}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"custom element with tag name counter not found.","line":9,"charStart":145,"charEnd":163}}]
+Total time spent on web/index.html                           -- 292 ms
+Total time                                                   -- 870 ms
+build.dart finished [1119 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/counter.html\"","line":5,"charStart":63,"charEnd":102}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"custom element with tag name counter not found.","line":9,"charStart":145,"charEnd":163}}]
+Total time spent on web/index.html                           -- 321 ms
+Total time                                                   -- 934 ms
+build.dart finished [1182 ms]
+
+---
+build.dart --machine --changed=web/alarm.dart --removed=web/index.dart
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/counter.html\"","line":5,"charStart":63,"charEnd":102}}]
+[{"method":"error","params":{"file":"web/index.html","message":"unable to open file \"web/index.dart\"","line":10,"charStart":174,"charEnd":223}}]
+[{"method":"warning","params":{"file":"web/index.html","message":"custom element with tag name counter not found.","line":9,"charStart":145,"charEnd":163}}]
+Total time spent on web/index.html                           --  79 ms
+Total time                                                   -- 677 ms
+build.dart finished [927 ms]
+
+---
+build.dart --machine --changed=web/alarm.html --removed=web/index.html
+error unable to open file "web/index.html"
+Total time spent on web/index.html                           --  12 ms
+Total time                                                   -- 637 ms
+build.dart finished [887 ms]
+
+---
+build.dart --machine --changed=web/alarm.html
+error unable to open file "web/index.html"
+Total time spent on web/index.html                           --  12 ms
+Total time                                                   -- 642 ms
+build.dart finished [893 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 354 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 934 ms
+build.dart finished [1181 ms]
+
+---
+build.dart --machine --changed=web/alarm.html
+Total time spent on web/alarm.html                           -- 358 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 953 ms
+build.dart finished [1203 ms]
+
+---
+build.dart --machine --changed=web/alarm.html
+Total time spent on web/alarm.html                           -- 386 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 986 ms
+build.dart finished [1233 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html
+Total time spent on web/alarm.html                           -- 366 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 962 ms
+build.dart finished [1213 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html
+Total time spent on web/alarm.html                           -- 358 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 955 ms
+build.dart finished [1202 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 351 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 949 ms
+build.dart finished [1193 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 354 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 935 ms
+build.dart finished [1186 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 352 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 937 ms
+build.dart finished [1181 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 358 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 946 ms
+build.dart finished [1188 ms]
+
+---
+build.dart --machine --clean
+Total time                                                   --  21 ms
+build.dart finished [277 ms]
+
+---
+build.dart --machine --full
+Total time spent on web/alarm.html                           -- 507 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 1253 ms
+build.dart finished [1571 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 352 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 933 ms
+build.dart finished [1189 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 349 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 928 ms
+build.dart finished [1176 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 353 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 931 ms
+build.dart finished [1180 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 351 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 941 ms
+build.dart finished [1197 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 362 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 950 ms
+build.dart finished [1190 ms]
+
+---
+build.dart --machine --clean
+Total time                                                   --  22 ms
+build.dart finished [284 ms]
+
+---
+build.dart --machine --full
+Total time spent on web/alarm.html                           -- 484 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 1206 ms
+build.dart finished [1478 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html
+Total time spent on web/alarm.html                           -- 360 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 952 ms
+build.dart finished [1212 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 349 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 938 ms
+build.dart finished [1191 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 351 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 930 ms
+build.dart finished [1175 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 346 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 930 ms
+build.dart finished [1177 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 348 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 940 ms
+build.dart finished [1188 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 356 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 943 ms
+build.dart finished [1189 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 357 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 944 ms
+build.dart finished [1196 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 360 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 959 ms
+build.dart finished [1204 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 351 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 936 ms
+build.dart finished [1180 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 363 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 948 ms
+build.dart finished [1189 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html
+Total time spent on web/alarm.html                           -- 349 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 930 ms
+build.dart finished [1173 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html
+Total time spent on web/alarm.html                           -- 349 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 934 ms
+build.dart finished [1181 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html
+Total time spent on web/alarm.html                           -- 349 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 929 ms
+build.dart finished [1185 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html
+Total time spent on web/alarm.html                           -- 360 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/countdown_clock.dart"}}]
+Total time                                                   -- 948 ms
+build.dart finished [1199 ms]
+
+---
+build.dart --machine --changed=web/countdown_clock.html
+[{"method":"error","params":{"file":"web/countdown_clock.html","message":"unable to open file \"web/counter.dart\"","line":9,"charStart":136,"charEnd":187}}]
+Total time spent on web/alarm.html                           -- 303 ms
+Total time                                                   -- 887 ms
+build.dart finished [1133 ms]
+
+---
+build.dart --machine --changed=web/counter.dart --removed=web/countdown_clock.dart
+Total time spent on web/alarm.html                           -- 357 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/counter.dart"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/counter.dart.map"}}]
+Total time                                                   -- 970 ms
+build.dart finished [1223 ms]
+
+---
+build.dart --machine --clean
+Total time                                                   --  21 ms
+build.dart finished [275 ms]
+
+---
+build.dart --machine --full
+Total time spent on web/alarm.html                           -- 481 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/counter.dart"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/counter.dart.map"}}]
+Total time                                                   -- 1233 ms
+build.dart finished [1499 ms]
+
+---
+build.dart --machine --changed=web/counter.html --removed=web/countdown_clock.html
+[{"method":"error","params":{"file":"web/alarm.html","message":"unable to open file \"web/countdown_clock.html\"","line":5,"charStart":63,"charEnd":110}}]
+[{"method":"warning","params":{"file":"web/alarm.html","message":"custom element with tag name countdown-clock not found.","line":8,"charStart":134,"charEnd":151}}]
+Total time spent on web/alarm.html                           -- 300 ms
+Total time                                                   -- 883 ms
+build.dart finished [1136 ms]
+
+---
+build.dart --machine --changed=web/alarm.html
+Total time spent on web/alarm.html                           -- 348 ms
+[{"method":"generated","params":{"file":"web/out/alarm.dart.map"}}]
+[{"method":"generated","params":{"file":"web/out/counter.dart"}}]
+[{"method":"mapping","params":{"from":"web/alarm.html","to":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/out/alarm.dart"}}]
+[{"method":"generated","params":{"file":"web/out/counter.dart.map"}}]
+Total time                                                   -- 935 ms
+build.dart finished [1195 ms]
+
+---
+build.dart --machine --changed=web/index.html --removed=web/alarm.html
+error unable to open file "web/alarm.html"
+Total time spent on web/alarm.html                           --  12 ms
+Total time                                                   -- 605 ms
+build.dart finished [848 ms]
+
+---
+build.dart --machine --changed=web/index.dart --removed=web/alarm.dart
+error unable to open file "web/alarm.html"
+Total time spent on web/alarm.html                           --  12 ms
+Total time                                                   -- 610 ms
+build.dart finished [864 ms]
+
+---
+build.dart --machine --changed=web/index.html
+error unable to open file "web/alarm.html"
+Total time spent on web/alarm.html                           --  12 ms
+Total time                                                   -- 599 ms
+build.dart finished [847 ms]
+
+---
+build.dart --machine --changed=counter/web/counter.dart --changed=counter/web/counter.html --changed=counter/we...
+error unable to open file "web/index.html"
+Total time spent on web/index.html                           --  12 ms
+Total time                                                   -- 585 ms
+build.dart finished [823 ms]
+
