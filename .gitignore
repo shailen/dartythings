@@ -1,5 +1,5 @@
 packages
-.buildlog
+*.buildlog
 out
 .settings
 .DS_Store

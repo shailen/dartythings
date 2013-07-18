@@ -713,3 +713,38 @@ Total time spent on web/index.html                           --  12 ms
 Total time                                                   -- 585 ms
 build.dart finished [823 ms]
 
+---
+build.dart --machine --changed=pubspec.yaml --removed=counter/pubspec.yaml
+Total time                                                   -- 590 ms
+build.dart finished [820 ms]
+
+---
+build.dart --machine --changed=web/counter/web/counter.dart --changed=web/counter/web/counter.html --changed=we...
+error unable to open file "web/index.html"
+Total time spent on web/index.html                           --  11 ms
+Total time                                                   -- 586 ms
+build.dart finished [837 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+Total time                                                   -- 700 ms
+build.dart finished [996 ms]
+
+---
+build.dart --machine --changed=web/counter/counter.dart --changed=web/counter/counter.html --changed=web/counte...
+Total time spent on web/counter/index.html                   -- 366 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time                                                   -- 939 ms
+build.dart finished [1179 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+Total time                                                   -- 699 ms
+build.dart finished [977 ms]
+
