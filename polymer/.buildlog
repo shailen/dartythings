@@ -748,3 +748,901 @@ build.dart --machine --changed=pubspec.lock
 Total time                                                   -- 699 ms
 build.dart finished [977 ms]
 
+---
+build.dart --machine --changed=web/counter2/index.dart --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 352 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time                                                   -- 923 ms
+build.dart finished [1164 ms]
+
+---
+build.dart --machine --changed=web/counter2/counter.dart --changed=web/counter2/counter.html
+Total time spent on web/counter/index.html                   -- 350 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time                                                   -- 1017 ms
+build.dart finished [1265 ms]
+
+---
+build.dart --machine --clean
+Total time                                                   --  20 ms
+build.dart finished [256 ms]
+
+---
+build.dart --machine --full
+Total time spent on web/counter/index.html                   -- 360 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time                                                   -- 944 ms
+build.dart finished [1190 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+Total time                                                   -- 731 ms
+build.dart finished [993 ms]
+
+---
+build.dart --machine --clean
+Total time                                                   --  22 ms
+build.dart finished [291 ms]
+
+---
+build.dart --machine --full
+Total time spent on web/counter/index.html                   -- 367 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 103 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+Total time                                                   -- 1062 ms
+build.dart finished [1318 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 358 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 104 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+Total time                                                   -- 1068 ms
+build.dart finished [1320 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 347 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.html","message":"custom element with tag name x-attributes not found.","line":15,"charStart":393,"charEnd":420}}]
+Total time spent on web/counter2/index.html                  -- 106 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+Total time                                                   -- 1033 ms
+build.dart finished [1272 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 348 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 101 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+Total time                                                   -- 1021 ms
+build.dart finished [1257 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 349 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 103 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+Total time                                                   -- 1030 ms
+build.dart finished [1281 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 349 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.html","message":"custom element with tag name x-counter not found.","line":10,"charStart":281,"charEnd":305}}]
+Total time spent on web/counter2/index.html                  --  95 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1017 ms
+build.dart finished [1270 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 346 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.html","message":"custom element with tag name x-counter not found.","line":10,"charStart":282,"charEnd":306}}]
+Total time spent on web/counter2/index.html                  --  97 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1022 ms
+build.dart finished [1258 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 356 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  99 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1028 ms
+build.dart finished [1273 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 349 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  94 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1043 ms
+build.dart finished [1291 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 356 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  94 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1027 ms
+build.dart finished [1264 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 353 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  98 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1039 ms
+build.dart finished [1286 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 354 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  98 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1036 ms
+build.dart finished [1275 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 351 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  97 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1030 ms
+build.dart finished [1273 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 345 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  97 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1019 ms
+build.dart finished [1259 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 348 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  97 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1017 ms
+build.dart finished [1258 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 349 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  96 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1016 ms
+build.dart finished [1260 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 349 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":88}}]
+Total time spent on web/counter2/index.html                  -- 101 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1033 ms
+build.dart finished [1273 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 347 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":88}}]
+Total time spent on web/counter2/index.html                  --  97 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1026 ms
+build.dart finished [1267 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 361 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":88}}]
+Total time spent on web/counter2/index.html                  --  98 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1043 ms
+build.dart finished [1283 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 348 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":88}}]
+Total time spent on web/counter2/index.html                  --  97 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1019 ms
+build.dart finished [1262 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 360 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":88}}]
+Total time spent on web/counter2/index.html                  --  99 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1043 ms
+build.dart finished [1288 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 350 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":88}}]
+Total time spent on web/counter2/index.html                  -- 100 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1027 ms
+build.dart finished [1264 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 350 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":88}}]
+Total time spent on web/counter2/index.html                  --  99 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1024 ms
+build.dart finished [1270 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 364 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":88}}]
+Total time spent on web/counter2/index.html                  -- 103 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1096 ms
+build.dart finished [1363 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 354 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":88}}]
+Total time spent on web/counter2/index.html                  -- 100 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1054 ms
+build.dart finished [1294 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 365 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":137}}]
+Total time spent on web/counter2/index.html                  -- 100 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1083 ms
+build.dart finished [1338 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 378 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":5,"charStart":80,"charEnd":157}}]
+Total time spent on web/counter2/index.html                  -- 107 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1101 ms
+build.dart finished [1364 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 374 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 102 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1090 ms
+build.dart finished [1344 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 368 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  98 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1069 ms
+build.dart finished [1326 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 367 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 103 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1072 ms
+build.dart finished [1329 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 360 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":5,"charStart":80,"charEnd":164}}]
+Total time spent on web/counter2/index.html                  -- 100 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1076 ms
+build.dart finished [1318 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 364 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 101 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1056 ms
+build.dart finished [1310 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.html
+Total time spent on web/counter/index.html                   -- 388 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  96 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1085 ms
+build.dart finished [1332 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 351 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":111}}]
+Total time spent on web/counter2/index.html                  -- 107 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1037 ms
+build.dart finished [1298 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 355 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+[{"method":"warning","params":{"file":"web/counter2/index.dart","message":"@observable on a class no longer has any effect. It should be placed on individual fields.","line":4,"charStart":60,"charEnd":219}}]
+Total time spent on web/counter2/index.html                  --  98 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1035 ms
+build.dart finished [1279 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 353 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 100 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1049 ms
+build.dart finished [1303 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 361 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  98 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1063 ms
+build.dart finished [1324 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 369 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 100 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1079 ms
+build.dart finished [1326 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 362 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  97 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1048 ms
+build.dart finished [1298 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 365 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 105 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1079 ms
+build.dart finished [1342 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 368 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 107 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1076 ms
+build.dart finished [1334 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 381 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  -- 111 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1104 ms
+build.dart finished [1365 ms]
+
+---
+build.dart --machine --changed=web/counter2/index.dart
+Total time spent on web/counter/index.html                   -- 355 ms
+[{"method":"generated","params":{"file":"web/counter/out/index.html_bootstrap.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart"}}]
+[{"method":"generated","params":{"file":"web/counter/out/counter.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.dart.map"}}]
+[{"method":"mapping","params":{"from":"web/counter/index.html","to":"web/counter/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter/out/index.html"}}]
+Total time spent on web/counter2/index.html                  --  99 ms
+[{"method":"mapping","params":{"from":"web/counter2/index.html","to":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart.map"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.dart"}}]
+[{"method":"generated","params":{"file":"web/counter2/out/index.html_bootstrap.dart"}}]
+Total time                                                   -- 1049 ms
+build.dart finished [1304 ms]
+
