@@ -3,7 +3,7 @@ import 'package:observe/observe.dart';
 import 'package:polymer/polymer.dart';
 import 'dart:html';
 
-class Text extends ObservableBase{
+class Text extends ObservableBase {
   List<String> words = toObservable(['Fee', 'Fi', 'Fo', 'Fum']);
 
   void rotate() {
