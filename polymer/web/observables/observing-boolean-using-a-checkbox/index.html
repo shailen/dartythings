@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>index</title>
+    <script src="packages/polymer/boot.js"></script>
+  </head>
+
+  <body>
+    <template id="_template" bind>
+      <input type="checkbox" checked="{{isDone}}">Task Status
+      <p>Status = {{isDone}}</p>
+      <template bind if="{{isDone}}">
+        Task is done!
+      </template>
+    </template>
+
+    <script type="application/dart" src="index.dart"></script>
+  </body>
+</html>
+
