@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <polymer-element name="word-element">
+      <template>
+        <h2>Drag and drop the letters to form anagrams</h2>
+        <div id='container'>
+          <template repeat="{{chars}}">
+            <div class="char" draggable="true">{{}}</div>
+          </template>
+        </div>
+
+        <style>
+          [draggable] {
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            /* Required to make elements draggable in old WebKit */
+            -khtml-user-drag: element;
+            -webkit-user-drag: element;
+          }
+
+          .char {
+            height: 100px;
+            width: 100px;
+            border: 2px solid #333;
+            display: inline-block;
+            background-color: #eee;
+            margin-right: 5px;
+            -webkit-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 3px #000;
+            -ms-box-shadow: inset 0 0 3px #000;
+            box-shadow: inset 0 0 3px #000;
+            text-align: center;
+            line-height: 100px;
+            font-size: 2em;
+            cursor: move;
+          }
+
+          .char.over {
+            border: 2px solid #999;
+            color: #ccc;
+          }
+        </style>
+      </template>
+
+      <script type="application/dart" src="element.dart"></script>
+    </polymer-element>
+  </body>
+</html>
