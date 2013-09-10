@@ -5,8 +5,25 @@
       <template>
         <h2>Drag and drop the letters to form anagrams</h2>
         <div id='container'>
-          <template repeat="{{chars}}">
-            <div class="char" draggable="true">{{}}</div>
+          <div class='wrapper'>
+            <template repeat="{{chars1}}">
+              <div class="char" draggable="true">{{}}</div>
+            </template>
+          </div>
+
+          <br><br>
+          <div class='wrapper'>
+            <template repeat="{{chars2}}">
+              <div class="char yellow" draggable="true">{{}}</div>
+            </template>
+          </div>
+
+          <template bind="{{score}}">
+            <h2>Score: {{}}</h2>
+          </template>
+
+          <template repeat="{{selectedWords}}">
+            <div>{{}}</div>
           </template>
         </div>
 
@@ -22,10 +39,11 @@
           }
 
           .char {
-            height: 100px;
-            width: 100px;
-            border: 2px solid #333;
+            height: 50px;
+            width: 50px;
             display: inline-block;
+            border: 2px solid #333;
+            vertical-align: top;
             background-color: #eee;
             margin-right: 5px;
             -webkit-border-radius: 10px;
@@ -36,7 +54,7 @@
             -ms-box-shadow: inset 0 0 3px #000;
             box-shadow: inset 0 0 3px #000;
             text-align: center;
-            line-height: 100px;
+            line-height: 50px;
             font-size: 2em;
             cursor: move;
           }
@@ -44,6 +62,14 @@
           .char.over {
             border: 2px solid #999;
             color: #ccc;
+          }
+
+          .wrapper {
+            padding: 10px;
+            background-color: silver;
+          }
+          .yellow {
+            background-color: yellow;
           }
         </style>
       </template>
