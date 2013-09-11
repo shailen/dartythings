@@ -1,7 +1,4 @@
-library task;
-
-import 'package:polymer/polymer.dart';
-import 'package:tracker/user.dart';
+part of models;
 
 class Task extends Object with ObservableMixin {
   @observable String title;

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="index.css">
     <link rel="import" href="task_list.html">
     <link rel="import" href="user_list.html">
+    <link rel="import" href="tag_list.html">
     <script src="packages/polymer/boot.js"></script>
   </head>
   <body>
@@ -17,6 +18,10 @@
 
     <template id="user-list-container" bind>
       <user-list users="{{}}"></user-list>
+    </template>
+
+    <template id="tag-list-container" bind>
+      <tag-list tags="{{}}"></tag-list>
     </template>
     <script type="application/dart" src="index.dart"></script>
   </body>

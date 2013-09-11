@@ -1,5 +1,5 @@
 import 'package:polymer/polymer.dart';
-import 'package:tracker/user.dart';
+import 'package:tracker/models.dart';
 
 @CustomTag('user-list')
 class TaskList extends PolymerElement with ObservableMixin {

@@ -1,6 +1,4 @@
-library user;
-
-import 'package:polymer/polymer.dart';
+part of models;
 
 class User extends Object with ObservableMixin {
   @observable String username;
