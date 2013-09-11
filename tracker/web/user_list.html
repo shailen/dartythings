@@ -1,0 +1,11 @@
+<polymer-element name="user-list" attributes="users">
+  <template>
+    <h2>Users</h2>
+    <ul>
+      <template repeat="{{users}}">
+        <li>{{username}}</li>
+      </template>
+    </ul>
+  </template>
+  <script type="application/dart" src="user_list.dart"></script>
+</polymer-element>
