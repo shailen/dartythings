@@ -5,24 +5,14 @@
     <meta charset="utf-8">
     <title>Tracker</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="import" href="task_list.html">
-    <link rel="import" href="user_list.html">
-    <link rel="import" href="tag_list.html">
+    <link rel="import" href="tracker_app.html">
     <script src="packages/polymer/boot.js"></script>
   </head>
   <body>
-    <h1>Tracker</h1>
-    <template id="task-list-container" bind>
-      <task-list tasks="{{}}"></task-list>
+    <template id='tracker-app-container' bind>
+      <tracker-app stories="{{}}"></tracker-app>
     </template>
 
-    <template id="user-list-container" bind>
-      <user-list users="{{}}"></user-list>
-    </template>
-
-    <template id="tag-list-container" bind>
-      <tag-list tags="{{}}"></tag-list>
-    </template>
     <script type="application/dart" src="index.dart"></script>
   </body>
 </html>
