@@ -3,14 +3,13 @@ import 'dart:html';
 import 'package:mdv/mdv.dart' as mdv;
 import 'package:polymer/polymer.dart';
 import 'package:tracker/models.dart';
+import 'package:tracker/seed.dart' as seed;
+
+List<Task> tasks;
 
 void main() {
   mdv.initialize();
-
-  List<Task> tasks = toObservable([
-      new Task('Write report'),
-      new Task('CC copies to marketing',
-          'Make sure report is no longer than a page.')]);
+  tasks = toObservable(seed.data);
 
   query('#tracker-app-container').model = tasks;
 }
