@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <meta charset="utf-8">
     <title>Tracker</title>
     <link rel="stylesheet" href="index.css">
     <link rel="import" href="tracker_app.html">
+    <link rel="import" href="task_list.html">
     <script src="packages/polymer/boot.js"></script>
   </head>
   <body>
+    <h1>Index</h1>
     <template id='tracker-app-container' bind>
-      <tracker-app stories="{{}}"></tracker-app>
+      <tracker-app tasks="{{}}"></tracker-app>
     </template>
 
     <script type="application/dart" src="index.dart"></script>

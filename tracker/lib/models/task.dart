@@ -1,6 +1,6 @@
 part of models;
 
-class Story extends Object with ObservableMixin {
+class Task extends Object with ObservableMixin {
   @observable String title ;
   @observable String description;
   @observable DateTime created_at;
@@ -12,5 +12,5 @@ class Story extends Object with ObservableMixin {
   @observable User requested_by;
   @observable List<Tag> tags;
 
-  Story(this.title, [this.description]);
+  Task(this.title, [this.description]);
 }

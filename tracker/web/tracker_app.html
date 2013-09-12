@@ -1,9 +1,9 @@
-<polymer-element name="tracker-app" attributes="stories">
+<link rel="import" href="task_list.html">
+
+<polymer-element name="tracker-app" attributes="tasks">
+  <h1>Tracker App</h1>
   <template>
-    <template repeat="{{stories}}">
-      <div><strong>{{title}}</strong></div>
-      <div>{{description}}</div>
-    </template>
+    <task-list tasks="{{tasks}}"></task-list>
   </template>
   <script type="application/dart" src="tracker_app.dart"></script>
 </polymer-element>
