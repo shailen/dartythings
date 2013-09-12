@@ -1,8 +1,8 @@
 <link rel="import" href="task_item.html">
-<polymer-element name="task-list" attributes="tasks">
+<polymer-element name="task-list" attributes="tasks" extends="ul">
   <template>
     <template repeat="{{tasks}}">
-      <task-item task="{{}}"></task-item>
+      <li is="task-item" task="{{}}"></li>
     </template>
   </template>
   <script type="application/dart" src="task_list.dart"></script>

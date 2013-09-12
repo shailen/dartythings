@@ -1,10 +1,21 @@
 <link rel="import" href="task_list.html">
 
 <polymer-element name="tracker-app" attributes="tasks">
-  <h1>Tracker App</h1>
   <template>
-    <task-list tasks="{{tasks}}"></task-list>
+    <div id="current-task-list-container">
+      <h2>Current</h2>
+      <ul is="task-list" tasks="{{currentTasks}}"></ul>
+    </div>
+
+    <div id="pending-task-list-container">
+      <h2>Pending</h2>
+      <ul is="task-list" tasks="{{pendingTasks}}"></ul>
+    </div>
+
+    <div id="completed-task-list-container">
+      <h2>Completed</h2>
+      <ul is="task-list" tasks="{{completedTasks}}"></ul>
+    </div>
   </template>
   <script type="application/dart" src="tracker_app.dart"></script>
 </polymer-element>
-
