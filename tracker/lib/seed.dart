@@ -19,11 +19,17 @@ List data = [
       description: '''User a 3-column layout. column1 shows current tasks,
           column2 shows pending tasks, column3 show completed tasks''',
       points: 3,
-      status: 'current'),
+      status: 'completed'),
 
     new Task('Use Bootstrap 3 for layout',
         description: '''User a 3-column layout that collapses into a 
             single column on a small mobile device''',
-        points: 2)
+        points: 2),
 
+    new Task('Show task details',
+        description: '''Right now, only the title is displayed. Let users
+            click on a link to toggle between full display and title-only
+             display.''',
+        points: 2,
+        status: 'current')
     ];

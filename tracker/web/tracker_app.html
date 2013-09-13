@@ -2,6 +2,18 @@
 
 <polymer-element name="tracker-app" attributes="tasks">
   <template>
+    <div>
+      <form id='new-app-form' on-submit="addTask">
+        Create new task:<br>
+        Title: <input type='text' id='title-field' /><br>
+        Description:<br>
+          <textarea id="description-field"></textarea>
+        <input type='submit' value='Submit'>
+     </form>
+    </div>
+
+    <div>Task count: {{tasks.length}}</div>
+
     <div id="current-task-list-container">
       <h2>Current</h2>
       <ul is="task-list" tasks="{{currentTasks}}"></ul>

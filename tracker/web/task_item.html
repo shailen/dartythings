@@ -1,11 +1,17 @@
 <polymer-element name="task-item" attributes="task" extends="li">
   <template>
-    <template if="{{!editMode}}">
-      <div>{{task.title}}</div>
+    <template bind if="{{!showFull}}">
+      <div>{{task.title}}&nbsp;
+        <span on-click='toggleDisplay'>&#9660;</span>
+      </div>
     </template>
 
-    <template if="{{editMode}}">
-      <div>Edit {{task.title}}</div>
+    <template if="{{showFull}}">
+      <div><input value="{{task.title}}" />&nbsp;
+        <span on-click='toggleDisplay'>&#9650;</span>
+      </div>
+      <div>{{task.description}}</div>
+      <div>{{task.created_at}}</div>
     </template>
   </template>
   <script type="application/dart" src="task_item.dart"></script>
