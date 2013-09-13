@@ -1,0 +1,14 @@
+<polymer-element name="task-form" attributes="taskValidator">
+  <template>
+    <h2>Create a new task</h2>
+    <p>Debug: inside task_form.html</p>
+    <p>1. {{}}</p><!-- {{}} is an instance of TaskForm (this element's model) -->
+    <p>2. {{taskValidator}}</p><!-- WHY DOES THIS NOT GET SET? -->
+    <p>End debug: inside task_form.html</p>
+    <form id="task-form">
+       Title: <input type="text" value="{{taskValidator.title}}" on-click="validateTitle"
+           on-keypress="validateTitle" />
+    </form>
+  </template>
+  <script type="application/dart" src="task_form.dart"></script>
+</polymer-element>

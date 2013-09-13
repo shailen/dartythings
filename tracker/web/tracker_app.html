@@ -1,32 +1,34 @@
-<link rel="import" href="task_list.html">
+<link rel="import" href="task_list_element.html">
+<link rel="import" href="task_form.html">;
 
 <polymer-element name="tracker-app" attributes="tasks">
   <template>
     <div>
-      <form id='new-app-form' on-submit="addTask">
-        Create new task:<br>
-        Title: <input type='text' id='title-field' /><br>
-        Description:<br>
-          <textarea id="description-field"></textarea>
-        <input type='submit' value='Submit'>
-     </form>
+      <template id="new-task-form-container" bind>
+        <p>Debug: inside new-task-form-container</p>
+        <p>1. {{}}</p> <!-- this is the taskValidator object (this works) -->
+        <p>2. {{title}}</p> <!-- this also works -->
+        <p>End Debug: inside new-task-form-container</p>
+        <task-form taskValidator="{{}}"></task-form>
+      </template>
+      <hr>
     </div>
 
     <div>Task count: {{tasks.length}}</div>
 
     <div id="current-task-list-container">
       <h2>Current</h2>
-      <ul is="task-list" tasks="{{currentTasks}}"></ul>
+      <ul is="task-list-element" tasks="{{currentTasks}}"></ul>
     </div>
 
     <div id="pending-task-list-container">
       <h2>Pending</h2>
-      <ul is="task-list" tasks="{{pendingTasks}}"></ul>
+      <ul is="task-list-element" tasks="{{pendingTasks}}"></ul>
     </div>
 
     <div id="completed-task-list-container">
       <h2>Completed</h2>
-      <ul is="task-list" tasks="{{completedTasks}}"></ul>
+      <ul is="task-list-element" tasks="{{completedTasks}}"></ul>
     </div>
   </template>
   <script type="application/dart" src="tracker_app.dart"></script>

@@ -1,4 +1,4 @@
-<polymer-element name="task-item" attributes="task" extends="li">
+<polymer-element name="task-element" attributes="task" extends="li">
   <template>
     <template bind if="{{!showFull}}">
       <div>{{task.title}}&nbsp;
@@ -14,5 +14,5 @@
       <div>{{task.created_at}}</div>
     </template>
   </template>
-  <script type="application/dart" src="task_item.dart"></script>
+  <script type="application/dart" src="task_element.dart"></script>
 </polymer-element>
