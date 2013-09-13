@@ -6,9 +6,11 @@
     <div>
       <template id="new-task-form-container" bind>
         <p>Debug: inside new-task-form-container</p>
-        <p>1. {{}}</p> <!-- this is the taskValidator object (this works) -->
-        <p>2. {{title}}</p> <!-- this also works -->
+        <p>1. {{}}</p> <!-- The taskValidator object is correctly set. -->
+        <p>2. {{title}}</p> <!-- The title attribute of the taskValidator also works. -->
         <p>End Debug: inside new-task-form-container</p>
+
+        <!-- THIS IS THE PROBLEM: there's no error, but the taskValidator object does not get set -->
         <task-form taskValidator="{{}}"></task-form>
       </template>
       <hr>
