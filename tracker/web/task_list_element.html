@@ -4,6 +4,23 @@
     <template repeat="{{tasks}}">
       <li is="task-element" task="{{}}"></li>
     </template>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      li {
+        border: 1px solid black;
+        margin: 2px auto;
+        width: 200px;
+      }
+    </style>
   </template>
   <script type="application/dart" src="task_list_element.dart"></script>
 </polymer-element>
