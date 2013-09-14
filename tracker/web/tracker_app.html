@@ -4,16 +4,13 @@
 <polymer-element name="tracker-app" attributes="tasks">
   <template>
     <div>
-      <template id="new-task-form-container" bind>
-        <p>Debug: inside new-task-form-container</p>
-        <p>1. {{}}</p> <!-- The taskValidator object is correctly set. -->
-        <p>2. {{title}}</p> <!-- The title attribute of the taskValidator also works. -->
-        <p>End Debug: inside new-task-form-container</p>
-
-        <!-- THIS IS THE PROBLEM: there's no error, but the taskValidator object does not get set -->
-        <task-form taskValidator="{{}}"></task-form>
+      <template bind if="{{!showNewTaskForm}}">
+        <p on-click="toggleNewTaskFormDisplay">+</p>
       </template>
-      <hr>
+      <template bind if="{{showNewTaskForm}}">
+         <p on-click="toggleNewTaskFormDisplay">-</p>
+        <task-form task-validator="{{newTaskValidator}}"></task-form>
+      </template>
     </div>
 
     <div>Task count: {{tasks.length}}</div>

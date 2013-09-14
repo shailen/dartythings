@@ -9,26 +9,24 @@ class TrackerApp extends PolymerElement with ObservableMixin {
   @observable List<Task> currentTasks;
   @observable List<Task> pendingTasks;
   @observable List<Task> completedTasks;
+  @observable bool showNewTaskForm = false;
+  @observable TaskValidator newTaskValidator = new TaskValidator();
+
+  toggleNewTaskFormDisplay() {
+    showNewTaskForm = !showNewTaskForm;
+  }
 
   inserted() {
     super.inserted();
     currentTasks = toObservable(_filterTasks('current'));
     pendingTasks = toObservable(_filterTasks('pending'));
     completedTasks = toObservable(_filterTasks('completed'));
-
-    // Code for passing a taskValidator object to the template that wraps a <task-form> element
-    var trackerApp = getShadowRoot('tracker-app');
-    TemplateElement newTaskFormContainer = trackerApp.query('#new-task-form-container');
-    TaskValidator validator = new TaskValidator.fromTask(tasks.first);
-    newTaskFormContainer.model = validator;
-
-    // This prints correctly. The validator object is correctly created and bound.
-    print('Inside tracker_app.dart#inserted, validator = $validator');
   }
 
   List<Task> _filterTasks(String label) {
     return tasks.where((task) => task.status == label).toList();
   }
+
 
   // TODO: change all this. *Always* go through the validator.
   void addTask(Event e) {

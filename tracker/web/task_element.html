@@ -1,17 +1,14 @@
+<link rel="import" href="task_form.html">
 <polymer-element name="task-element" attributes="task" extends="li">
   <template>
     <template bind if="{{!showFull}}">
-      <div>{{task.title}}&nbsp;
-        <span on-click='toggleDisplay'>&#9660;</span>
-      </div>
+      <div on-click='toggleDisplay'>+</div>
+      <div>{{task.title}}</div>
     </template>
 
     <template if="{{showFull}}">
-      <div><input value="{{task.title}}" />&nbsp;
-        <span on-click='toggleDisplay'>&#9650;</span>
-      </div>
-      <div>{{task.description}}</div>
-      <div>{{task.created_at}}</div>
+      <div on-click='toggleDisplay'>-</div>
+      <task-form task-validator="{{taskValidator}}"></task-form>
     </template>
   </template>
   <script type="application/dart" src="task_element.dart"></script>

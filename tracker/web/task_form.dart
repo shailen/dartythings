@@ -5,11 +5,35 @@ import 'package:tracker/models.dart';
 class TaskForm extends PolymerElement with ObservableMixin {
   @observable TaskValidator taskValidator;
 
+  @observable String titleMessage = '';
+  @observable bool titleError = false;
+  @observable int maxTitleLength = 30;
+
+  @observable String descriptionMessage = '';
+  @observable bool descriptionError = false;
+  @observable int maxDescriptionLength = 250;
+
   validateTitle() {
-    print('validating');
+    var len = taskValidator.title.length;
+    if (len == 0 || len > maxTitleLength) {
+      titleError = true;
+      titleMessage = len == 0 ? "Title can't be empty" :
+        "Title must be less than $maxTitleLength characters.";
+    } else {
+      titleError = false;
+    }
   }
 
-  String toString() {
-    return 'TaskForm Polymer element: taskValidator = $taskValidator';
+  validateDescription() {
+    var len = taskValidator.description.length;
+    if (len > maxDescriptionLength) {
+      descriptionError = true;
+      descriptionMessage = "Description must be less than $maxDescriptionLength characters.";
+    } else {
+      descriptionError = false;
+    }
   }
 }
+
+
+

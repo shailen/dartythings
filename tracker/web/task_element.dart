@@ -5,8 +5,14 @@ import 'package:tracker/models.dart';
 class TaskElement extends PolymerElement with ObservableMixin {
   @observable Task task;
   @observable bool showFull = false;
+  @observable TaskValidator taskValidator;
 
   void toggleDisplay() {
     showFull = !showFull;
+  }
+
+  inserted() {
+    super.inserted();
+    taskValidator = new TaskValidator.fromTask(task);
   }
 }

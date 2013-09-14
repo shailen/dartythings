@@ -31,5 +31,12 @@ List data = [
             click on a link to toggle between full display and title-only
              display.''',
         points: 2,
-        status: 'current')
+        status: 'current'),
+
+    new Task('On-focus and on-blur do not work',
+        description: '''Trying to show error messages when a user fills an
+            input incorrectly. Callback fires on keypress, etc., but not when
+            using on-blur or on-focus.''',
+          points: 2,
+          status: 'current')
     ];
