@@ -1,0 +1,28 @@
+<polymer-element name="task-form-element" attributes="task-form">
+  <template>
+    <form on-submit="createOrUpdateTask">
+      <div>
+        <textarea placeholder="Add title here" value="{{taskForm.title}}"
+            on-keyup="validateTitle"></textarea>
+        &nbsp;{{maxTitleLength - taskForm.title.length}}
+        <p>
+          <template bind if="{{!titleErrorMessage.isEmpty}}">{{titleErrorMessage}}</template>
+        </p>
+      </div>
+
+      <div>
+        <textarea placeholder="Add description here" value="{{taskForm.description}}"
+            on-keyup="validateDescription"></textarea>
+        &nbsp;{{maxDescriptionLength - taskForm.description.length}}
+        <p>
+          <template bind if="{{!descriptionErrorMessage.isEmpty}}">{{descriptionErrorMessage}}</template>
+        <p>
+      </div>
+
+      <div>
+        <input type='submit' value='Submit'>
+      </div>
+    </form>
+  </template>
+  <script type="application/dart" src="task_form_element.dart"></script>
+</polymer-element>

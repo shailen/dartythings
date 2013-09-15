@@ -1,15 +1,15 @@
 <link rel="import" href="task_list_element.html">
-<link rel="import" href="task_form.html">;
+<link rel="import" href="task_form_element.html">;
 
 <polymer-element name="tracker-app">
   <template>
     <div>
-      <template bind if="{{!showNewTaskForm}}">
+      <template bind if="{{!taskForm.inUse}}">
         <p on-click="toggleNewTaskFormDisplay">+</p>
       </template>
-      <template bind if="{{showNewTaskForm}}">
-         <p on-click="toggleNewTaskFormDisplay">-</p>
-        <task-form task-validator="{{newTaskValidator}}"></task-form>
+      <template bind if="{{taskForm.inUse}}">
+        <p on-click="toggleNewTaskFormDisplay">-</p>
+        <task-form-element task-form="{{taskForm}}"></task-form-element>
       </template>
     </div>
 

@@ -1,6 +1,10 @@
 part of models;
 
 class Task extends Object with ObservableMixin {
+  static bool TITLE_REQUIRED = true;
+  static const MAX_TITLE_LENGTH = 30;
+  static const MAX_DESCRIPTION_LENGTH = 250;
+
   @observable String title ;
   @observable String description;
   @observable int points;
