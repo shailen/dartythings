@@ -1,14 +1,11 @@
 import 'package:polymer/polymer.dart';
 import 'package:tracker/models.dart';
-
+import 'package:tracker/seed.dart' as seed;
 import 'dart:html';
 
 @CustomTag('tracker-app')
 class TrackerApp extends PolymerElement with ObservableMixin {
-  @observable List<Task> tasks;
-  @observable List<Task> currentTasks;
-  @observable List<Task> pendingTasks;
-  @observable List<Task> completedTasks;
+  @observable Tracker app;
   @observable bool showNewTaskForm = false;
   @observable TaskValidator newTaskValidator = new TaskValidator();
 
@@ -16,19 +13,26 @@ class TrackerApp extends PolymerElement with ObservableMixin {
     showNewTaskForm = !showNewTaskForm;
   }
 
+  void created() {
+    super.created();
+    app = appModel;
+    appModel.tasks = toObservable(seed.data);
+  }
+
   inserted() {
     super.inserted();
-    currentTasks = toObservable(_filterTasks('current'));
-    pendingTasks = toObservable(_filterTasks('pending'));
-    completedTasks = toObservable(_filterTasks('completed'));
+    app.currentTasks = toObservable(_filterTasks('current'));
+    app.pendingTasks = toObservable(_filterTasks('pending'));
+    app.completedTasks = toObservable(_filterTasks('completed'));
   }
 
   List<Task> _filterTasks(String label) {
-    return tasks.where((task) => task.status == label).toList();
+    return app.tasks.where((task) => task.status == label).toList();
   }
 
 
   // TODO: change all this. *Always* go through the validator.
+  // TODO: don't do this from here. Add from the element itself.
   void addTask(Event e) {
     e.preventDefault();
     var trackerApp = getShadowRoot('tracker-app');
@@ -41,8 +45,8 @@ class TrackerApp extends PolymerElement with ObservableMixin {
     if (title.value.isEmpty) return;
     Task task = new Task(title.value.trim(),
         description: description.value.trim());
-    tasks.add(task);
-    pendingTasks = _filterTasks('pending');
+    app.tasks.add(task);
+    app.pendingTasks = _filterTasks('pending');
     title.value = '';
     description.value = '';
   }

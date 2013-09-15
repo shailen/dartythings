@@ -1,7 +1,7 @@
 <link rel="import" href="task_list_element.html">
 <link rel="import" href="task_form.html">;
 
-<polymer-element name="tracker-app" attributes="tasks">
+<polymer-element name="tracker-app">
   <template>
     <div>
       <template bind if="{{!showNewTaskForm}}">
@@ -13,21 +13,21 @@
       </template>
     </div>
 
-    <div>Task count: {{tasks.length}}</div>
+    <div>Task count: {{app.tasks.length}}</div>
 
     <div id="current-task-list-container">
       <h2>Current</h2>
-      <ul is="task-list-element" tasks="{{currentTasks}}"></ul>
+      <ul is="task-list-element" tasks="{{app.currentTasks}}"></ul>
     </div>
 
     <div id="pending-task-list-container">
       <h2>Pending</h2>
-      <ul is="task-list-element" tasks="{{pendingTasks}}"></ul>
+      <ul is="task-list-element" tasks="{{app.pendingTasks}}"></ul>
     </div>
 
     <div id="completed-task-list-container">
       <h2>Completed</h2>
-      <ul is="task-list-element" tasks="{{completedTasks}}"></ul>
+      <ul is="task-list-element" tasks="{{app.completedTasks}}"></ul>
     </div>
   </template>
   <script type="application/dart" src="tracker_app.dart"></script>

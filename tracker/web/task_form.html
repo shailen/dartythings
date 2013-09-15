@@ -1,6 +1,6 @@
 <polymer-element name="task-form" attributes="task-validator">
   <template>
-    <form id="task-form">
+    <form id="task-form" on-submit="createNewTask">
       <div>
         Title: <input placeholder="Add title here" value="{{taskValidator.title}}" on-keyup="validateTitle" />
         &nbsp;{{maxTitleLength - taskValidator.title.length}}
@@ -20,9 +20,11 @@
           <template bind if="{{descriptionError}}">{{descriptionMessage}}</template>
           <template bind if="{{!descriptionError}}">&nbsp;</template>
         <p>
-
       </div>
 
+      <div>
+        <input type='submit' value='Submit'>
+      </div>
 
     </form>
   </template>
