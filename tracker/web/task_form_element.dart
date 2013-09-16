@@ -78,4 +78,19 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     taskForm.task.description = taskForm.description;
     taskForm.task.updatedAt = now;
   }
+
+  // UGH. Is there not a better way?
+  deleteTask(Event event) {
+    event.preventDefault();
+    Task t = this.taskForm.task;
+    if (window.confirm('Really delete this?')) {
+      if (t.status == 'current') {
+        appModel.currentTasks.remove(t);
+      } else if (t.status == 'pending') {
+        appModel.pendingTasks.remove(t);
+      } else  {
+        appModel.completedTasks.remove(t);
+      }
+    }
+  }
 }

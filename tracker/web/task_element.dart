@@ -7,6 +7,7 @@ class TaskElement extends PolymerElement with ObservableMixin {
   @observable Task task;
   @observable TaskForm taskForm;
 
+  // TODO: put this logic somewhere else.
   void toggleDisplay() {
     taskForm.inUse = !taskForm.inUse;
   }
