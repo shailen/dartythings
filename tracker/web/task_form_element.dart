@@ -11,6 +11,12 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
   @observable String descriptionErrorMessage = '';
   @observable int maxDescriptionLength = Task.MAX_DESCRIPTION_LENGTH;
 
+
+  void toggleInUseStatus() {
+    taskForm.inUse = !taskForm.inUse;
+  }
+
+
   bool validateTitle() {
     int len = taskForm.title.length;
     bool valid = false;

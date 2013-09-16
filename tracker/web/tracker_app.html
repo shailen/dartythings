@@ -20,8 +20,6 @@
     <div class="list-container col-md-4">
       <template bind if="{{taskForm.inUse}}">
         <task-form-element task-form="{{taskForm}}"></task-form-element>
-        <button type="button" on-click='toggleNewTaskFormDisplay'
-            class="btn btn-link">Cancel</button>
       </template>
       <h2>Current</h2>
       <ul is="task-list-element" tasks="{{app.currentTasks}}"></ul>
