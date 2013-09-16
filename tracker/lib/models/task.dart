@@ -18,7 +18,7 @@ class Task extends Object with ObservableMixin {
   Task(String title, {String description,
                       String category,
                       int points,
-                      String status: PENDING
+                      String status: Task.PENDING
                       }) {
     this.title = title;
     this.description = description;

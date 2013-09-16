@@ -10,12 +10,26 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
   @observable int maxTitleLength = Task.MAX_TITLE_LENGTH;
   @observable String descriptionErrorMessage = '';
   @observable int maxDescriptionLength = Task.MAX_DESCRIPTION_LENGTH;
+  @observable List<String>taskStatusOptions = toObservable([
+      Task.CURRENT, Task.PENDING, Task.COMPLETED]);
+  @observable int statusSelectedIndex = 1;
+  @observable String previousStatus = '';
 
+  inserted() {
+    super.inserted();
+    if (taskForm.task != null) {
+      statusSelectedIndex = taskStatusOptions.indexOf(taskForm.task.status);
+      previousStatus = taskForm.task.status;
+    }
+  }
+
+  setStatus(Event e) {
+    print(statusSelectedIndex);
+  }
 
   void toggleInUseStatus() {
     taskForm.inUse = !taskForm.inUse;
   }
-
 
   bool validateTitle() {
     int len = taskForm.title.length;
@@ -77,6 +91,25 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     taskForm.task.title = taskForm.title;
     taskForm.task.description = taskForm.description;
     taskForm.task.updatedAt = now;
+
+    var previousStatus = taskForm.task.status;
+    if (taskForm.task != null) {
+      taskForm.task.status = taskStatusOptions[statusSelectedIndex];
+      if (previousStatus == Task.CURRENT) {
+        appModel.currentTasks.remove(taskForm.task);
+      } else if (previousStatus == Task.PENDING) {
+        appModel.pendingTasks.remove(taskForm.task);
+      } else {
+        appModel.completedTasks.remove(taskForm.task);
+      }
+    }
+    if (taskForm.task.status == Task.CURRENT) {
+      appModel.currentTasks.add(taskForm.task);
+    } else if (taskForm.task.status == Task.PENDING) {
+      appModel.pendingTasks.add(taskForm.task);
+    } else {
+      appModel.completedTasks.add(taskForm.task);
+    }
   }
 
   // UGH. Is there not a better way?

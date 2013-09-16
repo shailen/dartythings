@@ -5,10 +5,12 @@
         margin-bottom: 1.5em;
       }
 
-      .field textarea {
+      .field textarea, select {
         width: 85%;
         padding: .5em;
       }
+
+
 
       .field .chars-left {
         margin-left: 1%;
@@ -41,6 +43,12 @@
         <template bind if="{{!descriptionErrorMessage.isEmpty}}">
           <div class="error">{{descriptionErrorMessage}}</div>
         </template>
+      </div>
+
+      <div class="field">
+        <select  on-change="setStatus" class="form-control" selectedIndex="{{statusSelectedIndex}}">
+          <template repeat="{{taskStatusOptions}}"><option>{{}}</option></template>
+        </select>
       </div>
 
       <div class="field">
