@@ -4,6 +4,7 @@ import 'dart:html';
 
 @CustomTag('task-form-element')
 class TaskFormElement extends PolymerElement with ObservableMixin {
+  bool get applyAuthorStyles => true;
   @observable TaskForm taskForm;
   @observable String titleErrorMessage = '';
   @observable int maxTitleLength = Task.MAX_TITLE_LENGTH;
@@ -16,7 +17,7 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     if (len == 0 && Task.TITLE_REQUIRED) {
       titleErrorMessage = 'Title is required';
     } else if (len > maxTitleLength) {
-      titleErrorMessage = 'Title must be less than ${maxTitleLength} characters';
+      titleErrorMessage = 'Title must be less than $maxTitleLength} characters';
     } else {
       titleErrorMessage = '';
       valid = true;
@@ -28,7 +29,8 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     int len = taskForm.description.length;
     bool valid = false;
     if (len >= maxDescriptionLength) {
-      descriptionErrorMessage = 'Description must be less than 30 characters';
+      descriptionErrorMessage = 'Description must be less than '
+          '$maxDescriptionLength characters';
     } else {
       descriptionErrorMessage = '';
       valid = true;

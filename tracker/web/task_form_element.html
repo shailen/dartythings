@@ -1,26 +1,42 @@
 <polymer-element name="task-form-element" attributes="task-form">
   <template>
+    <style>
+      .field {
+        margin-bottom: 1.5em;
+      }
+
+      .field textarea {
+        width: 87%;
+        padding: .5em;
+      }
+
+      .field .chars-left {
+        margin-left: 1%;
+        width: 9%;
+        text-align: left;
+      }
+    </style>
     <form on-submit="createOrUpdateTask">
-      <div>
+      <div class="field">
         <textarea placeholder="Add title here" value="{{taskForm.title}}"
             on-keyup="validateTitle"></textarea>
-        &nbsp;{{maxTitleLength - taskForm.title.length}}
-        <p>
-          <template bind if="{{!titleErrorMessage.isEmpty}}">{{titleErrorMessage}}</template>
-        </p>
+        <span class="chars-left">{{maxTitleLength - taskForm.title.length}}</span>
+        <template bind if="{{!titleErrorMessage.isEmpty}}">
+          <div class="error">{{titleErrorMessage}}</div>
+        </template>
       </div>
 
-      <div>
+      <div class="field">
         <textarea placeholder="Add description here" value="{{taskForm.description}}"
             on-keyup="validateDescription"></textarea>
-        &nbsp;{{maxDescriptionLength - taskForm.description.length}}
-        <p>
-          <template bind if="{{!descriptionErrorMessage.isEmpty}}">{{descriptionErrorMessage}}</template>
-        <p>
+        <span class="chars-left">{{maxDescriptionLength - taskForm.description.length}}</span>
+        <template bind if="{{!descriptionErrorMessage.isEmpty}}">
+          <div class="error">{{descriptionErrorMessage}}</div>
+        </template>
       </div>
 
-      <div>
-        <input type='submit' value='Submit'>
+      <div class="field">
+        <button type="submit" class="btn btn-default">Submit</button>
       </div>
     </form>
   </template>

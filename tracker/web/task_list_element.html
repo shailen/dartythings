@@ -1,26 +1,10 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 <link rel="import" href="task_element.html">
 <polymer-element name="task-list-element" attributes="tasks" extends="ul">
   <template>
     <template repeat="{{tasks}}">
       <li is="task-element" task="{{}}"></li>
     </template>
-
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-
-      ul {
-        list-style: none;
-      }
-
-      li {
-        border: 1px solid black;
-        margin: 2px auto;
-        width: 200px;
-      }
-    </style>
   </template>
   <script type="application/dart" src="task_list_element.dart"></script>
 </polymer-element>

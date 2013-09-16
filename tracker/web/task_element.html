@@ -1,14 +1,32 @@
 <link rel="import" href="task_form_element.html">
 <polymer-element name="task-element" attributes="task" extends="li">
   <template>
+    <style>
+      .nav-glyph {
+        padding: 0; margin: 0;
+        width: 1.5em;
+        float: left;
+        font-size: .9em;
+        top: .2em;
+      }
+
+      .element-container {
+        padding: 0; margin: 0;
+        margin-left: 1.5em;
+      }
+    </style>
     <template bind if="{{!taskForm.inUse}}">
-      <div on-click='toggleDisplay'>+</div>
-      <div>{{task.title}}</div>
+      <div>
+        <div on-click='toggleDisplay' class="nav-glyph glyphicon glyphicon-circle-arrow-down"></div>
+        <div class="element-container">{{task.title}}</div>
+      </div>
     </template>
 
     <template if="{{taskForm.inUse}}">
-      <div on-click='toggleDisplay'>-</div>
-      <task-form-element task-form="{{taskForm}}"></task-form-element>
+      <div>
+        <div on-click='toggleDisplay' class="nav-glyph glyphicon glyphicon-circle-arrow-up"></div>
+        <div class="element-container"><task-form-element task-form="{{taskForm}}"></task-form-element></div>
+      </div>
     </template>
   </template>
   <script type="application/dart" src="task_element.dart"></script>

@@ -4,6 +4,7 @@ import 'package:tracker/seed.dart' as seed;
 
 @CustomTag('tracker-app')
 class TrackerApp extends PolymerElement with ObservableMixin {
+  bool get applyAuthorStyles => true;
   @observable Tracker app;
   @observable TaskForm taskForm;
 
