@@ -6,8 +6,9 @@
         padding: 0; margin: 0;
         width: 1.5em;
         float: left;
-        font-size: .9em;
-        top: .2em;
+        font-size: .6em;
+        top: .5em;
+        color: #888;
       }
 
       .element-container {
@@ -17,14 +18,14 @@
     </style>
     <template bind if="{{!taskForm.inUse}}">
       <div>
-        <div on-click='toggleDisplay' class="nav-glyph glyphicon glyphicon-circle-arrow-down"></div>
+        <div on-click='toggleDisplay' class="nav-glyph glyphicon glyphicon-plus"></div>
         <div class="element-container">{{task.title}}</div>
       </div>
     </template>
 
     <template if="{{taskForm.inUse}}">
       <div>
-        <div on-click='toggleDisplay' class="nav-glyph glyphicon glyphicon-circle-arrow-up"></div>
+        <div on-click='toggleDisplay' class="nav-glyph glyphicon glyphicon-minus"></div>
         <div class="element-container"><task-form-element task-form="{{taskForm}}"></task-form-element></div>
       </div>
     </template>

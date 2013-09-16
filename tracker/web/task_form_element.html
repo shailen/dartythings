@@ -6,7 +6,7 @@
       }
 
       .field textarea {
-        width: 87%;
+        width: 85%;
         padding: .5em;
       }
 
@@ -18,7 +18,7 @@
     </style>
     <form on-submit="createOrUpdateTask">
       <div class="field">
-        <textarea placeholder="Add title here" value="{{taskForm.title}}"
+        <textarea class="form-control" placeholder="Add title here" value="{{taskForm.title}}"
             on-keyup="validateTitle"></textarea>
         <span class="chars-left">{{maxTitleLength - taskForm.title.length}}</span>
         <template bind if="{{!titleErrorMessage.isEmpty}}">
@@ -27,7 +27,7 @@
       </div>
 
       <div class="field">
-        <textarea placeholder="Add description here" value="{{taskForm.description}}"
+        <textarea class="form-control" placeholder="Add description here" value="{{taskForm.description}}"
             on-keyup="validateDescription"></textarea>
         <span class="chars-left">{{maxDescriptionLength - taskForm.description.length}}</span>
         <template bind if="{{!descriptionErrorMessage.isEmpty}}">
