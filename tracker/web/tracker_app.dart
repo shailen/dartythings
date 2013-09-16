@@ -21,9 +21,9 @@ class TrackerApp extends PolymerElement with ObservableMixin {
 
   inserted() {
     super.inserted();
-    app.currentTasks = toObservable(_filterTasks('current'));
-    app.pendingTasks = toObservable(_filterTasks('pending'));
-    app.completedTasks = toObservable(_filterTasks('completed'));
+    app.currentTasks = toObservable(_filterTasks(Task.CURRENT));
+    app.pendingTasks = toObservable(_filterTasks(Task.PENDING));
+    app.completedTasks = toObservable(_filterTasks(Task.COMPLETED));
     taskForm = new TaskForm();
   }
 

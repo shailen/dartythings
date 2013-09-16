@@ -84,11 +84,11 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     event.preventDefault();
     Task t = this.taskForm.task;
     if (window.confirm('Really delete this?')) {
-      if (t.status == 'current') {
+      if (t.status == Task.CURRENT) {
         appModel.currentTasks.remove(t);
-      } else if (t.status == 'pending') {
+      } else if (t.status == Task.PENDING) {
         appModel.pendingTasks.remove(t);
-      } else  {
+      } else {
         appModel.completedTasks.remove(t);
       }
     }

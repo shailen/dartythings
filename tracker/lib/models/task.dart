@@ -4,6 +4,9 @@ class Task extends Object with ObservableMixin {
   static bool TITLE_REQUIRED = true;
   static const MAX_TITLE_LENGTH = 40;
   static const MAX_DESCRIPTION_LENGTH = 200;
+  static const CURRENT = 'current';
+  static const PENDING = 'pending';
+  static const COMPLETED = 'completed';
 
   @observable String title ;
   @observable String description;
@@ -15,7 +18,7 @@ class Task extends Object with ObservableMixin {
   Task(String title, {String description,
                       String category,
                       int points,
-                      String status: 'pending'
+                      String status: PENDING
                       }) {
     this.title = title;
     this.description = description;
