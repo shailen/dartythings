@@ -17,7 +17,7 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     if (len == 0 && Task.TITLE_REQUIRED) {
       titleErrorMessage = 'Title is required';
     } else if (len > maxTitleLength) {
-      titleErrorMessage = 'Title must be less than $maxTitleLength} characters';
+      titleErrorMessage = 'Title must be less than $maxTitleLength characters';
     } else {
       titleErrorMessage = '';
       valid = true;
@@ -49,6 +49,7 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     } else {
       createTask();
     }
+    taskForm.inUse = false;
   }
 
   createTask() {
@@ -63,7 +64,6 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     appModel.pendingTasks.add(task);
     taskForm.inUse = false;
     taskForm = new TaskForm();
-
   }
 
   updateTask() {
@@ -71,6 +71,5 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     taskForm.task.title = taskForm.title;
     taskForm.task.description = taskForm.description;
     taskForm.task.updatedAt = now;
-    taskForm.inUse = false;
   }
 }
