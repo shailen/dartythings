@@ -9,11 +9,20 @@
         color: red;
       }
 
+      .success {
+        color: green;
+      }
+
       #new-task-button {
          margin-top: 20px;
       }
 
+      .moved {
+        background-color: orange;
+        color: white;
+      }
     </style>
+
     <div class="row">
       <div class="col-md-8">
         <h1>Task Tracker</h1>
@@ -23,6 +32,18 @@
           <button id="new-task-button" on-click='toggleNewTaskFormDisplay' type="button"
               class="btn btn-primary">Add task</button>
         </template>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="error col-md-12">
+        {{app.errorNotification}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="success col-md-12">
+        {{app.successNotification}}
       </div>
     </div>
 

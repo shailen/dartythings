@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:tracker/models.dart';
 import 'package:tracker/seed.dart' as seed;
@@ -16,6 +17,7 @@ class TrackerApp extends PolymerElement with ObservableMixin {
   void created() {
     super.created();
     app = appModel;
+    print('app = $app');
     appModel.tasks = toObservable(seed.data);
   }
 
@@ -25,9 +27,17 @@ class TrackerApp extends PolymerElement with ObservableMixin {
     app.pendingTasks = toObservable(_filterTasks(Task.PENDING));
     app.completedTasks = toObservable(_filterTasks(Task.COMPLETED));
     taskForm = new TaskForm();
+    document.body.onClick.listen((event) {
+      appModel.successNotification = '';
+    });
   }
 
   List<Task> _filterTasks(String label) {
     return app.tasks.where((task) => task.status == label).toList();
+  }
+
+  void clearSuccessNotification(Event e) {
+    print('clearing notification');
+    appModel.successNotification = '';
   }
 }

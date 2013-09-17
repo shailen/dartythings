@@ -62,14 +62,21 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     event.preventDefault();
     event.stopPropagation();
 
-    if (!validateTitle() || !validateDescription()) return;
+    if (!validateTitle() || !validateDescription()) {
+      appModel.errorNotification = "Please correct the errors in your form and then resubmit";
+      appModel.successNotification = '';
+      return;
+    }
 
     if (taskForm.task != null) {
       updateTask();
+      appModel.successNotification = "Task successfully updated";
     } else {
       createTask();
+      appModel.successNotification = "Task successfully created";
     }
     taskForm.inUse = false;
+    appModel.errorNotification = '';
   }
 
   createTask() {
@@ -80,10 +87,10 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     task.createdAt = now;
     task.updatedAt = now;
     appModel.tasks.add(task);
-    // For now, a new task is always marked pending.
     appModel.pendingTasks.add(task);
     taskForm.inUse = false;
     taskForm = new TaskForm();
+    // XXX: put the task in the correct list.
   }
 
   updateTask() {

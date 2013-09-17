@@ -10,8 +10,6 @@
         padding: .5em;
       }
 
-
-
       .field .chars-left {
         margin-left: 1%;
         width: 9%;
@@ -23,6 +21,7 @@
         margin-right: 5px;
       }
     </style>
+
     <form on-submit="createOrUpdateTask">
       <template bind if ="{{taskForm.taskIsDeleteable}}">
         <div on-click="deleteTask" class="delete-task glyphicon glyphicon-remove"></div>
