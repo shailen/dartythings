@@ -15,14 +15,18 @@ class WordElement extends PolymerElement with ObservableMixin {
   List<String> possibleWords = [];
   @observable List<String> selectedWords = toObservable([]);
   @observable int score = 0;
-  @observable String foo = "fooooooo";
 
   void dragStartHandler(e) {
     print('dragStartHandler');
-    e.target.style.opacity = '0.25';
+    e.target.style.opacity = '.25';
     sourceElement = e.target;
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', e.target.innerHtml);
+  }
+
+  void touchStartHandler(e) {
+    e.target.style.opacity = '.25';
+    sourceElement = e.target;
   }
 
   void dragEnterHandler(e) {
@@ -50,6 +54,13 @@ class WordElement extends PolymerElement with ObservableMixin {
     }
   }
 
+  void touchEndHandler(e) {
+    e.stopPropagation();
+    if (sourceElement != e.target) {
+      sourceElement.innerHtml = e.target.innerHtml;
+    }
+  }
+
   void dragEndHandler(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -64,9 +75,10 @@ class WordElement extends PolymerElement with ObservableMixin {
     var temp = sb.toString();
     selection2 = temp.substring(temp.length ~/ 2, temp.length);
     selection1 = temp.substring(0, temp.length ~/ 2);
-    print(selection1);
-    print(selection2);
-    print(possibleWords);
+    print('selection1 = $selection1');
+    print('selection2 = $selection2');
+    print('chars1 = $chars1');
+    print('chars2 = $chars2');
     [selection1, selection2].forEach((selection) {
       var word = selection.trim();
       if (possibleWords.contains(word)) {
@@ -85,10 +97,15 @@ class WordElement extends PolymerElement with ObservableMixin {
     var highAnagramIndices = [8, 9, 10, 11, 12];
     var index = highAnagramIndices[random.nextInt(highAnagramIndices.length)];
     // TODO: refactor
-    possibleWords = anagrams[index][random.nextInt(anagrams[index].length)];
+    possibleWords = ['least', 'setal', 'slate', 'stale', 'steal', 'stela', 'taels', 'tales',
+                     'teals', 'tesla', 'ae', 'al', 'as', 'at', 'el', 'es', 'et', 'la', 'ta', 'ale',
+                     'als', 'alt', 'ate', 'eat', 'els', 'eta', 'las', 'lat', 'lea', 'les', 'let',
+                     'sae', 'sal', 'sat', 'sea', 'sel', 'set', 'tae', 'tas', 'tea', 'tel', 'ales',
+                     'alts', 'ates', 'east', 'eats', 'etas', 'lase', 'last', 'late', 'lats',
+                     'leas', 'lest', 'lets', 'sale', 'salt', 'sate', 'seal', 'seat', 'seta',
+                     'slat', 'tael', 'tale', 'teal', 'teas', 'tela', 'tels'];
     print(possibleWords);
-    // TODO: always give the scrambled word
-    var word = possibleWords[random.nextInt(possibleWords.length)];
+    var word = possibleWords.first;
     for (var i = 0; i < word.length; i++) {
       chars2.add(' ');
     }
@@ -102,11 +119,18 @@ class WordElement extends PolymerElement with ObservableMixin {
     new Timer(new Duration(milliseconds: 500), () {
       charDivs = this.shadowRoot.queryAll('.char');
       charDivs.forEach((charDiv) {
+        charDiv.onTouchStart.listen(touchStartHandler);
         charDiv.onDragStart.listen(dragStartHandler);
+
         charDiv.onDragEnter.listen(dragEnterHandler);
+
         charDiv.onDragOver.listen(dragOverHandler);
+
         charDiv.onDragLeave.listen(dragLeaveHandler);
+
         charDiv.onDrop.listen(dropHandler);
+        charDiv.onTouchEnd.listen(touchEndHandler);
+
         charDiv.onDragEnd.listen(dragEndHandler);
       });
     });
