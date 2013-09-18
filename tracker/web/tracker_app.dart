@@ -8,6 +8,7 @@ class TrackerApp extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
   @observable Tracker app;
   @observable TaskForm taskForm;
+  @observable String searchParam = '';
 
   // TODO: move this to taskForm?
   toggleNewTaskFormDisplay() {

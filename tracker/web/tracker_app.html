@@ -13,7 +13,7 @@
         color: green;
       }
 
-      #new-task-button {
+      #new-task-button, #search-input {
          margin-top: 20px;
       }
 
@@ -21,17 +21,25 @@
         background-color: orange;
         color: white;
       }
+
+      #search-icon {
+        display: inline;
+      }
+
     </style>
 
     <div class="row">
       <div class="col-md-8">
         <h1>Task Tracker</h1>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
         <template bind if="{{!taskForm.inUse}}">
           <button id="new-task-button" on-click='toggleNewTaskFormDisplay' type="button"
               class="btn btn-primary">Add task</button>
         </template>
+      </div>
+      <div class="col-md-2">
+
       </div>
     </div>
 
