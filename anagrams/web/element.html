@@ -6,24 +6,22 @@
         <h2>Drag and drop letters to form words</h2>
         <div id='container'>
           <div class='wrapper'>
-            <template repeat="{{chars1}}">
-              <div class="char" draggable="true">{{}}</div>
-            </template>
-          </div>
-
-          <br><br>
-          <div class='wrapper'>
-            <template repeat="{{chars2}}">
-              <div class="char" draggable="true">{{}}</div>
+            <template repeat="{{lists}}">
+              <template repeat="{{}}">
+                <div on-dragStart="dragStartHandler"
+                     on-dragEnter="dragEnterHandler"
+                     on-dragOver="dragOverHandler"
+                     on-drop="dropHandler"
+                     on-dragEnd="dragEndHandler"
+                     class="char" draggable position="{{position}}">{{value}}
+                 </div>
+               </template>
+               <br><br>
             </template>
           </div>
 
           <template bind="{{score}}">
             <h2>Score: {{}}</h2>
-          </template>
-
-          <template repeat="{{selectedWords}}">
-            <div>{{}}</div>
           </template>
         </div>
 

@@ -1,138 +1,113 @@
-import 'package:polymer/polymer.dart';
 import 'dart:html';
-import 'dart:async';
-import 'dart:math';
-import 'anagrams.dart';
+import 'package:polymer/polymer.dart';
+
+class Char {
+  int position;
+  String value;
+  Char(this.position, this.value);
+  String toString() => '[$position, $value]';
+}
 
 @CustomTag("word-element")
 class WordElement extends PolymerElement with ObservableMixin {
-  @observable List<String> chars1 = toObservable([]);
-  @observable List<String> chars2 = toObservable([]);
-  @observable String selection1;
-  @observable String selection2;
-  Element sourceElement;
-  List<DivElement> charDivs;
-  List<String> possibleWords = [];
-  @observable List<String> selectedWords = toObservable([]);
+  // bool get applyAuthorStyles => true;
+  @observable List<Char> charsList;
+
+  @observable List<Char> chars1;
+  @observable List<Char> chars2;
+  @observable List<List<Char>> lists;
   @observable int score = 0;
+  List<String> possibleWords = [];
+  List<String> formedWords = [];
+  List<DivElement> charDivs;
+  @observable int sourceElementIndex;
+  @observable int targetElementIndex;
+  @observable String word;
 
-  void dragStartHandler(e) {
-    print('dragStartHandler');
-    e.target.style.opacity = '.25';
-    sourceElement = e.target;
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', e.target.innerHtml);
-  }
-
-  void touchStartHandler(e) {
-    e.target.style.opacity = '.25';
-    sourceElement = e.target;
-  }
-
-  void dragEnterHandler(e) {
-    print('dragEnterHandler');
-    e.target.classes.add('over');
-  }
-
-  void dragOverHandler(e) {
-
-    e.preventDefault();
-    e.dataTransfer.dropEffect = 'move';
-  }
-
-  void dragLeaveHandler(e) {
-    print('dragLeaveHandler');
-    e.target.classes.remove('over');
-  }
-
-  void dropHandler(e) {
-    e.stopPropagation();
-    print('dropHandler');
-    if (sourceElement != e.target) {
-      sourceElement.innerHtml = e.target.innerHtml;
-      e.target.innerHtml = e.dataTransfer.getData('text/html');
-    }
-  }
-
-  void touchEndHandler(e) {
-    e.stopPropagation();
-    if (sourceElement != e.target) {
-      sourceElement.innerHtml = e.target.innerHtml;
-    }
-  }
-
-  void dragEndHandler(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    print('dragEndHandler');
-    StringBuffer sb = new StringBuffer();
-    for (var i = 0; i < charDivs.length; i++) {
-      charDivs[i].classes.remove('over');
-      sb.write(charDivs[i].text);
-    }
-    e.target.style.opacity = '1.0';
-    var temp = sb.toString();
-    selection2 = temp.substring(temp.length ~/ 2, temp.length);
-    selection1 = temp.substring(0, temp.length ~/ 2);
-    print('selection1 = $selection1');
-    print('selection2 = $selection2');
-    print('chars1 = $chars1');
-    print('chars2 = $chars2');
-    [selection1, selection2].forEach((selection) {
-      var word = selection.trim();
-      if (possibleWords.contains(word)) {
-        if (!selectedWords.contains(word)) {
-          selectedWords.add(word);
-          score += word.length;
-          print(score);
-        }
-      }
-    });
-  }
-
-  void created() {
+  created() {
     super.created();
-    var random = new Random();
-    var highAnagramIndices = [8, 9, 10, 11, 12];
-    var index = highAnagramIndices[random.nextInt(highAnagramIndices.length)];
-    // TODO: refactor
-    possibleWords = ['least', 'setal', 'slate', 'stale', 'steal', 'stela', 'taels', 'tales',
+    possibleWords = toObservable(['least', 'setal', 'slate', 'stale', 'steal', 'stela', 'taels', 'tales',
                      'teals', 'tesla', 'ae', 'al', 'as', 'at', 'el', 'es', 'et', 'la', 'ta', 'ale',
                      'als', 'alt', 'ate', 'eat', 'els', 'eta', 'las', 'lat', 'lea', 'les', 'let',
                      'sae', 'sal', 'sat', 'sea', 'sel', 'set', 'tae', 'tas', 'tea', 'tel', 'ales',
                      'alts', 'ates', 'east', 'eats', 'etas', 'lase', 'last', 'late', 'lats',
                      'leas', 'lest', 'lets', 'sale', 'salt', 'sate', 'seal', 'seat', 'seta',
-                     'slat', 'tael', 'tale', 'teal', 'teas', 'tela', 'tels'];
-    print(possibleWords);
-    var word = possibleWords.first;
+                     'slat', 'tael', 'tale', 'teal', 'teas', 'tela', 'tels']);
+
+    word = possibleWords.first;
+    charsList = toObservable(new List(word.length * 2));
     for (var i = 0; i < word.length; i++) {
-      chars2.add(' ');
+      charsList[i] = new Char(i, word[i]);
+      var blank = i + word.length;
+      charsList[blank] = new Char(blank, ' ');
     }
-    print(word);
-    print(possibleWords);
-    chars1.addAll(word.split(''));
-    selection1 = word;
+
+    chars1 = toObservable(new List(word.length));
+    chars2 = toObservable(new List(word.length));
+    _filterChars();
+    lists = toObservable([chars1, chars2]);
   }
 
-  inserted() {
-    new Timer(new Duration(milliseconds: 500), () {
-      charDivs = this.shadowRoot.queryAll('.char');
-      charDivs.forEach((charDiv) {
-        charDiv.onTouchStart.listen(touchStartHandler);
-        charDiv.onDragStart.listen(dragStartHandler);
+  _filterChars() {
+    for (var i = 0; i < word.length; i++) {
+      chars1[i] = charsList[i];
+      chars2[i] = charsList[i + word.length];
+    }
+  }
 
-        charDiv.onDragEnter.listen(dragEnterHandler);
+  void dragStartHandler(Event e, detail, sender) {
+    print('in dragStartHandler');
+    print(sender.templateInstance.model);
+    e.target.style.opacity = '.25';
+    sourceElementIndex = int.parse(e.target.attributes['position']);
+  }
 
-        charDiv.onDragOver.listen(dragOverHandler);
+  void dragEnterHandler(e) {
+    e.target.classes.add('over');
+  }
 
-        charDiv.onDragLeave.listen(dragLeaveHandler);
+  void dragOverHandler(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  }
 
-        charDiv.onDrop.listen(dropHandler);
-        charDiv.onTouchEnd.listen(touchEndHandler);
+  void dragLeaveHandler(e) {
+    e.target.classes.remove('over');
+  }
 
-        charDiv.onDragEnd.listen(dragEndHandler);
-      });
+  void dropHandler(Event e) {
+    e.preventDefault();
+    print('in dropHandler');
+    targetElementIndex = int.parse(e.target.attributes['position']);
+    var temp = charsList[sourceElementIndex].value;
+    charsList[sourceElementIndex].value = charsList[targetElementIndex].value;
+    charsList[targetElementIndex].value = temp;
+    _filterChars();
+  }
+
+  void dragEndHandler(Event e, detail, sender) {
+    e.preventDefault();
+    e.stopPropagation();
+    print('in dragEndHandler');
+    e.target.style.opacity = '1.0';
+    var words = [];
+    [chars1, chars2].forEach((chars) {
+      var tokens = chars.map((char) => char.value).toList();
+      var fragments = tokens.join('').split(' ').where(
+          (token) => token.trim().isNotEmpty).toList();
+      words.addAll(fragments);
     });
+    print(words);
+
+    for (var w in words) {
+      if (possibleWords.contains(w)) {
+        print(w);
+        if (!formedWords.contains(w)) {
+          formedWords.add(w);
+          print(formedWords);
+          score += w.length;
+        }
+      }
+    }
   }
 }
