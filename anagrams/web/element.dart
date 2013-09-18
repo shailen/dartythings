@@ -13,16 +13,23 @@ class WordElement extends PolymerElement with ObservableMixin {
   // bool get applyAuthorStyles => true;
   @observable List<Char> charsList;
 
+  // Get rid of all these lists.  Use charsList as the single canonical list.
   @observable List<Char> chars1;
   @observable List<Char> chars2;
   @observable List<List<Char>> lists;
+
   @observable int score = 0;
   List<String> possibleWords = [];
   List<String> formedWords = [];
-  List<DivElement> charDivs;
-  @observable int sourceElementIndex;
-  @observable int targetElementIndex;
+
+  int sourceElementIndex;
+  int targetElementIndex;
   @observable String word;
+
+  String upCase(String str) => str.toUpperCase();
+
+  get firstSubList => (list) => [list.getRange(0, word.length).toList()];
+  get secondSubList => (list) => [list.getRange(word.length, list.length).toList()];
 
   created() {
     super.created();
@@ -36,6 +43,8 @@ class WordElement extends PolymerElement with ObservableMixin {
 
     word = possibleWords.first;
     charsList = toObservable(new List(word.length * 2));
+
+    // TODO: sprinkle words over both rows.
     for (var i = 0; i < word.length; i++) {
       charsList[i] = new Char(i, word[i]);
       var blank = i + word.length;
@@ -56,8 +65,6 @@ class WordElement extends PolymerElement with ObservableMixin {
   }
 
   void dragStartHandler(Event e, detail, sender) {
-    print('in dragStartHandler');
-    print(sender.templateInstance.model);
     e.target.style.opacity = '.25';
     sourceElementIndex = int.parse(e.target.attributes['position']);
   }
@@ -77,7 +84,6 @@ class WordElement extends PolymerElement with ObservableMixin {
 
   void dropHandler(Event e) {
     e.preventDefault();
-    print('in dropHandler');
     targetElementIndex = int.parse(e.target.attributes['position']);
     var temp = charsList[sourceElementIndex].value;
     charsList[sourceElementIndex].value = charsList[targetElementIndex].value;
@@ -88,7 +94,6 @@ class WordElement extends PolymerElement with ObservableMixin {
   void dragEndHandler(Event e, detail, sender) {
     e.preventDefault();
     e.stopPropagation();
-    print('in dragEndHandler');
     e.target.style.opacity = '1.0';
     var words = [];
     [chars1, chars2].forEach((chars) {
@@ -97,14 +102,11 @@ class WordElement extends PolymerElement with ObservableMixin {
           (token) => token.trim().isNotEmpty).toList();
       words.addAll(fragments);
     });
-    print(words);
 
     for (var w in words) {
       if (possibleWords.contains(w)) {
-        print(w);
         if (!formedWords.contains(w)) {
           formedWords.add(w);
-          print(formedWords);
           score += w.length;
         }
       }
