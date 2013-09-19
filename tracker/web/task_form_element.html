@@ -1,4 +1,4 @@
-<polymer-element name="task-form-element" attributes="task-form">
+<polymer-element name="task-form-element" attributes="task">
   <template>
     <style>
       .field {
@@ -22,39 +22,41 @@
       }
     </style>
 
-    <form on-submit="createOrUpdateTask">
-      <template bind if ="{{taskForm.taskIsDeleteable}}">
-        <div on-click="deleteTask" class="delete-task glyphicon glyphicon-remove"></div>
-      </template>
-      <div class="field">
-        <textarea class="form-control" placeholder="Add title here" value="{{taskForm.title}}"
-            on-keyup="validateTitle"></textarea>
-        <span class="chars-left">{{maxTitleLength - taskForm.title.length}}</span>
-        <template bind if="{{!titleErrorMessage.isEmpty}}">
-          <div class="error">{{titleErrorMessage}}</div>
+    <template if="{{display}}">
+      <form on-submit="createOrUpdateTask">
+        <!-- Can't delete a form for creating a new task. -->
+        <template bind if ="{{task.saved}}">
+          <div on-click="deleteTask" class="delete-task glyphicon glyphicon-remove"></div>
         </template>
-      </div>
+        <div class="field">
+          <textarea class="form-control" placeholder="Add title here" value="{{task.title}}"
+              on-keyup="validateTitle"></textarea>
+          <span class="chars-left">{{maxTitleLength - task.title.length}}</span>
+          <template bind if="{{!titleErrorMessage.isEmpty}}">
+            <div class="error">{{titleErrorMessage}}</div>
+          </template>
+        </div>
 
-      <div class="field">
-        <textarea rows="5" class="form-control" placeholder="Add description here" value="{{taskForm.description}}"
-            on-keyup="validateDescription"></textarea>
-        <span class="chars-left">{{maxDescriptionLength - taskForm.description.length}}</span>
-        <template bind if="{{!descriptionErrorMessage.isEmpty}}">
-          <div class="error">{{descriptionErrorMessage}}</div>
-        </template>
-      </div>
+        <div class="field">
+          <textarea rows="5" class="form-control" placeholder="Add description here" value="{{task.description}}"
+              on-keyup="validateDescription"></textarea>
+          <span class="chars-left">{{maxDescriptionLength - task.description.length}}</span>
+          <template bind if="{{!descriptionErrorMessage.isEmpty}}">
+            <div class="error">{{descriptionErrorMessage}}</div>
+          </template>
+        </div>
 
-      <div class="field">
-        <select  on-change="setStatus" class="form-control" selectedIndex="{{statusSelectedIndex}}">
-          <template repeat="{{taskStatusOptions}}"><option>{{}}</option></template>
-        </select>
-      </div>
+        <div class="field">
+          <select  on-change="setStatus" class="form-control" selectedIndex="{{statusSelectedIndex}}">
+            <template repeat="{{taskStatusOptions}}"><option>{{}}</option></template>
+          </select>
+        </div>
 
-      <div class="field">
-        <button type="submit" class="btn btn-default">{{taskForm.submitLabel}}</button>&nbsp;
-        <button type="button" on-click='toggleInUseStatus' class="btn btn-link">Cancel</button>
-      </div>
-    </form>
+        <div class="field">
+          <button type="submit" class="btn btn-default">{{submitLabel}}</button>&nbsp;
+        </div>
+      </form>
+    </template>
   </template>
   <script type="application/dart" src="task_form_element.dart"></script>
 </polymer-element>

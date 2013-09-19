@@ -25,19 +25,17 @@
       }
     </style>
 
-    <template bind if="{{!taskForm.inUse}}">
+    <template if="{{!editingTask}}">
       <div>
-        <div class="{{taskForm.task.searchClass}}">
-          <div on-click='toggleDisplay' class="nav-glyph glyphicon glyphicon-plus"></div>
-          <div class="element-container">{{task.title}}</div>
-        </div>
+        <div on-click='toggleFormDisplay' class="nav-glyph glyphicon glyphicon-plus"></div>
+        <div class="element-container">{{task.title}}</div>
       </div>
     </template>
 
-    <template if="{{taskForm.inUse}}">
-      <div class="foo">
-        <div on-click='toggleDisplay' class="nav-glyph glyphicon glyphicon-minus"></div>
-        <div class="element-container"><task-form-element task-form="{{taskForm}}"></task-form-element></div>
+    <template if="{{editingTask}}">
+      <div>
+        <div on-click='toggleFormDisplay' class="nav-glyph glyphicon glyphicon-minus"></div>
+        <div class="element-container"><task-form-element task="{{task}}"></task-form-element></div>
       </div>
     </template>
   </template>

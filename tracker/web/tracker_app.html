@@ -1,7 +1,6 @@
 <link rel="import" href="task_list_element.html">
 <link rel="import" href="task_form_element.html">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
 <polymer-element name="tracker-app">
   <template>
     <style>
@@ -28,13 +27,13 @@
         <h1>Task Tracker</h1>
       </div>
       <div class="col-md-2">
-        <template bind if="{{!taskForm.inUse}}">
+        <template bind if="{{!creatingNewTask}}">
           <button id="new-task-button" on-click='toggleNewTaskFormDisplay' type="button"
               class="btn btn-primary">Add task</button>
         </template>
       </div>
       <div class="col-md-2">
-        <template bind if="{{!taskForm.inUse}}">
+        <template bind if="{{!creatingNewTask}}">
           <input type='text' id="search-input" class="form-control"
               on-keyup="search" value="{{searchParam}}" placeholder="Search">
         </template>
@@ -55,9 +54,13 @@
 
     <div class="row">
       <div class="list-container col-md-4">
-        <template bind if="{{taskForm.inUse}}">
-          <task-form-element task-form="{{taskForm}}"></task-form-element>
+        <template if="{{creatingNewTask}}">
+          <div>
+            <button type="button" on-click='toggleNewTaskFormDisplay' class="btn btn-link">Cancel</button>
+            <div class="element-container"><task-form-element task="{{task}}"></task-form-element></div>
+          </div>
         </template>
+
         <h2>Current</h2>
         <ul is="task-list-element" tasks="{{app.currentTasks}}"></ul>
       </div>

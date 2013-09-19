@@ -1,11 +1,12 @@
 import 'package:polymer/polymer.dart';
 import 'package:tracker/models.dart';
 import 'dart:html';
+import 'dart:math';
 
 @CustomTag('task-form-element')
 class TaskFormElement extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
-  @observable TaskForm taskForm;
+  @observable Task task;
   @observable String titleErrorMessage = '';
   @observable int maxTitleLength = Task.MAX_TITLE_LENGTH;
   @observable String descriptionErrorMessage = '';
@@ -14,25 +15,31 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
       Task.CURRENT, Task.PENDING, Task.COMPLETED]);
   @observable int statusSelectedIndex = 1;
   @observable String previousStatus = '';
+  @observable String submitLabel = '';
+  @observable bool display = true;
+
+  created() {
+    super.created();
+  }
 
   inserted() {
     super.inserted();
-    if (taskForm.task != null) {
-      statusSelectedIndex = taskStatusOptions.indexOf(taskForm.task.status);
-      previousStatus = taskForm.task.status;
+    submitLabel = task.saved ? 'Update' : 'Create';
+    print(submitLabel);
+    print(task.taskID);
+
+    if (!task.saved) {
+      statusSelectedIndex = taskStatusOptions.indexOf(task.status);
+      previousStatus = task.status;
     }
   }
 
   setStatus(Event e) {
-    print(statusSelectedIndex);
-  }
 
-  void toggleInUseStatus() {
-    taskForm.inUse = !taskForm.inUse;
   }
 
   bool validateTitle() {
-    int len = taskForm.title.length;
+    int len = task.title.length;
     bool valid = false;
     if (len == 0 && Task.TITLE_REQUIRED) {
       titleErrorMessage = 'Title is required';
@@ -46,7 +53,7 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
   }
 
   bool validateDescription() {
-    int len = taskForm.description.length;
+    int len = task.description.length;
     bool valid = false;
     if (len >= maxDescriptionLength) {
       descriptionErrorMessage = 'Description must be less than '
@@ -58,78 +65,68 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     return valid;
   }
 
-  createOrUpdateTask(Event event) {
+  createOrUpdateTask(Event event, detail, sender) {
     event.preventDefault();
     event.stopPropagation();
+    print(detail.runtimeType);
+    print(sender.runtimeType);
+    print(task);
 
-    if (!validateTitle() || !validateDescription()) {
-      appModel.errorNotification = "Please correct the errors in your form and then resubmit";
-      appModel.successNotification = '';
-      return;
-    }
+    if (!task.isValid) return;
 
-    if (taskForm.task != null) {
+
+    if (task.saved) {
       updateTask();
-      appModel.successNotification = "Task successfully updated";
     } else {
       createTask();
-      appModel.successNotification = "Task successfully created";
     }
-    taskForm.inUse = false;
-    appModel.errorNotification = '';
+
+    if (task.status == Task.CURRENT) {
+      appModel.currentTasks.add(task);
+    } else if (task.status == Task.PENDING) {
+      appModel.pendingTasks.add(task);
+    } else {
+      appModel.completedTasks.add(task);
+    }
+    display = false;
   }
 
   createTask() {
+    print('inside createTask');
     DateTime now = new DateTime.now();
-    Task task = new Task(
-        taskForm.title,
-        description: taskForm.description);
+    var random = new Random();
+    task.taskID = random.nextInt(1000 * 1000);
+    print(task.taskID);
+
     task.createdAt = now;
     task.updatedAt = now;
     appModel.tasks.add(task);
-    appModel.pendingTasks.add(task);
-    taskForm.inUse = false;
-    taskForm = new TaskForm();
-    // XXX: put the task in the correct list.
+
   }
 
   updateTask() {
     DateTime now = new DateTime.now();
-    taskForm.task.title = taskForm.title;
-    taskForm.task.description = taskForm.description;
-    taskForm.task.updatedAt = now;
-
-    var previousStatus = taskForm.task.status;
-    if (taskForm.task != null) {
-      taskForm.task.status = taskStatusOptions[statusSelectedIndex];
-      if (previousStatus == Task.CURRENT) {
-        appModel.currentTasks.remove(taskForm.task);
-      } else if (previousStatus == Task.PENDING) {
-        appModel.pendingTasks.remove(taskForm.task);
-      } else {
-        appModel.completedTasks.remove(taskForm.task);
-      }
-    }
-    if (taskForm.task.status == Task.CURRENT) {
-      appModel.currentTasks.add(taskForm.task);
-    } else if (taskForm.task.status == Task.PENDING) {
-      appModel.pendingTasks.add(taskForm.task);
+    task.updatedAt = now;
+    var previousStatus = task.status;
+    task.status = taskStatusOptions[statusSelectedIndex];
+    if (previousStatus == Task.CURRENT) {
+      appModel.currentTasks.remove(task);
+    } else if (previousStatus == Task.PENDING) {
+      appModel.pendingTasks.remove(task);
     } else {
-      appModel.completedTasks.add(taskForm.task);
+      appModel.completedTasks.remove(task);
     }
   }
 
-  // UGH. Is there not a better way?
   deleteTask(Event event) {
     event.preventDefault();
-    Task t = this.taskForm.task;
     if (window.confirm('Really delete this?')) {
-      if (t.status == Task.CURRENT) {
-        appModel.currentTasks.remove(t);
-      } else if (t.status == Task.PENDING) {
-        appModel.pendingTasks.remove(t);
+      if (task.status == Task.CURRENT) {
+        appModel.currentTasks.remove(task);
+      } else if (task.status == Task.PENDING) {
+        appModel.pendingTasks.remove(task);
       } else {
-        appModel.completedTasks.remove(t);
+        appModel.completedTasks.remove(task);
       }
     }
   }

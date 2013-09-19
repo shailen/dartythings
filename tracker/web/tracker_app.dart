@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:tracker/models.dart';
 import 'package:tracker/seed.dart' as seed;
@@ -7,55 +6,42 @@ import 'package:tracker/seed.dart' as seed;
 class TrackerApp extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
   @observable Tracker app;
-  @observable TaskForm taskForm;
+  @observable Task task;
   @observable String searchParam = '';
-
-  // TODO: move this to taskForm?
-  toggleNewTaskFormDisplay() {
-    taskForm.inUse = !taskForm.inUse;
-  }
+  @observable bool creatingNewTask = false;
 
   void created() {
     super.created();
     app = appModel;
-    print('app = $app');
     appModel.tasks = toObservable(seed.data);
-  }
-
-  inserted() {
-    super.inserted();
+    task = new Task.unsaved();
     app.currentTasks = toObservable(_filterTasks(Task.CURRENT));
     app.pendingTasks = toObservable(_filterTasks(Task.PENDING));
     app.completedTasks = toObservable(_filterTasks(Task.COMPLETED));
-    taskForm = new TaskForm();
-    document.body.onClick.listen((event) {
-      appModel.successNotification = '';
-    });
+  }
+
+  toggleNewTaskFormDisplay() {
+    creatingNewTask = !creatingNewTask;
   }
 
   search() {
-    var taskLists = [app.currentTasks, app.pendingTasks, app.completedTasks];
-    taskLists.forEach((taskList) {
-      for (Task task in taskList) {
-        if (searchParam.length < 4) {
-          task.searchClass = '';
-        } else {
-          if (task.title.contains(searchParam)) {
-            task.searchClass = Task.FOUND;
-          } else {
-            task.searchClass = Task.NOT_FOUND;
-          }
-        }
-      }
-    });
+//    var taskLists = [app.currentTasks, app.pendingTasks, app.completedTasks];
+//    taskLists.forEach((taskList) {
+//      for (Task task in taskList) {
+//        if (searchParam.length < 4) {
+//          task.searchClass = '';
+//        } else {
+//          if (task.title.contains(searchParam)) {
+//            task.searchClass = Task.FOUND;
+//          } else {
+//            task.searchClass = Task.NOT_FOUND;
+//          }
+//        }
+//      }
+//    });
   }
 
   List<Task> _filterTasks(String label) {
     return app.tasks.where((task) => task.status == label).toList();
-  }
-
-  void clearSuccessNotification(Event e) {
-    print('clearing notification');
-    appModel.successNotification = '';
   }
 }
