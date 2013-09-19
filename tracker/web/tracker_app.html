@@ -21,11 +21,6 @@
         background-color: orange;
         color: white;
       }
-
-      #search-icon {
-        display: inline;
-      }
-
     </style>
 
     <div class="row">
@@ -39,7 +34,10 @@
         </template>
       </div>
       <div class="col-md-2">
-
+        <template bind if="{{!taskForm.inUse}}">
+          <input type='text' id="search-input" class="form-control"
+              on-keyup="search" value="{{searchParam}}" placeholder="Search">
+        </template>
       </div>
     </div>
 

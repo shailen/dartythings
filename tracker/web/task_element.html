@@ -15,17 +15,27 @@
         padding: 0; margin: 0;
         margin-left: 1.5em;
       }
+
+      .foundInSearch {
+        color: #222;
+      }
+
+      .notFoundInSearch {
+        color: #ddd;
+      }
     </style>
 
     <template bind if="{{!taskForm.inUse}}">
       <div>
-        <div on-click='toggleDisplay' class="nav-glyph glyphicon glyphicon-plus"></div>
-        <div class="element-container">{{task.title}}</div>
+        <div class="{{taskForm.task.searchClass}}">
+          <div on-click='toggleDisplay' class="nav-glyph glyphicon glyphicon-plus"></div>
+          <div class="element-container">{{task.title}}</div>
+        </div>
       </div>
     </template>
 
     <template if="{{taskForm.inUse}}">
-      <div>
+      <div class="foo">
         <div on-click='toggleDisplay' class="nav-glyph glyphicon glyphicon-minus"></div>
         <div class="element-container"><task-form-element task-form="{{taskForm}}"></task-form-element></div>
       </div>

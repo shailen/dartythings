@@ -7,6 +7,8 @@ class Task extends Object with ObservableMixin {
   static const CURRENT = 'current';
   static const PENDING = 'pending';
   static const COMPLETED = 'completed';
+  static const FOUND = 'foundInSearch';
+  static const NOT_FOUND = 'notFoundInSearch';
 
   @observable String title ;
   @observable String description;
@@ -14,6 +16,7 @@ class Task extends Object with ObservableMixin {
   @observable String status;
   @observable DateTime createdAt;
   @observable DateTime updatedAt;
+  @observable String searchClass = FOUND;
 
   Task(String title, {String description,
                       String category,
