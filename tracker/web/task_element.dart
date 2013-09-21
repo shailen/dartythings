@@ -8,6 +8,7 @@ class TaskElement extends PolymerElement with ObservableMixin {
   @observable bool editingTask = false;
 
   toggleFormDisplay() {
+    print('calling toggleFormDisplay');
     editingTask = !editingTask;
   }
 }

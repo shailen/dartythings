@@ -34,10 +34,6 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     }
   }
 
-  setStatus(Event e) {
-
-  }
-
   bool validateTitle() {
     int len = task.title.length;
     bool valid = false;
@@ -81,6 +77,7 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
       createTask();
     }
 
+    // TODO: refactor this code.
     if (task.status == Task.CURRENT) {
       appModel.currentTasks.add(task);
     } else if (task.status == Task.PENDING) {
@@ -89,6 +86,7 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
       appModel.completedTasks.add(task);
     }
     display = false;
+    dispatchEvent(new CustomEvent('close-form'));
   }
 
   createTask() {

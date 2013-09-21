@@ -14,7 +14,10 @@ class TrackerApp extends PolymerElement with ObservableMixin {
     super.created();
     app = appModel;
     appModel.tasks = toObservable(seed.data);
-    task = new Task.unsaved();
+    for (var i = 0; i < appModel.tasks.length; i++) {
+      appModel.tasks[i].taskID = i;
+    }
+
     app.currentTasks = toObservable(_filterTasks(Task.CURRENT));
     app.pendingTasks = toObservable(_filterTasks(Task.PENDING));
     app.completedTasks = toObservable(_filterTasks(Task.COMPLETED));
