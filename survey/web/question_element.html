@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<polymer-element name="question-element" extends="li" attributes="question">
+  <template>
+    <style>
+      .icons {
+        float: right;
+      }
+
+      @host {
+        :scope {
+          background: #fafaff;
+          padding: 12px;
+        }
+      }
+    </style>
+
+    <div class="row">
+      <div class="col-md-11">
+        <template if="{{editing}}">
+          <input class='form-control' value="{{question.text}}" placeholder="Add question text">
+          <input class='form-control' value="{{question.helpText}}" placeholder="Add help text">
+        </template>
+
+        <template if="{{!editing}}">
+          <div><strong>{{question.text}}</strong></div>
+          <div>{{question.helpText}}</div>
+        </template>
+      </div>
+
+      <div class="col-md-1 icons">
+        <template if="{{!editing}}">
+          <span class="glyphicon glyphicon-pencil" on-click="inEditMode"></span>
+        </template>
+        <template if="{{editing}}">
+          <button on-click="inReadMode" type="button" class="btn btn-primary">Done</button>
+        </template>
+      </div>
+    </div>
+  </template>
+
+  <script type="application/dart" src="question_element.dart"></script>
+</polymer-element>
