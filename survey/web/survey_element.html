@@ -30,7 +30,7 @@
               placeholder='Add survey description'
               value="{{app.description}}">
           </textarea>
-          <ul on-doneediting='addNewQuestionForm'>
+          <ul>
             <template repeat="{{app.questions}}">
               <li is="question-element" question="{{}}"></li>
             </template>
@@ -39,7 +39,8 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <span id="add-new-question-button" class="glyphicon glyphicon-plus-sign" on-click="addNewQuestion"></span>
+       <button type="button" on-click="addNewQuestion"
+           class="btn btn-primary">Add question</button>
         </div>
       </div>
     </div> <!-- end .container -->

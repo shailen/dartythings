@@ -9,16 +9,23 @@ class QuestionElement extends PolymerElement with ObservableMixin {
   @observable bool editing = true;
   @observable String errorMessage = '';
 
-  inEditMode() {
+  edit() {
     editing = true;
+    errorMessage = '';
   }
 
-  inReadMode(Event e, details, Node sender) {
+  show(Event e, details, Node sender) {
     e.preventDefault();
     if (question.isValid) {
       editing = false;
     } else {
       errorMessage = 'You forgot to add the question text';
+    }
+  }
+
+  delete(Event e, details, Node sender) {
+    if (window.confirm('Are you sure you want to delete this question?')) {
+      appModel.questions.remove(question);
     }
   }
 }

@@ -2,18 +2,22 @@
 <polymer-element name="question-element" extends="li" attributes="question">
   <template>
     <style>
-      .icons {
-        float: right;
-      }
-
-      #edit-glyph {
-        font-size: 1.5em;
-        float: right;
-        color: #357ebd;
-      }
-
       .errorMessage {
         color: red;
+      }
+
+      #edit-icon, #delete-icon {
+        font-size: 1.5em;
+        color: #357ebd;
+        margin:5px;
+      }
+
+      #edit-icon, #done-button {
+        float: right;
+      }
+
+      #delete-icon {
+        float: left;
       }
 
       @host {
@@ -25,7 +29,7 @@
     </style>
 
     <div class="row">
-      <div class="col-md-11">
+      <div class="col-md-12">
         <template if="{{editing}}">
           <template if="{{errorMessage.isNotEmpty}}">
             <div class='errorMessage'>{{errorMessage}}</div>
@@ -41,13 +45,18 @@
           </template>
         </template>
       </div>
+    </div>
 
-      <div class="col-md-1 icons">
+    <div class="row">
+      <div class="col-xs-6 icons">
+        <span id="delete-icon" class="glyphicon glyphicon-remove" on-click="delete"></span>
+      </div>
+      <div class="col-xs-6 icons">
         <template if="{{!editing}}">
-          <span id="edit-glyph" class="glyphicon glyphicon-pencil" on-click="inEditMode"></span>
+          <span id="edit-icon" class="glyphicon glyphicon-pencil" on-click="edit"></span>
         </template>
         <template if="{{editing}}">
-          <button on-click="inReadMode" type="button" class="btn btn-primary">Done</button>
+          <button id="done-button" on-click="show" type="button" class="btn btn-primary">Done</button>
         </template>
       </div>
     </div>

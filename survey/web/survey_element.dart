@@ -9,7 +9,8 @@ class SurveyElement extends PolymerElement with ObservableMixin {
 
   created() {
     super.created();
-    app.questions = toObservable([]);
+    app = appModel;
+    appModel.questions = toObservable([]);
   }
 
   inserted() {
@@ -18,12 +19,8 @@ class SurveyElement extends PolymerElement with ObservableMixin {
         'This might be a trick question.' ));
   }
 
-  addQuestion(Event e, detail, Node sender) {
+  addNewQuestion(Event e, detail, Node sender) {
     e.preventDefault();
-    app.questions.add(new Question());
-  }
-
-  addNewQuestion() {
     app.questions.add(new Question());
   }
 }
