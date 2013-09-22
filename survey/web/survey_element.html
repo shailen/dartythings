@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<link rel='import' href='question_element.html'>;
+<link rel='import' href='question_element.html'>
 
 <polymer-element name="survey-element">
   <template>
@@ -11,6 +11,13 @@
 
       li {
         margin: 10px 0;
+      }
+
+      #add-new-question-button {
+        font-size: 2.5em;
+        color: #357ebd;
+        margin: 1.5em 0;
+
       }
     </style>
     <div class='container'>
@@ -30,7 +37,12 @@
           </ul>
         </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col-md-12">
+          <span id="add-new-question-button" class="glyphicon glyphicon-plus-sign" on-click="addNewQuestion"></span>
+        </div>
+      </div>
+    </div> <!-- end .container -->
   </template>
 
   <script type="application/dart" src="survey_element.dart"></script>

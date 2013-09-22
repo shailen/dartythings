@@ -23,8 +23,7 @@ class SurveyElement extends PolymerElement with ObservableMixin {
     app.questions.add(new Question());
   }
 
-  addNewQuestionForm() {
-    print('adding new question through custom event dispatch');
+  addNewQuestion() {
     app.questions.add(new Question());
   }
 }

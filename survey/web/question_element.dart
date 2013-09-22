@@ -7,6 +7,7 @@ class QuestionElement extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
   @observable Question question = new Question();
   @observable bool editing = true;
+  @observable String errorMessage = '';
 
   inEditMode() {
     editing = true;
@@ -14,7 +15,10 @@ class QuestionElement extends PolymerElement with ObservableMixin {
 
   inReadMode(Event e, details, Node sender) {
     e.preventDefault();
-    editing = false;
-    dispatchEvent(new CustomEvent('doneediting'));
+    if (question.isValid) {
+      editing = false;
+    } else {
+      errorMessage = 'You forgot to add the question text';
+    }
   }
 }

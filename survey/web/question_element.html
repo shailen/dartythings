@@ -6,6 +6,16 @@
         float: right;
       }
 
+      #edit-glyph {
+        font-size: 1.5em;
+        float: right;
+        color: #357ebd;
+      }
+
+      .errorMessage {
+        color: red;
+      }
+
       @host {
         :scope {
           background: #fafaff;
@@ -17,19 +27,24 @@
     <div class="row">
       <div class="col-md-11">
         <template if="{{editing}}">
+          <template if="{{errorMessage.isNotEmpty}}">
+            <div class='errorMessage'>{{errorMessage}}</div>
+          </template>
           <input class='form-control' value="{{question.text}}" placeholder="Add question text">
           <input class='form-control' value="{{question.helpText}}" placeholder="Add help text">
         </template>
 
         <template if="{{!editing}}">
           <div><strong>{{question.text}}</strong></div>
-          <div>{{question.helpText}}</div>
+          <template if="{{question.helpText.isNotEmpty}}">
+            <div>Hint: <i>{{question.helpText}}</i></div>
+          </template>
         </template>
       </div>
 
       <div class="col-md-1 icons">
         <template if="{{!editing}}">
-          <span class="glyphicon glyphicon-pencil" on-click="inEditMode"></span>
+          <span id="edit-glyph" class="glyphicon glyphicon-pencil" on-click="inEditMode"></span>
         </template>
         <template if="{{editing}}">
           <button on-click="inReadMode" type="button" class="btn btn-primary">Done</button>
