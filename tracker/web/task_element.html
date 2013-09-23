@@ -34,9 +34,12 @@
     </template>
 
     <template if="{{editingTask}}">
-      <div on-closeform="toggleFormDisplay">
+      <div>
         <div on-click='toggleFormDisplay' class="nav-glyph glyphicon glyphicon-minus"></div>
-        <div class="element-container"><task-form-element task="{{task}}"></task-form-element></div>
+        <div class="element-container">
+          <task-form-element task="{{task}}" on-notneeded="toggleFormDisplay">
+          </task-form-element>
+        </div>
       </div>
     </template>
   </template>

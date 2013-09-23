@@ -3,7 +3,7 @@
 <polymer-element name="task-list-element" attributes="tasks" extends="ul">
   <template>
     <template repeat="{{tasks}}">
-      <li is="task-element" task="{{}}"></li>
+      <li is="task-element" task="{{}}" on-pleasedeleteme="deleteTask"></li>
     </template>
   </template>
   <script type="application/dart" src="task_list_element.dart"></script>

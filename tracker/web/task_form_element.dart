@@ -24,6 +24,7 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
   inserted() {
     super.inserted();
     submitLabel = task.saved ? 'Update' : 'Create';
+    statusSelectedIndex = taskStatusOptions.indexOf(task.status);
     if (!task.saved) {
       statusSelectedIndex = taskStatusOptions.indexOf(task.status);
       previousStatus = task.status;
@@ -77,8 +78,15 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     } else {
       appModel.completedTasks.add(task);
     }
+    dispatchNotNeeded();
+  }
 
-    dispatchEvent(new CustomEvent('close-form'));
+  void dispatchNotNeeded() {
+    dispatchEvent(new CustomEvent('notneeded'));
+  }
+
+  void dispatchPleaseDeleteMe() {
+    dispatchEvent(new CustomEvent('pleasedeleteme'));
   }
 
   createTask() {
@@ -109,15 +117,7 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
 
   // TODO: use custom event to remove from sublist, and then remove from tasks.
   deleteTask(Event event) {
-    event.preventDefault();
-    if (window.confirm('Really delete this?')) {
-      if (task.status == Task.CURRENT) {
-        appModel.currentTasks.remove(task);
-      } else if (task.status == Task.PENDING) {
-        appModel.pendingTasks.remove(task);
-      } else {
-        appModel.completedTasks.remove(task);
-      }
-    }
+    appModel.tasks.remove(task);
+    dispatchPleaseDeleteMe();
   }
 }

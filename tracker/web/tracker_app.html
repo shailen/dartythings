@@ -57,8 +57,7 @@
       <div class="list-container col-md-4">
         <template if="{{creatingNewTask}}">
           <div on-closeform="toggleNewFormDisplay">
-            <button type="button" on-click='toggleNewTaskFormDisplay' class="btn btn-link">Cancel</button>
-            <div class="element-container"><task-form-element task="{{task}}"></task-form-element></div>
+            <div class="element-container"><task-form-element task="{{task}}" on-notneeded="toggleNewTaskFormDisplay"></task-form-element></div>
           </div>
         </template>
 

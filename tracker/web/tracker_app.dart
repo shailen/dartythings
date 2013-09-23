@@ -27,10 +27,6 @@ class TrackerApp extends PolymerElement with ObservableMixin {
     creatingNewTask = !creatingNewTask;
   }
 
-  search() {
-
-  }
-
   List<Task> _filterTasks(String label) {
     return app.tasks.where((task) => task.status == label).toList();
   }
