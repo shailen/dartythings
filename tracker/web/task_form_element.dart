@@ -16,7 +16,6 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
   @observable int statusSelectedIndex = 1;
   @observable String previousStatus = '';
   @observable String submitLabel = '';
-  @observable bool display = true;
 
   created() {
     super.created();
@@ -25,9 +24,6 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
   inserted() {
     super.inserted();
     submitLabel = task.saved ? 'Update' : 'Create';
-    print(submitLabel);
-    print(task.taskID);
-
     if (!task.saved) {
       statusSelectedIndex = taskStatusOptions.indexOf(task.status);
       previousStatus = task.status;
@@ -64,12 +60,8 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
   createOrUpdateTask(Event event, detail, sender) {
     event.preventDefault();
     event.stopPropagation();
-    print(detail.runtimeType);
-    print(sender.runtimeType);
-    print(task);
 
     if (!task.isValid) return;
-
 
     if (task.saved) {
       updateTask();
@@ -85,21 +77,19 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     } else {
       appModel.completedTasks.add(task);
     }
-    display = false;
+
     dispatchEvent(new CustomEvent('close-form'));
   }
 
   createTask() {
-    print('inside createTask');
+    print('inside createTask()');
     DateTime now = new DateTime.now();
     var random = new Random();
+    print(task.status);
     task.taskID = random.nextInt(1000 * 1000);
-    print(task.taskID);
-
     task.createdAt = now;
     task.updatedAt = now;
     appModel.tasks.add(task);
-
   }
 
   updateTask() {
@@ -107,15 +97,18 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     task.updatedAt = now;
     var previousStatus = task.status;
     task.status = taskStatusOptions[statusSelectedIndex];
-    if (previousStatus == Task.CURRENT) {
-      appModel.currentTasks.remove(task);
-    } else if (previousStatus == Task.PENDING) {
-      appModel.pendingTasks.remove(task);
-    } else {
-      appModel.completedTasks.remove(task);
+    if (previousStatus != task.status) {
+      if (previousStatus == Task.CURRENT) {
+        appModel.currentTasks.remove(task);
+      } else if (previousStatus == Task.PENDING) {
+        appModel.pendingTasks.remove(task);
+      } else {
+        appModel.completedTasks.remove(task);
+      }
     }
   }
 
+  // TODO: use custom event to remove from sublist, and then remove from tasks.
   deleteTask(Event event) {
     event.preventDefault();
     if (window.confirm('Really delete this?')) {

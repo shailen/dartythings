@@ -17,7 +17,7 @@ class TrackerApp extends PolymerElement with ObservableMixin {
     for (var i = 0; i < appModel.tasks.length; i++) {
       appModel.tasks[i].taskID = i;
     }
-
+    task = new Task.unsaved();
     app.currentTasks = toObservable(_filterTasks(Task.CURRENT));
     app.pendingTasks = toObservable(_filterTasks(Task.PENDING));
     app.completedTasks = toObservable(_filterTasks(Task.COMPLETED));
@@ -28,20 +28,7 @@ class TrackerApp extends PolymerElement with ObservableMixin {
   }
 
   search() {
-//    var taskLists = [app.currentTasks, app.pendingTasks, app.completedTasks];
-//    taskLists.forEach((taskList) {
-//      for (Task task in taskList) {
-//        if (searchParam.length < 4) {
-//          task.searchClass = '';
-//        } else {
-//          if (task.title.contains(searchParam)) {
-//            task.searchClass = Task.FOUND;
-//          } else {
-//            task.searchClass = Task.NOT_FOUND;
-//          }
-//        }
-//      }
-//    });
+
   }
 
   List<Task> _filterTasks(String label) {
