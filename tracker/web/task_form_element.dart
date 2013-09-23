@@ -82,10 +82,9 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
   }
 
   createTask() {
-    print('inside createTask()');
     DateTime now = new DateTime.now();
     var random = new Random();
-    print(task.status);
+    task.status = taskStatusOptions[statusSelectedIndex]; // TODO: DRY this
     task.taskID = random.nextInt(1000 * 1000);
     task.createdAt = now;
     task.updatedAt = now;
