@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<polymer-element name="question-element" extends="li" attributes="question">
+
+<polymer-element name="question-element" extends="li" attributes="question" on-click="addNewOption">
   <template>
     <style>
       .errorMessage {
@@ -22,9 +23,33 @@
 
       @host {
         :scope {
-          background: #fafaff;
+          background: #f8f8ff;
           padding: 12px;
         }
+      }
+
+      .widget-options {
+        margin-bottom: 10px;
+      }
+
+      #display-intro {
+        color: #357ebd;
+        margin-bottom: 8px;
+      }
+
+      .display {
+        background: #fff;
+        border: 1px solid #999;
+        border-radius: 4px;
+        padding: 5px;
+      }
+
+      .display textarea {
+        margin-bottom: 10px;
+      }
+
+      .display input[type="radio"] {
+        margin: 5px;
       }
     </style>
 
@@ -36,13 +61,62 @@
           </template>
           <input class='form-control' value="{{question.text}}" placeholder="Add question text">
           <input class='form-control' value="{{question.helpText}}" placeholder="Add help text">
+
+          <div class="widget-options">
+            <select class="form-control" selectedIndex="{{answerSelectedIndex}}">
+              <template repeat="{{answerOptions}}"><option>{{}}</option></template>
+            </select>
+          </div>
+
+         <!-- OPTIONS -->
+          <template if="{{answerSelectedIndex != 0}}">
+            <ul>
+            <template repeat="{{question.options}}">
+              <li>
+                <input class="form-control" value="{{text}}" placeholder="Add option">
+              </li>
+            </template>
+            </ul>
+          </template>
         </template>
 
+
+        <!-- DISPLAY -->
         <template if="{{!editing}}">
-          <div><strong>{{question.text}}</strong></div>
-          <template if="{{question.helpText.isNotEmpty}}">
-            <div>Hint: <i>{{question.helpText}}</i></div>
-          </template>
+          <div id="display-intro">This is what the user will see:</div>
+          <!-- TODO: make display it's own widget -->
+          <div class="display">
+            <div><strong>{{question.text}}</strong></div>
+            <template if="{{question.helpText.isNotEmpty}}">
+              <div><i>Hint: {{question.helpText}}</i></div>
+            </template>
+
+            <template if="{{answerSelectedIndex == 0}}">
+              <textarea class='form-control' placeholder="Add response here"></textarea>
+            </template>
+
+            <template if="{{answerSelectedIndex == 1}}">
+              <template repeat="{{nonEmptyOptions}}">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="question_radio" value="{{text}}">
+                    {{text}}
+                  </label>
+                </div>
+              </template>
+            </template>
+
+            <template if="{{answerSelectedIndex == 1}}">
+              <template repeat="{{nonEmptyOptions}}">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="question_radio" value="{{text}}">
+                    {{text}}
+                  </label>
+                </div>
+              </template>
+            </template>
+          </div>
         </template>
       </div>
     </div>

@@ -6,7 +6,7 @@
   <template>
     <style>
       textarea, input {
-        margin-bottom: 10px;
+        margin: 15px 0;
       }
 
       li {
@@ -14,11 +14,9 @@
       }
 
       #add-new-question-button {
-        font-size: 2.5em;
-        color: #357ebd;
         margin: 1.5em 0;
-
       }
+
     </style>
     <div class='container'>
       <div class="row">
@@ -39,7 +37,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-       <button type="button" on-click="addNewQuestion"
+       <button id="add-new-question-button" type="button" on-click="addNewQuestion"
            class="btn btn-primary">Add question</button>
         </div>
       </div>
