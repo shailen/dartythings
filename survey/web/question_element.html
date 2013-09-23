@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="import" href="option_element.html">
 
 <polymer-element name="question-element" extends="li" attributes="question" on-click="addNewOption">
   <template>
@@ -48,7 +49,7 @@
         margin-bottom: 10px;
       }
 
-      .display input[type="radio"] {
+      .display input[type="radio"], input[type="checkbox"] {
         margin: 5px;
       }
     </style>
@@ -72,9 +73,7 @@
           <template if="{{answerSelectedIndex != 0}}">
             <ul>
             <template repeat="{{question.options}}">
-              <li>
-                <input class="form-control" value="{{text}}" placeholder="Add option">
-              </li>
+              <li is="option-element" option="{{}}"></li>
             </template>
             </ul>
           </template>
@@ -92,17 +91,9 @@
             </template>
 
             <template if="{{answerSelectedIndex == 0}}">
-              <textarea class='form-control' placeholder="Add response here"></textarea>
-            </template>
-
-            <template if="{{answerSelectedIndex == 1}}">
-              <template repeat="{{nonEmptyOptions}}">
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="question_radio" value="{{text}}">
-                    {{text}}
-                  </label>
-                </div>
+              <textarea class='form-control' placeholder="Add response here" value="{{textValue}}"></textarea>
+              <template if="{{textValue.isNotEmpty}}">
+                <p>You wrote: {{textValue}}</p>
               </template>
             </template>
 
@@ -110,7 +101,21 @@
               <template repeat="{{nonEmptyOptions}}">
                 <div class="radio">
                   <label>
-                    <input type="radio" name="question_radio" value="{{text}}">
+                    <input type="radio" name="question_radio" value="{{text}}" on-click="handleRadios">
+                    {{text}}
+                  </label>
+                </div>
+              </template>
+              <template if="{{radioValue.isNotEmpty}}">
+                <p>You picked {{radioValue}}.</p>
+              </template>
+            </template>
+
+            <template if="{{answerSelectedIndex == 2}}">
+              <template repeat="{{nonEmptyOptions}}">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="question_checkbox" value="{{text}}" checked="{{checked}}">
                     {{text}}
                   </label>
                 </div>

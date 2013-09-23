@@ -12,6 +12,8 @@ class QuestionElement extends PolymerElement with ObservableMixin {
   @observable int answerSelectedIndex = 0;
 
   @observable List<Option> nonEmptyOptions = toObservable([]);
+  @observable String textValue = '';
+  @observable String radioValue = '';
 
 
   inserted() {
@@ -30,7 +32,7 @@ class QuestionElement extends PolymerElement with ObservableMixin {
 
       nonEmptyOptions = [];
 
-      // TODO: good grief, just use a filter.
+      // TODO: good grief, use a filter.
       for (var i = 0; i < question.options.length; i++) {
         if (question.options[i].text.isNotEmpty) {
           nonEmptyOptions.add(question.options[i]);
@@ -55,7 +57,8 @@ class QuestionElement extends PolymerElement with ObservableMixin {
     }
   }
 
-  getRadioValue(Event e, detail, Node sender) {
-
+  handleRadios(Event e, detail, Node sender) {
+    e.preventDefault();
+    radioValue = sender.value;
   }
 }
