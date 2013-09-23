@@ -57,7 +57,8 @@
       <div class="list-container col-md-4">
         <template if="{{creatingNewTask}}">
           <div on-closeform="toggleNewFormDisplay">
-            <div class="element-container"><task-form-element task="{{task}}" on-notneeded="toggleNewTaskFormDisplay"></task-form-element></div>
+            <div class="element-container"><task-form-element task="{{newTask}}"
+            on-notneeded="toggleNewTaskFormDisplay"></task-form-element></div>
           </div>
         </template>
 

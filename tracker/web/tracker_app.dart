@@ -6,7 +6,7 @@ import 'package:tracker/seed.dart' as seed;
 class TrackerApp extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
   @observable Tracker app;
-  @observable Task task;
+  @observable Task newTask;
   @observable String searchParam = '';
   @observable bool creatingNewTask = false;
 
@@ -14,10 +14,13 @@ class TrackerApp extends PolymerElement with ObservableMixin {
     super.created();
     app = appModel;
     appModel.tasks = toObservable(seed.data);
+
+    // Assign IDs to the seed data, so that saved == true.
     for (var i = 0; i < appModel.tasks.length; i++) {
       appModel.tasks[i].taskID = i;
     }
-    task = new Task.unsaved();
+
+    newTask = new Task.unsaved();
     app.currentTasks = toObservable(_filterTasks(Task.CURRENT));
     app.pendingTasks = toObservable(_filterTasks(Task.PENDING));
     app.completedTasks = toObservable(_filterTasks(Task.COMPLETED));
