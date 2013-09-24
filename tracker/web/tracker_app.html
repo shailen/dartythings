@@ -27,18 +27,17 @@
       <div class="col-md-8">
         <h1>Task Tracker</h1>
       </div>
-      <div class="col-md-2">
-        <template bind if="{{!creatingNewTask}}">
+
+      <template bind if="{{!creatingNewTask}}">
+        <div class="col-md-2">
           <button id="new-task-button" on-click='toggleNewTaskFormDisplay' type="button"
               class="btn btn-primary">Add task</button>
-        </template>
-      </div>
-      <div class="col-md-2">
-        <template bind if="{{!creatingNewTask}}">
-          <input type='text' id="search-input" class="form-control"
+        </div>
+        <div class="col-md-2">
+           <input type='text' id="search-input" class="form-control"
               on-keyup="search" value="{{searchParam}}" placeholder="Search">
-        </template>
-      </div>
+        </div>
+      </template>
     </div>
 
     <div class="row">
