@@ -1,3 +1,7 @@
+//Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+//for details. All rights reserved. Use of this source code is governed by a
+//BSD-style license that can be found in the LICENSE file.
+
 import 'package:polymer/polymer.dart';
 import 'package:tracker/models.dart';
 import 'dart:html';
@@ -16,10 +20,6 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
   @observable int statusSelectedIndex = 1;
   @observable String previousStatus = '';
   @observable String submitLabel = '';
-
-  created() {
-    super.created();
-  }
 
   inserted() {
     super.inserted();
@@ -62,8 +62,12 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     event.preventDefault();
     event.stopPropagation();
 
-    // TODO: generate form-level error.
-    if (!task.isValid) return;
+    // Do view validation to trigger error messages, and model validation
+    // to ensure that a task is never in an invalid state.
+    if (!validateTitle() || !validateDescription() || !task.isValid) return;
+
+    previousStatus = task.status;
+    task.status = taskStatusOptions[statusSelectedIndex];
 
     if (task.saved) {
       updateTask();
@@ -77,14 +81,9 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     dispatchEvent(new CustomEvent('notneeded'));
   }
 
-  void dispatchPleaseDeleteMe() {
-    dispatchEvent(new CustomEvent('pleasedeleteme'));
-  }
-
   createTask() {
     DateTime now = new DateTime.now();
     var random = new Random();
-    task.status = taskStatusOptions[statusSelectedIndex]; // TODO: DRY this
     task.taskID = random.nextInt(1000 * 1000);
     task.createdAt = now;
     task.updatedAt = now;
@@ -94,8 +93,6 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
   updateTask() {
     DateTime now = new DateTime.now();
     task.updatedAt = now;
-    var previousStatus = task.status;
-    task.status = taskStatusOptions[statusSelectedIndex];
     if (previousStatus != task.status) {
       appModel.tasks.remove(task);
       appModel.tasks.add(task);

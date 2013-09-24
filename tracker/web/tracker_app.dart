@@ -1,19 +1,21 @@
+//Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+//for details. All rights reserved. Use of this source code is governed by a
+//BSD-style license that can be found in the LICENSE file.
+
 import 'package:polymer/polymer.dart';
 import 'package:tracker/models.dart';
 import 'package:tracker/seed.dart' as seed;
 
-import 'dart:async';
-
 @CustomTag('tracker-app')
 class TrackerApp extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
-
   @observable ObservableList<Task> tasks = toObservable([]);
-  List<Task> filteredOutTasks = [];
   @observable Tracker app;
   @observable Task newTask = new Task.unsaved();
   @observable String searchParam = '';
   @observable bool creatingNewTask = false;
+
+  List<Task> filteredOutTasks = [];
 
   TrackerApp() {
     app = appModel;
@@ -26,7 +28,6 @@ class TrackerApp extends PolymerElement with ObservableMixin {
     }
 
     tasks.changes.listen((List<ChangeRecord> changes) {
-      notifyProperty(this, const Symbol('filtered'));
       notifyProperty(this, const Symbol(Task.CURRENT));
       notifyProperty(this, const Symbol(Task.PENDING));
       notifyProperty(this, const Symbol(Task.COMPLETED));
@@ -37,7 +38,7 @@ class TrackerApp extends PolymerElement with ObservableMixin {
   List<Task> get pending =>   populateGetters(Task.PENDING);
   List<Task> get completed => populateGetters(Task.COMPLETED);
 
-  toggleNewTaskFormDisplay() {
+  toggleFormDisplay() {
     creatingNewTask = !creatingNewTask;
   }
 
@@ -64,8 +65,6 @@ class TrackerApp extends PolymerElement with ObservableMixin {
   }
 
   populateGetters(String status) {
-    return tasks.where((task) {
-      return task.status == status && taskMatchesSearchParam(task);
-    }).toList();
+    return tasks.where((task) => task.status == status).toList();
   }
 }

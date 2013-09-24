@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+for details. All rights reserved. Use of this source code is governed by a
+BSD-style license that can be found in the LICENSE file.
+-->
 <link rel="import" href="task_list_element.html">
 <link rel="import" href="task_form_element.html">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -22,57 +27,46 @@
         color: white;
       }
     </style>
-
-    <div class="row">
-      <div class="col-md-8">
-        <h1>Task Tracker</h1>
-      </div>
-
-      <template bind if="{{!creatingNewTask}}">
-        <div class="col-md-2">
-          <button id="new-task-button" on-click='toggleNewTaskFormDisplay' type="button"
-              class="btn btn-primary">Add task</button>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>Task Tracker</h1>
         </div>
-        <div class="col-md-2">
-           <input type='text' id="search-input" class="form-control"
-              on-keyup="search" value="{{searchParam}}" placeholder="Search">
-        </div>
-      </template>
-    </div>
 
-    <div class="row">
-      <div class="error col-md-12">
-        {{app.errorNotification}}
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="success col-md-12">
-        {{app.successNotification}}
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="list-container col-md-4">
-        <template if="{{creatingNewTask}}">
-          <div on-closeform="toggleNewFormDisplay">
-            <div class="element-container"><task-form-element task="{{newTask}}"
-            on-notneeded="toggleNewTaskFormDisplay"></task-form-element></div>
+        <template bind if="{{!creatingNewTask}}">
+          <div class="col-md-2">
+            <button id="new-task-button" on-click='toggleFormDisplay' type="button"
+                class="btn btn-primary">Add task</button>
+          </div>
+          <div class="col-md-2">
+             <input type='text' id="search-input" class="form-control"
+                on-keyup="search" value="{{searchParam}}" placeholder="Search">
           </div>
         </template>
-
-        <h2>Current</h2>
-        <ul is="task-list-element" tasks="{{current}}"></ul>
       </div>
 
-      <div class="list-container col-md-4">
-        <h2>Pending</h2>
-        <ul is="task-list-element" tasks="{{pending}}"></ul>
-      </div>
+      <div class="row">
+        <div class="list-container col-md-4">
+          <template if="{{creatingNewTask}}">
+            <div>
+              <div class="element-container"><task-form-element task="{{newTask}}"
+                  on-notneeded="toggleFormDisplay"></task-form-element></div>
+            </div>
+          </template>
 
-      <div class="list-container col-md-4">
-        <h2>Completed</h2>
-        <ul is="task-list-element" tasks="{{completed}}"></ul>
+          <h2>Current</h2>
+          <ul is="task-list-element" tasks="{{current}}"></ul>
+        </div>
+
+        <div class="list-container col-md-4">
+          <h2>Pending</h2>
+          <ul is="task-list-element" tasks="{{pending}}"></ul>
+        </div>
+
+        <div class="list-container col-md-4">
+          <h2>Completed</h2>
+          <ul is="task-list-element" tasks="{{completed}}"></ul>
+        </div>
       </div>
     </div>
   </template>
