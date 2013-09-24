@@ -30,5 +30,5 @@ class Task extends Object with ObservableMixin {
 
   bool get saved => taskID != null;
 
-  String toString() => 'Task: hashCode = ${this.hashCode}, status = ${this.status}';
+  String toString() => 'Task: taskID = ${this.taskID}, status = ${this.status}';
 }

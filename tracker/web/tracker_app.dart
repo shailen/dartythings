@@ -2,35 +2,64 @@ import 'package:polymer/polymer.dart';
 import 'package:tracker/models.dart';
 import 'package:tracker/seed.dart' as seed;
 
+import 'dart:async';
+
 @CustomTag('tracker-app')
 class TrackerApp extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
+
+  @observable ObservableList<Task> tasks = toObservable([]);
+
   @observable Tracker app;
-  @observable Task newTask;
+  @observable Task newTask = new Task.unsaved();
   @observable String searchParam = '';
   @observable bool creatingNewTask = false;
 
-  void created() {
-    super.created();
+  TrackerApp() {
+    // OLD STUFF
     app = appModel;
-    appModel.tasks = toObservable(seed.data);
+    appModel.tasks = tasks;
 
-    // Assign IDs to the seed data, so that saved == true.
-    for (var i = 0; i < appModel.tasks.length; i++) {
-      appModel.tasks[i].taskID = i;
+    print(appModel.tasks.hashCode);
+    print(tasks.hashCode);
+
+    // Assign IDs to the seed data, so that task.saved == true.
+    for (var i = 0; i < seed.data.length; i++) {
+      seed.data[i].taskID = i;
+      tasks.add(seed.data[i]);
+      print(tasks[i]);
     }
 
-    newTask = new Task.unsaved();
-    app.currentTasks = toObservable(_filterTasks(Task.CURRENT));
-    app.pendingTasks = toObservable(_filterTasks(Task.PENDING));
-    app.completedTasks = toObservable(_filterTasks(Task.COMPLETED));
+    tasks.changes.listen((List<ChangeRecord> changes) {
+      print('the main list changed');
+      notifyProperty(this, const Symbol(Task.CURRENT));
+      notifyProperty(this, const Symbol(Task.PENDING));
+      notifyProperty(this, const Symbol(Task.COMPLETED));
+    });
+  }
+
+  List<Task> get current => _filterTasks(Task.CURRENT).toList();
+  List<Task> get pending => _filterTasks(Task.PENDING).toList();
+  List<Task> get completed => _filterTasks(Task.COMPLETED).toList();
+
+  void created() {
+    super.created();
+
+
+    print('*******************************');
+    print(tasks);
+    print(current);
+    print(pending);
+    print(completed);
+    print('*******************************');
+
   }
 
   toggleNewTaskFormDisplay() {
     creatingNewTask = !creatingNewTask;
   }
 
-  List<Task> _filterTasks(String label) {
-    return app.tasks.where((task) => task.status == label).toList();
+  List<Task> _filterTasks(String status) {
+    return tasks.where((task) => task.status == status).toList();
   }
 }

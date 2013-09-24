@@ -62,21 +62,13 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     event.preventDefault();
     event.stopPropagation();
 
+    // TODO: generate form-level error.
     if (!task.isValid) return;
 
     if (task.saved) {
       updateTask();
     } else {
       createTask();
-    }
-
-    // TODO: refactor this code.
-    if (task.status == Task.CURRENT) {
-      appModel.currentTasks.add(task);
-    } else if (task.status == Task.PENDING) {
-      appModel.pendingTasks.add(task);
-    } else {
-      appModel.completedTasks.add(task);
     }
     dispatchNotNeeded();
   }
@@ -105,19 +97,12 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
     var previousStatus = task.status;
     task.status = taskStatusOptions[statusSelectedIndex];
     if (previousStatus != task.status) {
-      if (previousStatus == Task.CURRENT) {
-        appModel.currentTasks.remove(task);
-      } else if (previousStatus == Task.PENDING) {
-        appModel.pendingTasks.remove(task);
-      } else {
-        appModel.completedTasks.remove(task);
-      }
+      appModel.tasks.remove(task);
+      appModel.tasks.add(task);
     }
   }
 
-  // TODO: use custom event to remove from sublist, and then remove from tasks.
-  deleteTask(Event event) {
+  deleteTask() {
     appModel.tasks.remove(task);
-    dispatchPleaseDeleteMe();
   }
 }
