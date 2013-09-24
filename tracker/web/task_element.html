@@ -24,14 +24,14 @@ BSD-style license that can be found in the LICENSE file.
       }
     </style>
 
-    <template if="{{!editingTask}}">
+    <template if="{{!usingForm}}">
       <div>
         <div on-click='toggleFormDisplay' class="nav-glyph glyphicon glyphicon-plus"></div>
         <div class="element-container">{{task.title}}</div>
       </div>
     </template>
 
-    <template if="{{editingTask}}">
+    <template if="{{usingForm}}">
       <div>
         <div on-click='toggleFormDisplay' class="nav-glyph glyphicon glyphicon-minus"></div>
         <div class="element-container">

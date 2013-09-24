@@ -33,7 +33,7 @@ BSD-style license that can be found in the LICENSE file.
           <h1>Task Tracker</h1>
         </div>
 
-        <template bind if="{{!creatingNewTask}}">
+        <template bind if="{{!usingForm}}">
           <div class="col-md-2">
             <button id="new-task-button" on-click='toggleFormDisplay' type="button"
                 class="btn btn-primary">Add task</button>
@@ -47,7 +47,7 @@ BSD-style license that can be found in the LICENSE file.
 
       <div class="row">
         <div class="list-container col-md-4">
-          <template if="{{creatingNewTask}}">
+          <template if="{{usingForm}}">
             <div>
               <div class="element-container"><task-form-element task="{{newTask}}"
                   on-notneeded="toggleFormDisplay"></task-form-element></div>

@@ -9,9 +9,9 @@ import 'package:tracker/models.dart';
 class TaskElement extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
   @observable Task task;
-  @observable bool editingTask = false;
+  @observable bool usingForm = false;
 
   toggleFormDisplay() {
-    editingTask = !editingTask;
+    usingForm = !usingForm;
   }
 }

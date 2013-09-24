@@ -13,7 +13,7 @@ class TrackerApp extends PolymerElement with ObservableMixin {
   @observable Tracker app;
   @observable Task newTask = new Task.unsaved();
   @observable String searchParam = '';
-  @observable bool creatingNewTask = false;
+  @observable bool usingForm = false;
 
   List<Task> filteredOutTasks = [];
 
@@ -39,7 +39,7 @@ class TrackerApp extends PolymerElement with ObservableMixin {
   List<Task> get completed => populateGetters(Task.COMPLETED);
 
   toggleFormDisplay() {
-    creatingNewTask = !creatingNewTask;
+    usingForm = !usingForm;
   }
 
   search() {
