@@ -103,6 +103,8 @@ class TaskFormElement extends PolymerElement with ObservableMixin {
   }
 
   deleteTask() {
-    appModel.tasks.remove(task);
+    if (window.confirm('Are you sure you want to delete this?')) {
+      appModel.tasks.remove(task);
+    }
   }
 }

@@ -49,8 +49,7 @@
 
       <div class="field">
         <select class="form-control" selectedIndex="{{statusSelectedIndex}}">
-          <!-- Doing option repeat="{{...}}" does not work -->
-          <template repeat="{{taskStatusOptions}}"><option>{{}}</option></template>
+          <option template repeat="{{taskStatusOptions}}">{{}}</option>
         </select>
       </div>
 
