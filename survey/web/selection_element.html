@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 
-<polymer-element name="selections-element" extends="li" attributes="options, multiple">
+<polymer-element name="selection-element">
   <template>
-    <ul>
-      <template repeat="{{options}}">
-        <li>{{text}}</li>
-      </template>
+    <style>
+      li.item {
+        margin: 5px 0;
+        color: #ffffff;
+        background-color: #428bca;
+        border-color: #357ebd;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.428571429;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
+    </style>
+    <ul class='list-unstyled'>
+      <li class="item">I really like it</li>
+      <li class="item">God, I can't tell you how much I hate it</li>
     </ul>
   </template>
   <script type="application/dart" src="selection_element.dart"></script>
