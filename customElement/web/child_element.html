@@ -1,0 +1,20 @@
+    <!DOCTYPE html>
+
+    <polymer-element name="child-element">
+      <template>
+        <div on-click="dispatch">I am a child</div>
+      </template>
+      <script type="application/dart">
+        import 'dart:html';
+        import 'package:polymer/polymer.dart';
+
+        @CustomTag('child-element')
+        class ChildElement extends PolymerElement with ObservableMixin {
+
+          dispatch(Event e, var detail, Node sender) {
+            print('dispatching from child');
+            dispatchEvent(new CustomEvent('childspeaks'));
+          }
+        }
+      </script>
+    </polymer-element>

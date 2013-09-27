@@ -1,0 +1,21 @@
+    <!DOCTYPE html>
+    <link rel="import" href="child_element.html">
+    <polymer-element name="parent-element">
+      <template>
+        <div>I am the parent</div>
+        <child-element on-childspeaks="fireAway"></child-element>
+      </template>
+      <script type="application/dart">
+        import 'dart:html';
+        import 'package:polymer/polymer.dart';
+
+        @CustomTag('parent-element')
+        class ParentElement extends PolymerElement with ObservableMixin {
+
+          void fireAway() {
+            window.alert('The child spoke, I hear');
+          }
+        }
+      </script>
+    </polymer-element>
+
