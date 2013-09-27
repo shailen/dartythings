@@ -30,17 +30,20 @@ class QuestionElement extends PolymerElement with ObservableMixin {
     if (question.isValid) {
       editing = false;
 
+      print('inside show()');
+      print(question.options);
       nonEmptyOptions = [];
 
-      // TODO: good grief, use a filter.
       for (var i = 0; i < question.options.length; i++) {
         if (question.options[i].text.isNotEmpty) {
           nonEmptyOptions.add(question.options[i]);
         }
       }
+      print(nonEmptyOptions);
     } else {
       errorMessage = 'You forgot to add the question text';
     }
+
   }
 
   delete(Event e, details, Node sender) {
@@ -57,8 +60,9 @@ class QuestionElement extends PolymerElement with ObservableMixin {
     }
   }
 
-  handleRadios(Event e, detail, Node sender) {
+  handleRadios(Event e, detail, Element sender) {
     e.preventDefault();
+    print(sender);
     radioValue = sender.value;
   }
 }

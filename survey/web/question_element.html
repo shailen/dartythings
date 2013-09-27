@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <link rel="import" href="option_element.html">
+<link rel="import" href="selection_element.html">
 
 <polymer-element name="question-element" extends="li" attributes="question" on-click="addNewOption">
   <template>
@@ -98,6 +100,7 @@
             </template>
 
             <template if="{{answerSelectedIndex == 1}}">
+            <!--
               <template repeat="{{nonEmptyOptions}}">
                 <div class="radio">
                   <label>
@@ -109,6 +112,9 @@
               <template if="{{radioValue.isNotEmpty}}">
                 <p>You picked {{radioValue}}.</p>
               </template>
+            -->
+              {{nonEmptyOptions}}
+              <selection-element values="{{nonEmptyOptions}}"></selection-element>
             </template>
 
             <template if="{{answerSelectedIndex == 2}}">

@@ -5,7 +5,8 @@ import 'package:polymer/polymer.dart';
 class SelectionElement extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
 
-  @observable List<String> values = toObservable(['red', 'green', 'blue']);
+  @observable List<String> values = toObservable([]);
+  // @observable ObservableList<String> values = toObservable([]);
   @observable List<int> selectedIndices = toObservable([1]);
   @observable List<String> selectedValues = toObservable([]);
   @observable bool multi = false;
