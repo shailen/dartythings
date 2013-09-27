@@ -3,10 +3,11 @@
 <polymer-element name="selection-element">
   <template>
     <style>
+
       li.item {
         margin: 5px 0;
-        color: #ffffff;
-        background-color: #428bca;
+        background-color: #fff;
+        color: #428bca;
         border-color: #357ebd;
         padding: 6px 12px;
         margin-bottom: 0;
@@ -17,7 +18,7 @@
         white-space: nowrap;
         vertical-align: middle;
         cursor: pointer;
-        border: 1px solid transparent;
+        border: 1px solid #357ebd;
         border-radius: 4px;
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -25,11 +26,19 @@
         -o-user-select: none;
         user-select: none;
       }
+
+      .item.selected {
+        background-color: #428bca;
+        color: #fff;
+      }
     </style>
-    <ul class='list-unstyled'>
-      <li class="item">I really like it</li>
-      <li class="item">God, I can't tell you how much I hate it</li>
+
+    <ul>
+      <template repeat="{{value in values}}">
+        <li class="item" on-click="makeSelection">{{value}}</li>
+      </template>
     </ul>
+
   </template>
   <script type="application/dart" src="selection_element.dart"></script>
 </polymer-element>

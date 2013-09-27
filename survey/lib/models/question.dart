@@ -13,6 +13,5 @@ class Question extends ObservableBase {
   }
 
   List<Option> options;
-
   bool get isValid => text.isNotEmpty;
 }
