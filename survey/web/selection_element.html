@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<link rel="import" href="selection_item_element.html">
 <polymer-element name="selection-element">
   <template>
     <style>
-
-      li.item {
+      .item {
         margin: 5px 0;
         background-color: #fff;
         color: #428bca;
@@ -32,13 +33,11 @@
         color: #fff;
       }
     </style>
-
     <ul>
-      <template repeat="{{value in values}}">
+      <template repeat="{{ value in values }}">
         <li class="item" on-click="makeSelection">{{value}}</li>
       </template>
     </ul>
-
   </template>
   <script type="application/dart" src="selection_element.dart"></script>
 </polymer-element>
