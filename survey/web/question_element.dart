@@ -48,6 +48,13 @@ class QuestionElement extends PolymerElement with ObservableMixin {
           nonEmptyOptions.add(question.options[i]);
         }
       }
+
+      if (widgetOptions[widgetSelectedIndex] != 0) {
+        if (nonEmptyOptions.length == 0) {
+          errorMessage = "You didn't add any options";
+          editing = true;
+        }
+      }
     } else {
       errorMessage = 'You forgot to add the question text';
     }
