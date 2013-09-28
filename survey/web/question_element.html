@@ -70,13 +70,13 @@
 
           <div class="widget-options">
             <select class="form-control"
-                selectedIndex="{{answerSelectedIndex}}">
-              <option template repeat="{{answerOptions}}">{{}}</option>
+                selectedIndex="{{widgetSelectedIndex}}">
+              <option template repeat="{{widgetOptions}}">{{}}</option>
             </select>
           </div>
 
          <!-- OPTIONS -->
-          <template if="{{answerSelectedIndex != 0}}">
+          <template if="{{widgetSelectedIndex != 0}}">
             <ul>
             <template repeat="{{question.options}}">
               <li is="option-element" option="{{}}"></li>
@@ -84,7 +84,6 @@
             </ul>
           </template>
         </template>
-
 
         <!-- DISPLAY -->
         <template if="{{!editing}}">
@@ -96,21 +95,21 @@
               <div><i>Hint: {{question.helpText}}</i></div>
             </template>
 
-            <template if="{{answerSelectedIndex == 0}}">
+            <template if="{{widgetSelectedIndex == 0}}">
               <textarea class='form-control' placeholder="Add response here"
-                  value="{{textValue}}">
+                  value="{{textAnswerValue}}">
               </textarea>
-              <template if="{{textValue.isNotEmpty}}">
-                <p>You wrote: {{textValue}}</p>
+              <template if="{{textAnswerValue.isNotEmpty}}">
+                <p>You wrote: {{textAnswerValue}}</p>
               </template>
             </template>
 
-            <template if="{{answerSelectedIndex == 1}}">
+            <template if="{{widgetSelectedIndex == 1}}">
               <selection-element values="{{nonEmptyOptions}}">
               </selection-element>
             </template>
 
-            <template if="{{answerSelectedIndex == 2}}">
+            <template if="{{widgetSelectedIndex == 2}}">
               <selection-element values="{{attrs[0]}}" multi="{{attrs[1]}}"
                   on-selectionmade="getSelection">
               </selection-element>

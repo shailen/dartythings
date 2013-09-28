@@ -3,7 +3,11 @@
 <polymer-element name="option-element" extends="li" attributes="option">
   <template>
     <input class="form-control" value="{{option.text}}"
-        checked="{{checked}}" placeholder="Option text">
+        on-keyup="checkForErrors" placeholder="Option text">
+    <template if="{{errorMessage.isNotEmpty}}">
+      <div class='errorMessage'>{{errorMessage}}</div>
+    </template>
   </template>
+
   <script type="application/dart" src="option_element.dart"></script>
 </polymer-element>

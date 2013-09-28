@@ -4,7 +4,7 @@ class Question extends ObservableBase {
   @observable int id;
   @observable String text;
   @observable String helpText;
-  @observable bool required = false;
+  List<Option> options;
 
 
   Question([this.text='', this.helpText='']) {
@@ -12,6 +12,5 @@ class Question extends ObservableBase {
     id = random.nextInt(1000 * 1000);
   }
 
-  List<Option> options;
   bool get isValid => text.isNotEmpty;
 }

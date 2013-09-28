@@ -2,19 +2,26 @@ import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:survey/models.dart';
 
+// TODO: they can't pick a selection and have everything be empty
+// TODO: deal with a case of a single option
+
 @CustomTag('question-element')
 class QuestionElement extends PolymerElement with ObservableMixin {
+  static const TEXT = 'Use a text field';
+  static const ONE_FROM_MANY = 'Select one from many options';
+  static const MANY_FROM_MANY = 'Select many from many options';
+
   bool get applyAuthorStyles => true;
   @observable Question question = new Question();
   @observable bool editing = true;
   @observable String errorMessage = '';
-  // TODO: use constants
-  @observable List<String> answerOptions = ['text', 'radio', 'multi-checkbox'];
-  @observable int answerSelectedIndex = 0;
+  @observable List<String> widgetOptions = [TEXT, ONE_FROM_MANY,
+                                            MANY_FROM_MANY];
+  @observable int widgetSelectedIndex = 0;
 
   @observable List<Option> nonEmptyOptions = toObservable([]);
-  @observable String textValue = '';
-  @observable String radioValue = '';
+  @observable String textAnswerValue = '';
+//  @observable String radioValue = '';
 
   // TODO: hack, remove later.
   @observable List attrs;
