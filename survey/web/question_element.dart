@@ -8,6 +8,7 @@ class QuestionElement extends PolymerElement with ObservableMixin {
   @observable Question question = new Question();
   @observable bool editing = true;
   @observable String errorMessage = '';
+  // TODO: use constants
   @observable List<String> answerOptions = ['text', 'radio', 'multi-checkbox'];
   @observable int answerSelectedIndex = 0;
 
@@ -15,6 +16,8 @@ class QuestionElement extends PolymerElement with ObservableMixin {
   @observable String textValue = '';
   @observable String radioValue = '';
 
+  // TODO: hack, remove later.
+  @observable List attrs;
 
   inserted() {
     question.options = toObservable([new Option()]);
@@ -27,11 +30,9 @@ class QuestionElement extends PolymerElement with ObservableMixin {
 
   show(Event e, details, Node sender) {
     e.preventDefault();
+
     if (question.isValid) {
       editing = false;
-
-      print('inside show()');
-      print(question.options);
       nonEmptyOptions = [];
 
       for (var i = 0; i < question.options.length; i++) {
@@ -39,11 +40,10 @@ class QuestionElement extends PolymerElement with ObservableMixin {
           nonEmptyOptions.add(question.options[i]);
         }
       }
-      print(nonEmptyOptions);
     } else {
       errorMessage = 'You forgot to add the question text';
     }
-
+    attrs = toObservable([nonEmptyOptions, true]);
   }
 
   delete(Event e, details, Node sender) {
@@ -54,15 +54,17 @@ class QuestionElement extends PolymerElement with ObservableMixin {
 
   addNewOption(Event e, detail, Node sender) {
     e.preventDefault();
-    int unusedFields = question.options.where((option) => option.text.isEmpty).length;
+    int unusedFields = question.options.where((option) {
+      return option.text.isEmpty;
+    }).length;
+
     if (unusedFields == 1) {
       question.options.add(new Option());
     }
   }
 
-  handleRadios(Event e, detail, Element sender) {
+  getSelection(Event e, detail, Node sender) {
     e.preventDefault();
-    print(sender);
-    radioValue = sender.value;
+    print(detail);
   }
 }

@@ -6,14 +6,8 @@ class SelectionElement extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
 
   @observable List<String> values = toObservable([]);
-  // @observable ObservableList<String> values = toObservable([]);
-  @observable List<int> selectedIndices = toObservable([1]);
-  @observable List<String> selectedValues = toObservable([]);
+  @observable List<int> selectedIndices = toObservable([]);
   @observable bool multi = false;
-
-  created() {
-    super.created();
-  }
 
   inserted() {
     super.inserted();
@@ -49,6 +43,11 @@ class SelectionElement extends PolymerElement with ObservableMixin {
       }
     }
     markSelected(items);
-    dispatchEvent(new CustomEvent('selectionmade', detail: ['f', 'g']));
+    List<String> results = [];
+    for (var index in selectedIndices) {
+      results.add(values[index]);
+    }
+    dispatchEvent(new CustomEvent('selectionmade',
+        detail: results.map((result) => result.text).toList()));
   }
 }

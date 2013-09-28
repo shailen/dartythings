@@ -3,7 +3,8 @@
 <link rel="import" href="option_element.html">
 <link rel="import" href="selection_element.html">
 
-<polymer-element name="question-element" extends="li" attributes="question" on-click="addNewOption">
+<polymer-element name="question-element" extends="li" attributes="question"
+    on-click="addNewOption">
   <template>
     <style>
       .errorMessage {
@@ -62,11 +63,14 @@
           <template if="{{errorMessage.isNotEmpty}}">
             <div class='errorMessage'>{{errorMessage}}</div>
           </template>
-          <input class='form-control' value="{{question.text}}" placeholder="Add question text">
-          <input class='form-control' value="{{question.helpText}}" placeholder="Add help text">
+          <input class='form-control' value="{{question.text}}"
+              placeholder="Add question text">
+          <input class='form-control' value="{{question.helpText}}"
+              placeholder="Add help text">
 
           <div class="widget-options">
-            <select class="form-control" selectedIndex="{{answerSelectedIndex}}">
+            <select class="form-control"
+                selectedIndex="{{answerSelectedIndex}}">
               <option template repeat="{{answerOptions}}">{{}}</option>
             </select>
           </div>
@@ -93,39 +97,23 @@
             </template>
 
             <template if="{{answerSelectedIndex == 0}}">
-              <textarea class='form-control' placeholder="Add response here" value="{{textValue}}"></textarea>
+              <textarea class='form-control' placeholder="Add response here"
+                  value="{{textValue}}">
+              </textarea>
               <template if="{{textValue.isNotEmpty}}">
                 <p>You wrote: {{textValue}}</p>
               </template>
             </template>
 
             <template if="{{answerSelectedIndex == 1}}">
-            <!--
-              <template repeat="{{nonEmptyOptions}}">
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="question_radio" value="{{text}}" on-click="handleRadios">
-                    {{text}}
-                  </label>
-                </div>
-              </template>
-              <template if="{{radioValue.isNotEmpty}}">
-                <p>You picked {{radioValue}}.</p>
-              </template>
-            -->
-              {{nonEmptyOptions}}
-              <selection-element values="{{nonEmptyOptions}}"></selection-element>
+              <selection-element values="{{nonEmptyOptions}}">
+              </selection-element>
             </template>
 
             <template if="{{answerSelectedIndex == 2}}">
-              <template repeat="{{nonEmptyOptions}}">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" name="question_checkbox" value="{{text}}" checked="{{checked}}">
-                    {{text}}
-                  </label>
-                </div>
-              </template>
+              <selection-element values="{{attrs[0]}}" multi="{{attrs[1]}}"
+                  on-selectionmade="getSelection">
+              </selection-element>
             </template>
           </div>
         </template>
@@ -134,14 +122,17 @@
 
     <div class="row">
       <div class="col-xs-6 icons">
-        <span id="delete-icon" class="glyphicon glyphicon-remove" on-click="delete"></span>
+        <span id="delete-icon" class="glyphicon glyphicon-remove"
+            on-click="delete"></span>
       </div>
       <div class="col-xs-6 icons">
         <template if="{{!editing}}">
-          <span id="edit-icon" class="glyphicon glyphicon-pencil" on-click="edit"></span>
+          <span id="edit-icon" class="glyphicon glyphicon-pencil"
+              on-click="edit"></span>
         </template>
         <template if="{{editing}}">
-          <button id="done-button" on-click="show" type="button" class="btn btn-primary">Done</button>
+          <button id="done-button" on-click="show" type="button"
+              class="btn btn-primary">Done</button>
         </template>
       </div>
     </div>

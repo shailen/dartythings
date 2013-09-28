@@ -2,13 +2,13 @@
 
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 <link rel="import" href="selection_item_element.html">
-<polymer-element name="selection-element" attributes="values">
+<polymer-element name="selection-element" attributes="values, multi">
   <template>
     <style>
       .item {
         margin: 5px 0;
-        background-color: #fff;
         color: #428bca;
+        background-color: #f7f7f9;
         border-color: #357ebd;
         padding: 6px 12px;
         margin-bottom: 0;
@@ -35,7 +35,6 @@
     </style>
     <ul>
       <template repeat="{{value in values}}">
-        {{value.text}}
         <li class="item" on-click="makeSelection">{{value.text}}</li>
       </template>
     </ul>
