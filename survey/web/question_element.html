@@ -64,9 +64,9 @@
     <div class="row">
       <div class="col-md-12">
         <template if="{{editing}}">
-          <template if="{{errorMessage.isNotEmpty}}">
-            <div class='errorMessage'>{{errorMessage}}</div>
-          </template>
+          <div class="errorMessage" hidden?="{{errorMessage.isEmpty}}">
+            {{errorMessage}}
+          </div>
           <input class='form-control' value="{{question.text}}"
               placeholder="Add question text">
           <input class='form-control' value="{{question.helpText}}"
@@ -95,17 +95,17 @@
           <!-- TODO: make display it's own widget -->
           <div class="display">
             <div><strong>{{question.text}}</strong></div>
-            <template if="{{question.helpText.isNotEmpty}}">
-              <div><i>Hint: {{question.helpText}}</i></div>
-            </template>
+              <div hidden?="{{question.helpText.isEmpty}}">
+                <i>Hint: {{question.helpText}}</i>
+              </div>
 
             <template if="{{widgetSelectedIndex == 0}}">
               <textarea class='form-control' placeholder="Add response here"
                   value="{{textAnswerValue}}">
               </textarea>
-              <template if="{{textAnswerValue.isNotEmpty}}">
-                <p>You wrote: {{textAnswerValue}}</p>
-              </template>
+              <p hidden?="{{textAnswerValue.isEmpty}}">
+                You wrote: {{textAnswerValue}}
+              </p>
             </template>
 
             <template if="{{widgetSelectedIndex == 1}}">
@@ -123,6 +123,7 @@
       </div>
     </div>
 
+    <!-- NAVIGATION -->
     <div class="row">
       <div class="col-xs-6 icons">
         <span id="delete-icon" class="glyphicon glyphicon-remove"

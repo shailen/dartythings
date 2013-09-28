@@ -4,9 +4,10 @@
   <template>
     <input class="form-control" value="{{option.text}}"
         on-keyup="checkForErrors" placeholder="Option text">
-    <template if="{{errorMessage.isNotEmpty}}">
-      <div class='errorMessage'>{{errorMessage}}</div>
-    </template>
+
+       <div class="errorMessage" hidden?="{{errorMessage.isEmpty}}">
+          {{errorMessage}}
+       </div>
   </template>
 
   <script type="application/dart" src="option_element.dart"></script>
