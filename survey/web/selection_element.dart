@@ -32,7 +32,8 @@ class SelectionElement extends PolymerElement with ObservableMixin {
     var items = root.queryAll('li');
     var index = items.indexOf(sender);
 
-    if (!multi) {
+
+    if (!multi && items.length > 1) {
       selectedIndices.clear();
       selectedIndices.add(index);
     } else {
@@ -42,7 +43,11 @@ class SelectionElement extends PolymerElement with ObservableMixin {
         selectedIndices.add(index);
       }
     }
+
+    print(selectedIndices);
     markSelected(items);
+
+    // TODO: put in a method
     List<String> results = [];
     for (var index in selectedIndices) {
       results.add(values[index]);
