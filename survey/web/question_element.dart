@@ -12,6 +12,7 @@ class QuestionElement extends PolymerElement with ObservableMixin {
   static const MANY_FROM_MANY = 'Select many from many options';
 
   bool get applyAuthorStyles => true;
+
   @observable Question question = new Question();
   @observable bool editing = true;
   @observable String errorMessage = '';
