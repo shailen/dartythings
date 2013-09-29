@@ -1,10 +1,17 @@
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+library survey.web.question;
+
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:survey/models.dart';
 
-// TODO: they can't pick a selection and have everything be empty
-// TODO: deal with a case of a single option
-
+/*
+ *  The QuestionElement view. Use this to set the question text, optionally
+ *  provide answer options to the user, and pick the widget that the user sees.
+ */
 @CustomTag('question-element')
 class QuestionElement extends PolymerElement with ObservableMixin {
   static const TEXT = 'Use a text field';
@@ -13,35 +20,28 @@ class QuestionElement extends PolymerElement with ObservableMixin {
 
   bool get applyAuthorStyles => true;
 
-  @observable List<String> opts;
-  @observable List<String> temp = toObservable([]);
-
   @observable Question question = new Question();
   @observable bool editing = true;
   @observable String errorMessage = '';
   @observable List<String> widgetOptions = [TEXT, ONE_FROM_MANY,
                                             MANY_FROM_MANY];
   @observable int widgetSelectedIndex = 0;
+  @observable List<String> optionInputs = toObservable(['']);
 
-  @observable String textAnswerValue = '';
-  @observable List<String> selectionAnswerValues = toObservable([]);
+  // TODO: remove once it gets easier to pass attributes to polymer elements.
+  @observable List multiSelectAttrs;
 
-
-  // TODO: hack, remove later.
-  @observable List attrs;
-
-  inserted() {
-    opts = toObservable(['']);
-  }
+  @observable bool get usingTextWidget => widgetSelectedIndex == 0;
 
   edit() {
     editing = true;
     errorMessage = '';
+    optionInputs.add('');
   }
 
-  adjustOpts(Event e, var detail, Element sender) {
+  addEmptyInput(Event e, var detail, Element sender) {
     e.preventDefault();
-      opts.add('');
+    optionInputs.add('');
   }
 
   void getInputValues() {
@@ -49,48 +49,59 @@ class QuestionElement extends PolymerElement with ObservableMixin {
     var ul = root.query('#input-container');
     var inputs = ul.queryAll('input');
 
+    optionInputs.clear();
     inputs.forEach((input) {
       var val = input.value.trim();
       if (val.isNotEmpty) {
-        temp.add(val);
+        optionInputs.add(val);
       }
     });
   }
 
-  show(Event e, var detail, Node sender) {
-    e.preventDefault();
-    if (widgetSelectedIndex != 0) {
-      getInputValues();
-    }
-
+  bool validate() {
+    bool valid = true;
     if (question.isValid) {
-      if (widgetSelectedIndex != 0 && temp.length == 0) {
-        errorMessage = "You didn't add any options";
-        return;
+      if (!usingTextWidget && optionInputs.length == 0) {
+        errorMessage = 'You didn\'t add any options';
+        valid = false;
       }
     } else {
       errorMessage = 'You forgot to add the question text';
-      return;
+      valid = false;
     }
-    attrs = toObservable([temp, true]);
-    editing = false;
+    return valid;
   }
 
-  delete(Event e, details, Node sender) {
+  show(Event e, var detail, Element sender) {
+    e.preventDefault();
+    if (!usingTextWidget) {
+      getInputValues();
+    }
+
+    if (validate()) {
+      question.answerOptions = optionInputs.where((opt) {
+        return opt.isNotEmpty;
+      }).toList();
+      multiSelectAttrs = toObservable([question.answerOptions, true]);
+      editing = false;
+    } else {
+      optionInputs.add('');
+    }
+  }
+
+  delete(Event e, var detail, Element sender) {
     if (window.confirm('Are you sure you want to delete this question?')) {
       appModel.questions.remove(question);
     }
   }
 
-  getSelection(Event e, detail, Node sender) {
+  setSelectionAnswers(Event e, var detail, Element sender) {
     e.preventDefault();
-    selectionAnswerValues = detail;
     question.answers = detail;
-
   }
 
-  dispatchTextResult(Event e, var detail, Element sender) {
+  setTextAnswer(Event e, var detail, var sender) {
     e.preventDefault();
-    question.answers = [sender.value];
+    question.answers = [sender.value.trim()];
   }
 }

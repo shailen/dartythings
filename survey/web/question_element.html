@@ -1,11 +1,23 @@
 <!DOCTYPE html>
+<!--
+Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+for details. All rights reserved. Use of this source code is governed by a
+BSD-style license that can be found in the LICENSE file.
+-->
 
 <link rel="import" href="selection_element.html">
 
 <polymer-element name="question-element" extends="li" attributes="question">
-
   <template>
     <style>
+      @host {
+        :scope {
+          background: #f9fbfd;
+          padding: 12px;
+          border-radius: 8px;
+        }
+      }
+
       input {
         padding: 5px;
       }
@@ -26,13 +38,6 @@
 
       #delete-icon {
         float: left;
-      }
-
-      @host {
-        :scope {
-          background: #f8f8ff;
-          padding: 12px;
-        }
       }
 
       .widget-options {
@@ -59,9 +64,10 @@
         margin: 5px;
       }
 
-      .opts {
-        background: #eee;
+      .optionInputs {
+        margin: 5px;
       }
+
     </style>
 
     <div class="row">
@@ -70,11 +76,10 @@
           <div class="errorMessage" hidden?="{{errorMessage.isEmpty}}">
             {{errorMessage}}
           </div>
-          <input class='form-control' value="{{question.text}}"
+          <input class="form-control" value="{{question.text}}"
               placeholder="Add question text">
-          <input class='form-control' value="{{question.helpText}}"
+          <input class="form-control" value="{{question.helpText}}"
               placeholder="Add help text">
-
           <div class="widget-options">
             <select class="form-control"
                 selectedIndex="{{widgetSelectedIndex}}">
@@ -85,8 +90,9 @@
          <!-- OPTIONS -->
           <template if="{{widgetSelectedIndex != 0}}">
             <ul id="input-container">
-              <template repeat="{{opts}}">
-                <li><input class="opts" value="{{}}" on-click="adjustOpts">
+              <template repeat="{{optionInputs}}">
+                <li><input class="optionInputs" value="{{}}"
+                    on-click="addEmptyInput">
                 </li>
               </template>
             </ul>
@@ -95,8 +101,6 @@
 
         <!-- DISPLAY -->
         <template if="{{!editing}}">
-          <div id="display-intro">This is what the user will see:</div>
-
           <div class="display">
             <div><strong>{{question.text}}</strong></div>
               <div hidden?="{{question.helpText.isEmpty}}">
@@ -104,30 +108,30 @@
               </div>
 
             <template if="{{widgetSelectedIndex == 0}}">
-              <textarea class='form-control' placeholder="Add response here"
-                  value="{{textAnswerValue}}" on-keyup="dispatchTextResult">
+              <textarea class="form-control" placeholder="Add response here"
+                  value="{{textAnswerValue}}" on-keyup="setTextAnswer">
               </textarea>
             </template>
 
             <template if="{{widgetSelectedIndex == 1}}">
-              <selection-element values="{{temp}}"
-                 on-selectionmade="getSelection"></selection-element>
+              <selection-element values="{{question.answerOptions}}"
+                 on-selectionmade="setSelectionAnswers"></selection-element>
             </template>
 
             <template if="{{widgetSelectedIndex == 2}}">
-              <selection-element values="{{attrs[0]}}" multi="{{attrs[1]}}"
-                  on-selectionmade="getSelection">
+              <selection-element values="{{multiSelectAttrs[0]}}"
+                  multi="{{multiSelectAttrs[1]}}"
+                  on-selectionmade="setSelectionAnswers">
               </selection-element>
             </template>
 
-                Answer:
-                <ul>
-                  <template repeat="{{question.answers}}">
-                    <li>{{}}</li>
-                  </template>
-                </ul>
-              </div>
-
+            <strong>Answer:</strong>
+            <ul>
+              <template repeat="{{question.answers}}">
+                <li>{{}}</li>
+              </template>
+            </ul>
+          </div>
         </template>
       </div>
     </div>

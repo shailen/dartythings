@@ -1,6 +1,18 @@
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+library survey.web.selection;
+
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 
+/*
+ * The SelectionElement view. A selection element can be used as a substitute
+ * for radios and checkboxes. When passed with a [multi] set to true, this
+ * element permits the user to select 0 or more options, otherwise it permits
+ * the user to select 0 or 1 option.
+ */
 @CustomTag('selection-element')
 class SelectionElement extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
@@ -44,7 +56,6 @@ class SelectionElement extends PolymerElement with ObservableMixin {
     }
 
     markSelected(items);
-
     dispatchSelectionResults();
   }
 

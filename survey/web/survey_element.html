@@ -1,6 +1,11 @@
 <!DOCTYPE html>
+<!--
+Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+for details. All rights reserved. Use of this source code is governed by a
+BSD-style license that can be found in the LICENSE file.
+-->
 
-<link rel='import' href='question_element.html'>
+<link rel="import" href="question_element.html">
 
 <polymer-element name="survey-element" attributes="multi">
   <template>
@@ -25,14 +30,14 @@
       }
 
     </style>
-    <div class='container'>
+    <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>Survey App</h2>
-          <input class="form-control" placeholder='Add survey title'
+          <h2>Create a Survey</h2>
+          <input class="form-control" placeholder="Add survey title"
               value="{{app.title}}">
           <textarea class="form-control" rows="3"
-              placeholder='Add survey description'
+              placeholder="Add survey description"
               value="{{app.description}}">
           </textarea>
           <ul>
@@ -44,11 +49,13 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-       <button id="add-new-question-button" type="button" on-click="addNewQuestion"
-           class="btn btn-primary">Add question</button>
+          <button id="add-new-question-button" type="button"
+              on-click="addNewQuestion" class="btn btn-primary">
+            Add question
+          </button>
         </div>
       </div>
-    </div> <!-- end .container -->
+    </div>
   </template>
 
   <script type="application/dart" src="survey_element.dart"></script>
