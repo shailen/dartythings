@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 
-<link rel="import" href="option_element.html">
 <link rel="import" href="selection_element.html">
 
-<polymer-element name="question-element" extends="li" attributes="question"
-    on-click="addNewOption">
+<polymer-element name="question-element" extends="li" attributes="question">
+
   <template>
     <style>
       input {
@@ -59,6 +58,10 @@
       .display input {
         margin: 5px;
       }
+
+      .opts {
+        background: #eee;
+      }
     </style>
 
     <div class="row">
@@ -81,10 +84,11 @@
 
          <!-- OPTIONS -->
           <template if="{{widgetSelectedIndex != 0}}">
-            <ul>
-            <template repeat="{{question.options}}">
-              <li is="option-element" option="{{}}"></li>
-            </template>
+            <ul id="input-container">
+              <template repeat="{{opts}}">
+                <li><input class="opts" value="{{}}" on-click="adjustOpts">
+                </li>
+              </template>
             </ul>
           </template>
         </template>
@@ -109,7 +113,7 @@
             </template>
 
             <template if="{{widgetSelectedIndex == 1}}">
-              <selection-element values="{{nonEmptyOptions}}">
+              <selection-element values="{{temp}}">
               </selection-element>
             </template>
 

@@ -4,8 +4,7 @@ class Question extends ObservableBase {
   @observable int id;
   @observable String text;
   @observable String helpText;
-  List<Option> options;
-
+  List<String> options;
 
   Question([this.text='', this.helpText='']) {
     Random random = new Random();

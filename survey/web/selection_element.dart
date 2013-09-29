@@ -32,7 +32,6 @@ class SelectionElement extends PolymerElement with ObservableMixin {
     var items = root.queryAll('li');
     var index = items.indexOf(sender);
 
-
     if (!multi && items.length > 1) {
       selectedIndices.clear();
       selectedIndices.add(index);
@@ -44,15 +43,13 @@ class SelectionElement extends PolymerElement with ObservableMixin {
       }
     }
 
-    print(selectedIndices);
     markSelected(items);
 
-    // TODO: put in a method
+    // TODO: put in own method.
     List<String> results = [];
     for (var index in selectedIndices) {
       results.add(values[index]);
     }
-    dispatchEvent(new CustomEvent('selectionmade',
-        detail: results.map((result) => result.text).toList()));
+    dispatchEvent(new CustomEvent('selectionmade', detail: results));
   }
 }
