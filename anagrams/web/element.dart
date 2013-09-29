@@ -14,6 +14,7 @@ class WordElement extends PolymerElement with ObservableMixin {
   @observable List<Char> charsList;
 
   // Get rid of all these lists.  Use charsList as the single canonical list.
+  // Use getters.
   @observable List<Char> chars1;
   @observable List<Char> chars2;
   @observable List<List<Char>> lists;
@@ -42,6 +43,7 @@ class WordElement extends PolymerElement with ObservableMixin {
                      'slat', 'tael', 'tale', 'teal', 'teas', 'tela', 'tels']);
 
     word = possibleWords.first;
+
     charsList = toObservable(new List(word.length * 2));
 
     // TODO: sprinkle words over both rows.
@@ -63,6 +65,7 @@ class WordElement extends PolymerElement with ObservableMixin {
       chars2[i] = charsList[i + word.length];
     }
   }
+
 
   void dragStartHandler(Event e, detail, sender) {
     e.target.style.opacity = '.25';

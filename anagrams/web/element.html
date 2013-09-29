@@ -1,12 +1,7 @@
 <polymer-element name="word-element">
   <template id='my-template'>
-    <h2>Drag and drop letters to form words</h2>
     <div id='container'>
       <div class='wrapper'>
-        <template repeat="{{charsList | firstSubList}}">
-          <div>{{}}</div>
-        </template>
-
         <template repeat="{{lists}}">
           <template id='my-template' repeat="{{}}">
             <div on-dragStart="dragStartHandler"
