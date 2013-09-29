@@ -45,7 +45,10 @@ class SelectionElement extends PolymerElement with ObservableMixin {
 
     markSelected(items);
 
-    // TODO: put in own method.
+    dispatchSelectionResults();
+  }
+
+  dispatchSelectionResults() {
     List<String> results = [];
     for (var index in selectedIndices) {
       results.add(values[index]);

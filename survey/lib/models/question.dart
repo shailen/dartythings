@@ -1,15 +1,12 @@
 part of models;
 
 class Question extends ObservableBase {
-  @observable int id;
   @observable String text;
   @observable String helpText;
-  List<String> options;
+  @observable List<String> options = [];
+  @observable List<String> answers = [];
 
-  Question([this.text='', this.helpText='']) {
-    Random random = new Random();
-    id = random.nextInt(1000 * 1000);
-  }
+  Question([this.text='', this.helpText='']);
 
   bool get isValid => text.isNotEmpty;
 }

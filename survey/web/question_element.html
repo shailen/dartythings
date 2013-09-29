@@ -46,9 +46,9 @@
 
       .display {
         background: #fff;
-        border: 1px solid #999;
-        border-radius: 4px;
-        padding: 5px;
+        border: 6px solid #357ebd;
+        border-radius: 8px;
+        padding: 20px;
       }
 
       .display textarea {
@@ -96,7 +96,7 @@
         <!-- DISPLAY -->
         <template if="{{!editing}}">
           <div id="display-intro">This is what the user will see:</div>
-          <!-- TODO: make display it's own widget -->
+
           <div class="display">
             <div><strong>{{question.text}}</strong></div>
               <div hidden?="{{question.helpText.isEmpty}}">
@@ -105,16 +105,13 @@
 
             <template if="{{widgetSelectedIndex == 0}}">
               <textarea class='form-control' placeholder="Add response here"
-                  value="{{textAnswerValue}}">
+                  value="{{textAnswerValue}}" on-keyup="dispatchTextResult">
               </textarea>
-              <p hidden?="{{textAnswerValue.isEmpty}}">
-                You wrote: {{textAnswerValue}}
-              </p>
             </template>
 
             <template if="{{widgetSelectedIndex == 1}}">
-              <selection-element values="{{temp}}">
-              </selection-element>
+              <selection-element values="{{temp}}"
+                 on-selectionmade="getSelection"></selection-element>
             </template>
 
             <template if="{{widgetSelectedIndex == 2}}">
@@ -122,7 +119,15 @@
                   on-selectionmade="getSelection">
               </selection-element>
             </template>
-          </div>
+
+                Answer:
+                <ul>
+                  <template repeat="{{question.answers}}">
+                    <li>{{}}</li>
+                  </template>
+                </ul>
+              </div>
+
         </template>
       </div>
     </div>

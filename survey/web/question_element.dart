@@ -22,7 +22,10 @@ class QuestionElement extends PolymerElement with ObservableMixin {
   @observable List<String> widgetOptions = [TEXT, ONE_FROM_MANY,
                                             MANY_FROM_MANY];
   @observable int widgetSelectedIndex = 0;
+
   @observable String textAnswerValue = '';
+  @observable List<String> selectionAnswerValues = toObservable([]);
+
 
   // TODO: hack, remove later.
   @observable List attrs;
@@ -56,7 +59,9 @@ class QuestionElement extends PolymerElement with ObservableMixin {
 
   show(Event e, var detail, Node sender) {
     e.preventDefault();
-    getInputValues();
+    if (widgetSelectedIndex != 0) {
+      getInputValues();
+    }
 
     if (question.isValid) {
       if (widgetSelectedIndex != 0 && temp.length == 0) {
@@ -77,9 +82,15 @@ class QuestionElement extends PolymerElement with ObservableMixin {
     }
   }
 
-
   getSelection(Event e, detail, Node sender) {
     e.preventDefault();
-    print(detail);
+    selectionAnswerValues = detail;
+    question.answers = detail;
+
+  }
+
+  dispatchTextResult(Event e, var detail, Element sender) {
+    e.preventDefault();
+    question.answers = [sender.value];
   }
 }
