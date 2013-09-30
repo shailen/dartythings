@@ -1,9 +1,9 @@
 import 'dart:html';
-import 'package:polymer/polymer.dart';
 import 'dart:async';
+import 'package:polymer/polymer.dart';
 
-@CustomTag("word-element")
-class WordElement extends PolymerElement with ObservableMixin {
+@CustomTag("word-finder-element")
+class WorFinderdElement extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
 
   @observable List<String> charsList = toObservable(
@@ -56,38 +56,50 @@ class WordElement extends PolymerElement with ObservableMixin {
     e.preventDefault();
     targetElementIndex = charsList.indexOf(sender.text.trim());
 
+    _swapChars();
+
+    new Timer(new Duration(milliseconds: 125), () {
+      _findWords();
+   });
+  }
+
+  /*
+   * Checks if continous characters make a word. If they do, note the indices
+   * of characters that are part of a word, and update the UI.
+   */
+  void _findWords() {
+    var wordIndices = [];
+    var wordChars = [];
+
+    var root = getShadowRoot('word-finder-element');
+    var charDivs = root.queryAll('.char');
+
+    for (var i = 0; i < charsList.length; i++) {
+      if (charsList[i].isNotEmpty) {
+        wordIndices.add(i);
+        wordChars.add(charsList[i]);
+      }
+
+      // TODO(shailen): This is a bit clunky.
+      if (charsList[i].isEmpty || i == charsList.length - 1) {
+        var word = wordChars.join('');
+        if (possibleWords.contains(word) && !formedWords.contains(word)) {
+          formedWords.add(word);
+          score += word.length;
+          for (var i in wordIndices) {
+            charDivs[i].classes.add('word');
+          }
+        }
+        wordIndices = [];
+        wordChars = [];
+      }
+    }
+  }
+
+  void _swapChars() {
     var temp = charsList[sourceElementIndex];
     charsList[sourceElementIndex] = charsList[targetElementIndex];
     charsList[targetElementIndex] = temp;
-
-    new Timer(new Duration(milliseconds: 125), () {
-      var wordIndices = [];
-      var wordChars = [];
-
-      var root = getShadowRoot('word-element');
-      var charDivs = root.queryAll('.char');
-
-      for (var i = 0; i < charsList.length; i++) {
-        if (charsList[i].isNotEmpty) {
-          wordIndices.add(i);
-          wordChars.add(charsList[i]);
-        }
-
-        // XXX: clunky
-        if (charsList[i].isEmpty || i == charsList.length - 1) {
-          var word = wordChars.join('');
-          if (possibleWords.contains(word) && !formedWords.contains(word)) {
-            formedWords.add(word);
-            score += word.length;
-            for (var i in wordIndices) {
-              charDivs[i].classes.add('word');
-            }
-          }
-          wordIndices = [];
-          wordChars = [];
-        }
-      }
-   });
   }
 
   void dragEndHandler(Event e, detail, sender) {
