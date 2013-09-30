@@ -22,13 +22,15 @@ class WordElement extends PolymerElement with ObservableMixin {
   List<String> formedWords = [];
 
   @observable int score = 0;
+  @observable int maxScore = 0;
   int sourceElementIndex;
   int targetElementIndex;
 
-
-  String upCase(String str) => str.toUpperCase();
   created() {
     super.created();
+    for (var word in possibleWords) {
+      maxScore += word.length;
+    }
   }
 
   void dragStartHandler(Event e, detail, sender) {
