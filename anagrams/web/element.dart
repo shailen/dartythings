@@ -7,7 +7,7 @@ class WordElement extends PolymerElement with ObservableMixin {
   bool get applyAuthorStyles => true;
 
   @observable List<String> charsList = toObservable(
-      ['L', 'E', 'A', 'S', 'T', '']);
+      ['A', 'E', 'L', 'S', 'T', '']);
 
   List<String> possibleWords = toObservable([
       'LEAST', 'SETAL', 'SLATE', 'STALE', 'STEAL', 'STELA', 'TAELS', 'TALES',
@@ -24,7 +24,7 @@ class WordElement extends PolymerElement with ObservableMixin {
   @observable int score = 0;
   int sourceElementIndex;
   int targetElementIndex;
-  @observable String word;
+
 
   String upCase(String str) => str.toUpperCase();
   created() {
@@ -32,15 +32,13 @@ class WordElement extends PolymerElement with ObservableMixin {
   }
 
   void dragStartHandler(Event e, detail, sender) {
-    print('in dragStartHandler');
     sourceElementIndex = charsList.indexOf(sender.text.trim());
-    // sender.style.opacity = '.25';
+    sender.style.borderStyle = 'dashed';
+    sender.style.opacity = '.55';
   }
 
   void dragEnterHandler(e) {
-    print('in dragEnterHandler');
-    // TODO: fix the over class CSS
-    // e.target.classes.add('over');
+    e.target.classes.add('over');
   }
 
   void dragOverHandler(e) {
@@ -53,16 +51,14 @@ class WordElement extends PolymerElement with ObservableMixin {
   }
 
   void dropHandler(Event e, detail, sender) {
-    print('in dropHandler');
     e.preventDefault();
     targetElementIndex = charsList.indexOf(sender.text.trim());
 
     var temp = charsList[sourceElementIndex];
     charsList[sourceElementIndex] = charsList[targetElementIndex];
     charsList[targetElementIndex] = temp;
-    print(charsList);
+
     new Timer(new Duration(milliseconds: 125), () {
-      //////////////////////////
       var wordIndices = [];
       var wordChars = [];
 
@@ -82,20 +78,17 @@ class WordElement extends PolymerElement with ObservableMixin {
             formedWords.add(word);
             score += word.length;
             for (var i in wordIndices) {
-              print(charDivs[i]);
-              charDivs[i].classes.add('yellow');
+              charDivs[i].classes.add('word');
             }
           }
           wordIndices = [];
           wordChars = [];
         }
       }
-      ///////////////////////////
    });
   }
 
   void dragEndHandler(Event e, detail, sender) {
-    print('in dragEndHandler');
     e.preventDefault();
     e.stopPropagation();
   }

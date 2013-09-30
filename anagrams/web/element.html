@@ -9,6 +9,7 @@
               <div on-dragStart="dragStartHandler"
                    on-dragEnter="dragEnterHandler"
                    on-dragOver="dragOverHandler"
+                   on-dragLeave="dragLeaveHandler"
                    on-drop="dropHandler"
                    on-dragEnd="dragEndHandler"
                    class='char' draggable>{{char}}
@@ -24,64 +25,53 @@
           </template>
         </div>
       </div>
-    </div><!-- end .container -->
+    </div>
 
     <style>
+      .char-wrapper {
+        width: 100%;
+        margin: 5px;
+      }
+
       [draggable] {
-        -moz-user-select: none;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        color:  #369;
+        background-color: #fff;
+        border: 1px solid #acf;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+
+        font-size: 1.5em;
+        font-weight: normal;
+
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+
+        border-radius: 4px;
+       -moz-user-select: none;
         -khtml-user-select: none;
         -webkit-user-select: none;
         user-select: none;
-        /* Required to make elements draggable in old WebKit */
         -khtml-user-drag: element;
         -webkit-user-drag: element;
       }
-.char-wrapper {
-  width: 100%;
-  margin: 5px;
-}
-      .char {
-      width: 100%;
-      height: 50px;
-      line-height: 50px;
 
-
-
-      color: #ffffff;
-background-color: #fff;
-border: 1px solid #acf;
-display: inline-block;
-color:  #369;
-padding: 0;
-margin: 0;
-
-font-size: 1.5em;
-font-weight: normal;
-
-text-align: center;
-white-space: nowrap;
-vertical-align: middle;
-cursor: pointer;
-
-border-radius: 4px;
-/*
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
--o-user-select: none;
-*/
+      .row {
+        padding: 30px 0;
       }
 
       .char.over {
-        border: 2px solid #999;
-        color: #ccc;
+        border-color: #5ae;
+        color: #8bf;
+        background-color: #f0f4fa;
       }
 
-      .rows {
-        padding: 10px 0;
-      }
-
-      .char.yellow {
+      .word {
         background-color: #def;
         color: #123;
       }
