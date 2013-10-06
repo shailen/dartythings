@@ -4,24 +4,27 @@ import 'dart:io';
 import 'package:args/args.dart';
 
 const USAGE = 'usage: dart dgrep.dart [-rnS] patterns file_or_directory';
+const RECURSIVE = 'recursive';
+const LINE_NUMBER = 'line-number';
+const FOLLOW_LINKS = 'follow-links';
 
 ArgResults argResults;
 
-void _printMatch(File file, List lines, int i) {
+void printMatch(File file, List lines, int i) {
   StringBuffer sb = new StringBuffer();
-  if (argResults['recursive']) sb.write('${file.path}:');
-  if (argResults['line-number']) sb.write('${i + 1}:');
+  if (argResults[RECURSIVE]) sb.write('${file.path}:');
+  if (argResults[LINE_NUMBER]) sb.write('${i + 1}:');
   sb.write(lines[i]);
   print(sb.toString());
 }
 
-_searchFile(File file, searchTerms) {
+searchFile(File file, searchTerms) {
   file.readAsLines().then((lines) {
     for (var i = 0; i < lines.length; i++) {
       bool found = false;
       for (var j = 0; j < searchTerms.length && !found; j++) {
         if (lines[i].contains(searchTerms[j])) {
-          _printMatch(file, lines, i);
+          printMatch(file, lines, i);
           found = true;
         }
       }
@@ -31,9 +34,9 @@ _searchFile(File file, searchTerms) {
 
 void main() {
   final parser = new ArgParser()
-      ..addFlag('recursive', negatable: false, abbr: 'r')
-      ..addFlag('line-number', negatable: false, abbr: 'n')
-      ..addFlag('followLinks', negatable: false, abbr: 'S');
+      ..addFlag(RECURSIVE, negatable: false, abbr: 'r')
+      ..addFlag(LINE_NUMBER, negatable: false, abbr: 'n')
+      ..addFlag(FOLLOW_LINKS, negatable: false, abbr: 'S');
 
   argResults = parser.parse(new Options().arguments);
 
@@ -48,14 +51,14 @@ void main() {
   FileSystemEntity.isDirectory(searchPath).then((isDir) {
     if (isDir) {
       final startingDir = new Directory(searchPath);
-      startingDir.list(recursive:   argResults['recursive'],
-                       followLinks: argResults['followLinks']).listen((entity) {
+      startingDir.list(recursive:   argResults[RECURSIVE],
+                       followLinks: argResults[FOLLOW_LINKS]).listen((entity) {
         if (entity is File) {
-          _searchFile(entity, searchTerms);
+          searchFile(entity, searchTerms);
         }
       });
     } else {
-      _searchFile(new File(searchPath), searchTerms);
+      searchFile(new File(searchPath), searchTerms);
     }
   });
 }
