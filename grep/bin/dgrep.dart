@@ -1,7 +1,13 @@
+library dgrep;
+
 import 'dart:io';
 import 'package:args/args.dart';
 
-void printResult(File file, List lines, int i) {
+const USAGE = 'usage: dart dgrep.dart [-rnS] patterns file_or_directory';
+
+ArgResults argResults;
+
+void _printMatch(File file, List lines, int i) {
   StringBuffer sb = new StringBuffer();
   if (argResults['recursive']) sb.write('${file.path}:');
   if (argResults['line-number']) sb.write('${i + 1}:');
@@ -9,63 +15,47 @@ void printResult(File file, List lines, int i) {
   print(sb.toString());
 }
 
-grep(File file, regExps) {
+_searchFile(File file, searchTerms) {
   file.readAsLines().then((lines) {
     for (var i = 0; i < lines.length; i++) {
       bool found = false;
-      for (var j = 0; j < regExps.length && !found; j++) {
-        if (regExps[j].hasMatch(lines[i])) {
-          printResult(file, lines, i);
+      for (var j = 0; j < searchTerms.length && !found; j++) {
+        if (lines[i].contains(searchTerms[j])) {
+          _printMatch(file, lines, i);
           found = true;
         }
       }
     }
-  }).catchError((FileException exception) {
-    print('Error:');
-    print(exception);
-  });
+  }).catchError(print);
 }
-
-void showUsage() {
-  print('''
-usage: dart dgrep.dart [-rnS] patterns file_or_directory
-''');
-}
-
-ArgResults argResults;
-List<RegExp> grepRegExps = [];
 
 void main() {
-  Directory startingDir;
-
-  var parser = new ArgParser();
-  parser..addFlag('recursive', negatable: false, abbr: 'r')
-        ..addFlag('line-number', negatable: false, abbr: 'n')
-        ..addFlag('followLinks', negatable: false, abbr: 'S');
+  final parser = new ArgParser()
+      ..addFlag('recursive', negatable: false, abbr: 'r')
+      ..addFlag('line-number', negatable: false, abbr: 'n')
+      ..addFlag('followLinks', negatable: false, abbr: 'S');
 
   argResults = parser.parse(new Options().arguments);
+
   if (argResults.rest.length < 2) {
-    showUsage();
+    print(USAGE);
     exit(1);
   }
 
-  var searchPath = argResults.rest.last;
-  var searchTerms = argResults.rest.sublist(0, argResults.rest.length - 1);
-  searchTerms.forEach((searchTerm) {
-    grepRegExps.add(new RegExp(searchTerm));
-  });
+  final searchPath = argResults.rest.last;
+  final searchTerms = argResults.rest.sublist(0, argResults.rest.length - 1);
 
   FileSystemEntity.isDirectory(searchPath).then((isDir) {
     if (isDir) {
-      startingDir = new Directory(searchPath);
+      final startingDir = new Directory(searchPath);
       startingDir.list(recursive:   argResults['recursive'],
                        followLinks: argResults['followLinks']).listen((entity) {
         if (entity is File) {
-          grep(entity, grepRegExps);
+          _searchFile(entity, searchTerms);
         }
       });
     } else {
-      grep(new File(searchPath), grepRegExps);
+      _searchFile(new File(searchPath), searchTerms);
     }
   });
 }
