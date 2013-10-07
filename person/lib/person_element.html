@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<polymer-element name="person-element">
+  <template>
+    <style>
+      .row {
+        margin: 20px auto;
+      }
+
+      .col-md-1, .col-md-11 {
+        margin-top: 10px;
+      }
+
+      .error {
+        color: red;
+      }
+
+      .success {
+        color: green;
+      }
+
+      #next-button {
+        float: right;
+      }
+    </style>
+    <div class="container">
+      <div class="row">
+        <template if="{{!showTOS}}">
+          <div class="col-md-11">
+            <div>
+              <input class="form-control" placeholder="Enter username here"
+                  on-keyup="validateUsername" value="{{username}}">
+            </div>
+            <div id="error-message" class="error">{{errorMessage}}</div>
+          </div>
+          <div class="col-md-1">
+            <button id="next-button" type="button" class="btn btn-primary"
+                on-click="showTOSPanel">Next</button>
+          </div>
+        </template>
+        <template if="{{showTOS}}">
+          <div class="col-md-12">
+            <template if="{{!person.hasCheckedTOS}}">
+              <div>
+                <input type="checkbox" checked="{{person.hasCheckedTOS}}">
+                      I agree to the Terms of Service
+              </div>
+            </template>
+  
+            <template if="{{person.hasCheckedTOS}}">
+              <div class="success">Congratulations! You've successfully created
+                  an account with us.
+              </div>
+            </template>
+          </div>
+        </template>
+      </div>
+    </div>
+  </template>
+  <script type="application/dart" src="person_element.dart"></script>
+</polymer-element>

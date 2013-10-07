@@ -1,0 +1,5 @@
+name: person
+description: A sample Polymer application
+dependencies:
+    polymer: any
+    unittest: any
