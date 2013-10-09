@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+library registration.test.registration_element_test;
 
 import 'dart:html';
 
@@ -10,7 +11,7 @@ import 'package:unittest/mock.dart';
 import 'package:unittest/unittest.dart';
 
 import 'package:registration/model.dart';
-import 'package:registration/registration_element.dart';
+import 'package:registration/src/registration_element.dart';
 
 class MockUser extends Mock implements User {}
 
