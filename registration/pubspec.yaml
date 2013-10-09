@@ -1,0 +1,5 @@
+name: registration
+description: A sample to demonstrate testing of a Polymer app.
+dependencies:
+    polymer: any
+    unittest: any

@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<polymer-element name="person-element">
+<polymer-element name="registration-element">
   <template>
     <style>
       .row {
@@ -29,7 +29,7 @@
             <div>
               <input id="username-input" class="form-control"
                   placeholder="Enter username here"
-                  on-keyup="validateUsername" value="{{person.username}}">
+                  on-keyup="validateUsername" value="{{user.username}}">
             </div>
             <div id="error-message-div" class="error">{{errorMessage}}</div>
           </div>
@@ -40,15 +40,15 @@
         </template>
         <template if="{{showTOS}}">
           <div class="col-md-12">
-            <template if="{{!person.hasCheckedTOS}}">
+            <template if="{{!user.hasCheckedTOS}}">
               <div>
                 <input id="has-checked-tos-input" type="checkbox"
-                    checked="{{person.hasCheckedTOS}}">
+                    checked="{{user.hasCheckedTOS}}">
                     I agree to the Terms of Service
               </div>
             </template>
-  
-            <template if="{{person.hasCheckedTOS}}">
+
+            <template if="{{user.hasCheckedTOS}}">
               <div id="success-message-div" class="success">Congratulations!
                   You've successfully created an account with us.
               </div>
@@ -58,5 +58,5 @@
       </div>
     </div>
   </template>
-  <script type="application/dart" src="person_element.dart"></script>
+  <script type="application/dart" src="registration_element.dart"></script>
 </polymer-element>

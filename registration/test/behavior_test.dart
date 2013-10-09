@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library person.test.behavior_test;
 
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:unittest/unittest.dart';
 import 'package:unittest/html_config.dart';
-import 'package:person/person_element.dart';
-import 'package:person/model.dart';
+import 'package:registration/model.dart';
+import 'package:registration/registration_element.dart';
 
 ShadowRoot shadowRoot;
 
 const VALID_USERNAME = 'xyz';
 const INVALID_USERNAME = '';
-const PERSON_ELEMENT = 'person-element';
+const REGISTRATION_ELEMENT = 'registration-element';
 const USERNAME_INPUT = '#username-input';
 const NEXT_BUTTON = '#next-button';
 const HAS_CHECKED_TOS_INPUT = '#has-checked-tos-input';
@@ -46,10 +45,10 @@ expectNoErrorMessage() {
 }
 
 expectErrorMessage() {
-  var minLen = Person.MIN_USERNAME_LENGTH;
-  var maxLen = Person.MAX_USERNAME_LENGTH;
+  var minLen = User.MIN_USERNAME_LENGTH;
+  var maxLen = User.MAX_USERNAME_LENGTH;
   expect(shadowRoot.query(ERROR_MESSAGE_DIV).text,
-      PersonElement.usernameErrorMessage);
+      RegistrationElement.usernameErrorMessage);
 }
 
 expectRendered(String elementID) {
@@ -64,13 +63,13 @@ main() {
   useHtmlConfiguration();
 
   setUp(() {
-    document.body.children.add(createElement(PERSON_ELEMENT));
+    document.body.children.add(createElement(REGISTRATION_ELEMENT));
     performMicrotaskCheckpoint();
-    shadowRoot = query(PERSON_ELEMENT).shadowRoot;
+    shadowRoot = query(REGISTRATION_ELEMENT).shadowRoot;
   });
 
   tearDown(() {
-    var el = document.body.query(PERSON_ELEMENT);
+    var el = document.body.query(REGISTRATION_ELEMENT);
     if (el != null) {
       document.body.children.remove(el);
     }

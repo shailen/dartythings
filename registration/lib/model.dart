@@ -2,11 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library person.model;
-
 import 'package:polymer/polymer.dart';
 
-class Person extends ObservableBase {
+class User extends ObservableBase {
   static const int MIN_USERNAME_LENGTH = 3;
   static const int MAX_USERNAME_LENGTH = 8;
 
