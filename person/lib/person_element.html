@@ -27,10 +27,11 @@
         <template if="{{!showTOS}}">
           <div class="col-md-11">
             <div>
-              <input class="form-control" placeholder="Enter username here"
-                  on-keyup="validateUsername" value="{{username}}">
+              <input id="username-input" class="form-control"
+                  placeholder="Enter username here"
+                  on-keyup="validateUsername" value="{{person.username}}">
             </div>
-            <div id="error-message" class="error">{{errorMessage}}</div>
+            <div id="error-message-div" class="error">{{errorMessage}}</div>
           </div>
           <div class="col-md-1">
             <button id="next-button" type="button" class="btn btn-primary"
@@ -41,14 +42,15 @@
           <div class="col-md-12">
             <template if="{{!person.hasCheckedTOS}}">
               <div>
-                <input type="checkbox" checked="{{person.hasCheckedTOS}}">
-                      I agree to the Terms of Service
+                <input id="has-checked-tos-input" type="checkbox"
+                    checked="{{person.hasCheckedTOS}}">
+                    I agree to the Terms of Service
               </div>
             </template>
   
             <template if="{{person.hasCheckedTOS}}">
-              <div class="success">Congratulations! You've successfully created
-                  an account with us.
+              <div id="success-message-div" class="success">Congratulations!
+                  You've successfully created an account with us.
               </div>
             </template>
           </div>

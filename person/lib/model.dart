@@ -6,7 +6,7 @@ class Person extends ObservableBase {
   static const int MIN_USERNAME_LENGTH = 3;
   static const int MAX_USERNAME_LENGTH = 8;
 
-  @observable String username = 'q';
+  @observable String username = '';
   @observable bool hasCheckedTOS = false;
 
   bool get usernameIsValid {

@@ -3,39 +3,113 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:html';
+import 'package:polymer/polymer.dart';
 import 'package:unittest/unittest.dart';
 import 'package:unittest/html_config.dart';
-import 'package:polymer/polymer.dart';
 import 'package:person/person_element.dart';
-import 'dart:async';
 
+ShadowRoot shadowRoot;
+
+const VALID_USERNAME = 'xyz';
+const INVALID_USERNAME = '';
+const PERSON_ELEMENT = 'person-element';
+const USERNAME_INPUT = '#username-input';
+const NEXT_BUTTON = '#next-button';
+const HAS_CHECKED_TOS_INPUT = '#has-checked-tos-input';
+const ERROR_MESSAGE_DIV = '#error-message-div';
+const SUCCESS_MESSAGE_DIV =  '#success-message-div';
+
+void fillUsername(String value) {
+  (shadowRoot.query(USERNAME_INPUT) as InputElement)
+      ..value = value
+      ..dispatchEvent(new KeyboardEvent('input'))
+      ..dispatchEvent(new KeyboardEvent('keyup'));
+  performMicrotaskCheckpoint();
+}
+
+pressNextButton() {
+  shadowRoot.query(NEXT_BUTTON).click();
+  performMicrotaskCheckpoint();
+}
+
+checkTOSCheckbox() {
+  shadowRoot.query(HAS_CHECKED_TOS_INPUT).dispatchEvent(
+      new MouseEvent('click', detail: 1));
+  performMicrotaskCheckpoint();
+}
+
+expectNoErrorMessage() {
+  expect(shadowRoot.query(ERROR_MESSAGE_DIV).text, isEmpty);
+}
+
+expectErrorMessage() {
+  expect(shadowRoot.query(ERROR_MESSAGE_DIV).text,
+      PersonElement.error_message);
+}
+
+expectRendered(String elementID) {
+  expect(shadowRoot.query(elementID), isNotNull);
+}
+
+expectNotRendered(String elementID) {
+  expect(shadowRoot.query(elementID), isNull);
+}
 
 main() {
   useHtmlConfiguration();
-  // performMicrotaskCheckpoint();
 
-//    <input class="form-control" placeholder="Enter username here"
-//        on-keyup="validateUsername" value="{{person.username}}">
-
-  test('initial state', () {
-    final el = query('person-element');
-    final root = el.shadowRoot;
-    var input = root.query('input');
-    expect(input.value, isEmpty);
-    var errorMessageDiv = root.query('#error-message');
-    expect(errorMessageDiv.text, isEmpty);
+  setUp(() {
+    document.body.children.add(createElement(PERSON_ELEMENT));
+    performMicrotaskCheckpoint();
+    shadowRoot = query(PERSON_ELEMENT).shadowRoot;
   });
 
-  solo_test('error warning', () {
-    final el = query('person-element');
-    final root = el.shadowRoot;
-    var input = root.query('input');
-    var errorMessageDiv = root.query('#error-message');
-    input.dispatchEvent(new KeyboardEvent('keyup'));
-    expect(errorMessageDiv.text, PersonElement.error_message);
-    input.value = 'asdf';
-    input.dispatchEvent(new KeyboardEvent('keyup'));
-    print(errorMessageDiv.text);
+  tearDown(() {
+    var el = document.body.query(PERSON_ELEMENT);
+    if (el != null) {
+      document.body.children.remove(el);
+    }
+  });
 
+  test('initial state', () {
+    expectNoErrorMessage();
+    expect(shadowRoot.query(HAS_CHECKED_TOS_INPUT), isNull);
+    expect(shadowRoot.query(SUCCESS_MESSAGE_DIV), isNull);
+  });
+
+  test('validation error in input field', () {
+    fillUsername(INVALID_USERNAME);
+    expectErrorMessage();
+  });
+
+  test('correct value in input field', () {
+    fillUsername(VALID_USERNAME);
+    expectNoErrorMessage();
+  });
+
+  test('pressing next button with invalid username', () {
+    fillUsername(INVALID_USERNAME);
+    pressNextButton();
+    expectErrorMessage();
+  });
+
+  test('pressing next button with valid username', () {
+    fillUsername(VALID_USERNAME);
+    expectRendered(ERROR_MESSAGE_DIV);
+    expectNotRendered(HAS_CHECKED_TOS_INPUT);
+
+    pressNextButton();
+    expectNotRendered(ERROR_MESSAGE_DIV);
+    expectRendered(HAS_CHECKED_TOS_INPUT);
+  });
+
+  test('checking TOS', () {
+    fillUsername(VALID_USERNAME);
+
+    pressNextButton();
+    expectNotRendered(SUCCESS_MESSAGE_DIV);
+
+    checkTOSCheckbox();
+    expectRendered(SUCCESS_MESSAGE_DIV);
   });
 }

@@ -1,5 +1,6 @@
 import 'package:unittest/unittest.dart';
 import 'package:unittest/mock.dart';
+import 'package:unittest/html_config.dart';
 import 'package:person/model.dart';
 import 'package:person/person_element.dart';
 import 'dart:html';
@@ -7,43 +8,29 @@ import 'dart:html';
 class MockPerson extends Mock implements Person {}
 
 void main() {
-  MockPerson mp;
-  PersonElement pe;
+  useHtmlConfiguration();
+
+  MockPerson mockPerson;
+  PersonElement personElement;
 
   setUp(() {
-    mp = new MockPerson();
-    pe = new PersonElement();
+    mockPerson = new MockPerson();
+    personElement = new PersonElement();
   });
 
   group('validateUsername', () {
     test('when usernameIsValid is false', () {
-      mp.when(callsTo('get usernameIsValid')).thenReturn(false);
-      pe.person = mp;
-      pe.validateUsername(new Event('anything'));
-      expect(pe.errorMessage, PersonElement.error_message);
+      mockPerson.when(callsTo('get usernameIsValid')).thenReturn(false);
+      personElement.person = mockPerson;
+      personElement.validateUsername(new Event('anything'));
+      expect(personElement.errorMessage, PersonElement.error_message);
     });
 
     test('when usernameIsValid is true', () {
-      mp.when(callsTo('get usernameIsValid')).thenReturn(true);
-      pe.person = mp;
-      pe.validateUsername(new Event('anything'));
-      expect(pe.errorMessage, isEmpty);
-    });
-  });
-
-  group('showTOS', () {
-    test('when usernameIsValid is false', () {
-      mp.when(callsTo('get usernameIsValid')).thenReturn(false);
-      pe.person = mp;
-      pe.showTOSPanel();
-      expect(pe.showTOS, isFalse);
-    });
-
-    test('when usernameIsValid is true', () {
-      mp.when(callsTo('get usernameIsValid')).thenReturn(true);
-      pe.person = mp;
-      pe.showTOSPanel();;
-      expect(pe.showTOS, isTrue);
+      mockPerson.when(callsTo('get usernameIsValid')).thenReturn(true);
+      personElement.person = mockPerson;
+      personElement.validateUsername(new Event('anything'));
+      expect(personElement.errorMessage, isEmpty);
     });
   });
 }

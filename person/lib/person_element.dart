@@ -8,34 +8,29 @@ import 'package:person/model.dart';
 class PersonElement extends PolymerElement with ObservableMixin {
   static String error_message = "Use ${Person.MIN_USERNAME_LENGTH} - "
       "${Person.MAX_USERNAME_LENGTH} lowercase letters only";
+
   bool get applyAuthorStyles => true;
 
-  @observable String username = "";
   @observable Person person = new Person();
   @observable String errorMessage = '';
   @observable bool showTOS = false;
   @observable bool hasCheckedTOS = false;
 
-  void validateUsername(Event e) {
-    print('>>>>>>>>>>> running validation >>>>>>>>>>>>');
-    print('username = ${username}');
-    print(e.target.value);
+  bool validateUsername(Event e) {
     e.preventDefault();
-    if (username.length > 2 && username.length < 8) {
+    if (person.usernameIsValid) {
       errorMessage = '';
+      return true;
     } else {
       errorMessage = error_message;
+      return false;
     }
   }
 
-  void showTOSPanel() {
-    if (username.length > 2 && username.length < 8) {
+  void showTOSPanel(Event e) {
+    if (validateUsername(e)) {
       showTOS = true;
     }
-  }
-
-  foo() {
-    window.alert('foo');
   }
 }
 
