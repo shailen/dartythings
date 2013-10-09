@@ -7,7 +7,7 @@ library person.test.model_test;
 import 'package:unittest/unittest.dart';
 import 'package:unittest/html_config.dart';
 
-import "package:person/model.dart";
+import 'package:person/model.dart';
 
 String _stringOfLength(int len) {
   return new List.filled(len, 'x').join('');

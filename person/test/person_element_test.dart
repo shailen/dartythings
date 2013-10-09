@@ -31,7 +31,7 @@ void main() {
       mockPerson.when(callsTo('get usernameIsValid')).thenReturn(false);
       personElement.person = mockPerson;
       personElement.validateUsername(new Event('anything'));
-      expect(personElement.errorMessage, PersonElement.error_message);
+      expect(personElement.errorMessage, PersonElement.usernameErrorMessage);
     });
 
     test('when usernameIsValid is true', () {

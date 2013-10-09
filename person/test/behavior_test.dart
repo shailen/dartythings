@@ -9,6 +9,7 @@ import 'package:polymer/polymer.dart';
 import 'package:unittest/unittest.dart';
 import 'package:unittest/html_config.dart';
 import 'package:person/person_element.dart';
+import 'package:person/model.dart';
 
 ShadowRoot shadowRoot;
 
@@ -45,8 +46,10 @@ expectNoErrorMessage() {
 }
 
 expectErrorMessage() {
+  var minLen = Person.MIN_USERNAME_LENGTH;
+  var maxLen = Person.MAX_USERNAME_LENGTH;
   expect(shadowRoot.query(ERROR_MESSAGE_DIV).text,
-      PersonElement.error_message);
+      PersonElement.usernameErrorMessage);
 }
 
 expectRendered(String elementID) {

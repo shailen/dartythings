@@ -10,8 +10,8 @@ import 'package:person/model.dart';
 
 @CustomTag('person-element')
 class PersonElement extends PolymerElement with ObservableMixin {
-  static String error_message = "Use ${Person.MIN_USERNAME_LENGTH} - "
-      "${Person.MAX_USERNAME_LENGTH} lowercase letters only";
+  static String usernameErrorMessage = 'Use ${Person.MIN_USERNAME_LENGTH} - '
+      '${Person.MAX_USERNAME_LENGTH} lowercase letters only';
 
   bool get applyAuthorStyles => true;
 
@@ -26,7 +26,7 @@ class PersonElement extends PolymerElement with ObservableMixin {
       errorMessage = '';
       return true;
     } else {
-      errorMessage = error_message;
+      errorMessage = usernameErrorMessage;
       return false;
     }
   }
