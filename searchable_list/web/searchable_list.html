@@ -3,7 +3,8 @@
 <polymer-element name="searchable-list" attributes="data">
   <template>
     <div class="container">
-      <input class="form-control" type="text" value="{{searchParam}}" on-keyup="search">
+      <input class="form-control" type="text" value="{{searchParam}}" 
+          on-keyup="search">
       <template if="{{results.length > 0}}">
         <ul class="list-unstyled">
           <template repeat="{{result in results}}">

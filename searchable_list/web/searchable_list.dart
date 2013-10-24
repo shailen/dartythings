@@ -4,8 +4,8 @@ import 'package:polymer/polymer.dart';
 class SearchableList extends PolymerElement {
   @observable bool applyAuthorStyles = true;
   @observable String searchParam;
-  final List<String> results = toObservable([]);
   List<String> data = [];
+  final List<String> results = toObservable([]);
 
   SearchableList.created() : super.created() {
     polymerCreated();
@@ -14,7 +14,7 @@ class SearchableList extends PolymerElement {
   enteredView() {
     super.enteredView();
     results.addAll(data);
-    onPropertyChange(this, #searchParam, search);
+    //onPropertyChange(this, #searchParam, search);
   }
 
   search() {
