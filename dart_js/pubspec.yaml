@@ -1,0 +1,4 @@
+name: calling_top_level_function
+description: A sample web application
+dependencies:
+  browser: any
