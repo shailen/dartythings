@@ -16,7 +16,7 @@ void main() {
   statusDiv.text = result;
 
   // Firing a callback.
-  // patBack takes one arg: a function that takes an arg
+  // The end() method takes one arg: a function that takes an arg
   new Timer(new Duration(seconds: 2), () {
     trip.callMethod('end', [(msg) {
       statusDiv.text = 'All rested. $msg';
