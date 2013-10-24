@@ -1,0 +1,4 @@
+name: demo
+description: A sample Polymer application
+dependencies:
+    polymer: 0.8.5
