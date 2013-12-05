@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>index</title>
+    <!-- Note use of boot.js -->
+    <script src="packages/polymer/boot.js"></script>
+  </head>
+
+  <body>
+    <!-- Notice the keyword 'bind'? It creates a binding between a template
+    and a model -->
+    <template id="greeting" bind>
+      <!-- The value of the template's model gets inserted into {{}} -->
+      <p>Hello {{}}</p>
+    </template>
+
+    <script type="application/dart" src="index.dart"></script>
+  </body>
+</html>

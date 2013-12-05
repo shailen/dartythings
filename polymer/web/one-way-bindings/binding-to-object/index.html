@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>index</title>
+    <script src="packages/polymer/boot.js"></script>
+  </head>
+
+  <body>
+    <template id="greeting" bind>
+      <!-- The value of the template's model gets inserted into {{}}
+           To populate the template with person.name, bind to person instance
+           (see index.dart) and insert the name property inside the {{}}.
+      -->
+      <p>Hello, {{name}}!</p>
+    </template>
+
+    <script type="application/dart" src="index.dart"></script>
+  </body>
+</html>

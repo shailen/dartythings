@@ -1,0 +1,8 @@
+packages
+*.buildlog
+out
+.settings
+.DS_Store
+.idea
+main.dart.js*
+pubspec.lock

@@ -1,0 +1,5 @@
+name: polymer_examples
+description: Small sample apps demonstrating how to use Polymer
+dependencies:
+  polymer: any
+  fancy_syntax: any
